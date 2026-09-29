@@ -1,8 +1,8 @@
-# ITMO Program Engineering
+# ITMO Artificial Intelligent
 
 ## 项目介绍 About this Project
-This project primarily collects textual materials from disciplines of the Software Engineering program at ITMO University. For the source code of the lab works, please visit the [ITMO-Labs](https://github.com/Tolia-GH/ITMO-Labs) repository.  
-本项目主要收集了ITMO大学软件工程专业各学科的文本材料，有关实验程序的源代码请访问 [ITMO-Labs](https://github.com/Tolia-GH/ITMO-Labs) 仓库
+This project primarily collects textual materials from disciplines of the Artificial Intelligent program at ITMO University. For the source code of the lab works, please visit the [ITMO-Labs](https://github.com/Tolia-GH/ITMO-Labs) repository.  
+本项目主要收集了ITMO大学人工智能专业各学科的文本材料，有关实验程序的源代码请访问 [ITMO-Labs](https://github.com/Tolia-GH/ITMO-Labs) 仓库
 
 ## 关于我们 About US
 We are international students sponsored by the China Scholarship Council (CSC) to study at ITMO University in Russia. We are committed to knowledge sharing, collaborative learning, and common progress. We hope to hone ourselves and benefit future generations by maintaining this project.  
