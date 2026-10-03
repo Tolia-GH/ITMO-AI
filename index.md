@@ -1,6 +1,6 @@
 ## 项目介绍 About this Wiki
-Study materials for software engineering at ITMO University in St. Petersburg  
-圣彼得堡 ITMO 大学软件工程专业的学习资料整理
+Study materials for Artificial Intelligent Master Program at ITMO University in St. Petersburg  
+圣彼得堡 ITMO 大学人工智能硕士项目的学习资料整理
 
 ## 关于我们 About US
 We are international students sponsored by the China Scholarship Council (CSC) to study at ITMO University in Russia. We are committed to knowledge sharing, collaborative learning, and common progress. We hope to hone ourselves and benefit future generations by maintaining this project.  
@@ -13,50 +13,12 @@ We are international students sponsored by the China Scholarship Council (CSC) t
 
 - [俄语 Russian Language](/RussianLanguage/README.md)
 
-### 大一 Grade 1
-- [OPD](/OPD/README.md)
-- [编程 Programming](/Program/README.md)
-- [离散数学 Discrete Mathematics](/DiscreteMathematics/README.md)
-- [哲学 Philosophy](/Philosophy/README.md)
-- [数学 Mathematics](/Mathematic/README.md)
-
-### 大二 Grade 2
-
-- [公开演讲 Public Speaking](/PublicSpeaking/README.md)
-- [物理 Physics](/Physics/README.md)
-- [编程语言 Program Language](/ProgramLanguage/README.md)
-- [网络编程 Web Programming](/ProgramWeb/README.md)
-- [算法与数据结构 Algorithms&Data Structure](/Algorithm&DataStructures/README.md)
-- [计算数学 Computational Mathematics](/ComputationalMathematics/README.md)
-- [信息安全方法论 Theory of Information Security](/InformationSecurity/README.md)
-- [概率论 Theory of Probability](/ProbabilityTheory/README.md)
-
-### 大三 Grade 3
-
-- [讲故事 Story Telling](/StoryTelling/README.md)
-- [职业生涯管理 Carreer Management](/CarreerManagement/README.md)
-- [数据库 DataBase](/DataBase/README.md)
-- [AI 系统 AI System](/AI/README.md)
-- [操作系统 OS](/OS/README.md)
-- [软件系统架构 Program System Architech](/ProgramSystemArchitech/README.md)
-- [计算机架构 Computer Architech](/ComputerArchitech/README.md)
-- [系统软件 System Software](/SystemSoftware/README.md)
-- [计算机视觉 Computer Vision](/ComputerVision/README.md)
-- [分布式存储 Distributed Database](/DistributedDataBase/README.md)
-- [计算机网络 Computer Network](/ComputerNetWork/README.md)
-- [业务逻辑 Business Logic](/BusinessLogic/README.md)
-- [软件测试 Program Test](/ProgramTest/README.md)
-
-
-### Grade 4
-
-- [软件工程经济 Economics Software Engineering](/EconomicsSoftwareEngineering/README.md)
-- [建模 Modeling](/Modeling/README.md)
-- [面向服务架构 SOA](/SOA/README.md)
-- [信息安全 Info Security](/InformationSecurity4/README.md)
-- [管理系统和网络 Administration Systems and Networks](/AdministrationSystemsAndNetworks/README.md)
-
-### VKR
+### 研一 Grade 1
+- [实践项目 Practice Project](/1PracticeProject/README.md)
+- [机器学习 Machine Learning](/1MachineLearning/README.md)
+- [自然语言处理 Natural Language Procesing](/1NaturalLanguageProcessing/README.md)
+- [在远程团队中工作 Work In Remote Team](/1WorkInRemoteTeam/README.md)
+- [A2 俄语 Russian Language A2](/1RussianLanguageA2/README.md)
 
 ## 版权声明 Copyrights
 
