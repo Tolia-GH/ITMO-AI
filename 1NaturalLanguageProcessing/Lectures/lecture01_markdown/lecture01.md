@@ -470,8 +470,8 @@ He comes from U.S. with his friends.
 |   |   |
 |---|---|
 | 我喜欢新西兰花 | Unsegmented Chinese sentence |
-| 我喜欢 新西兰花 | I like New Zealand flowers |
-| 我喜欢 新西兰花 | I like fresh broccoli |
+| 我 喜欢 新西兰 花 | I like New Zealand flowers |
+| 我 喜欢 新 西兰花 | I like fresh broccoli |
 
 > http://what-when-how.com/how-to-build-a-digital-library/word-segmentation-and-sorting-digital-library/
 
