@@ -460,6 +460,7 @@ He comes from U.S. with his friends.
 ### Chinese word segmentation
 
 (a)
+
 |   |   |
 |---|---|
 | 下雨天留客天留我不留 | Unpunctuated Chinese sentence |
@@ -467,6 +468,7 @@ He comes from U.S. with his friends.
 | 下雨天、留客天。留我不?留! | The rainy day, the staying day. Would you like me to stay? Sure! |
 
 (b)
+
 |   |   |
 |---|---|
 | 我喜欢新西兰花 | Unsegmented Chinese sentence |
