@@ -498,7 +498,7 @@ Tags:
 
 **Input**
 
-Another ex-Golden Stater, Paul Stankowski from Oxnard, is contending for a berth on the U.S. Ryder Cup team after winning his first PGA Tour event last year and staying within three strokes of the lead through three rounds of last month’s U.S. Open. H.J. Heinz Company said it completed the sale of its Ore-Ida frozen-food business catering to the service industry to McCain Foods Ltd. for about \$500 million. It’s the first group action of its kind in Britain and one of only a handful of lawsuits against tobacco companies outside the U.S.
+Another <font color=blue>ex-Golden</font> <font color=red>Stater,</font> Paul Stankowski from <font color=red>Oxnard,</font> is contending for a berth on the <font color=blue>U.S.</font> Ryder Cup team after winning his first PGA Tour event last year and staying within three strokes of the lead through three rounds of last <font color=red>month’s</font> <font color=blue>U.S.</font> <font color=red>Open.</font> <font color=blue>H.J.</font> Heinz Company said it completed the sale of its Ore-Ida frozen-food business catering to the service industry to McCain Foods Ltd. for about <font color=red>\$500</font> million. <font color=red>It’s</font> the first group action of its kind in Britain and one of only a handful of lawsuits against tobacco companies outside the <font color=red>U.S.</font>
 
 **Note:** Text in red: change, text in blue: Keep
 
@@ -506,9 +506,9 @@ Another ex-Golden Stater, Paul Stankowski from Oxnard, is contending for a berth
 
 **Output**
 
-Another ex-Golden Stater , Paul Stankowski from Oxnard , is contending for a berth on the U.S. Ryder Cup team after winning his first PGA Tour event last year and staying within three strokes of the lead through three rounds of last month ’s U.S. Open . H.J. Heinz Company said it completed the sale of its Ore-Ida frozen-food business catering to the service industry to McCain Foods Ltd. for about \$ 500 million . It ’s the first group action of its kind in Britain and one of only a handful of lawsuits against tobacco companies outside the U.S. .
+Another <font color=blue>ex-Golden</font> <font color=red>Stater ,</font> Paul Stankowski from <font color=red>Oxnard ,</font> is contending for a berth on the <font color=blue>U.S.</font> Ryder Cup team after winning his first PGA Tour event last year and staying within three strokes of the lead through three rounds of last <font color=red>month ’s</font> <font color=blue>U.S.</font> <font color=red>Open .</font> <font color=blue>H.J.</font> Heinz Company said it completed the sale of its Ore-Ida frozen-food business catering to the service industry to McCain Foods Ltd. for about <font color=red>\$ 500</font> million . <font color=red>It ’s</font> the first group action of its kind in Britain and one of only a handful of lawsuits against tobacco companies outside the <font color=red>U.S. .</font>
 
-**Note:** Text in red: change, text in blue: Keep
+**Note:** <font color=red>Text in red</font>: change, <font color=blue>text in blue</font>: Keep
 
 ---
 
@@ -522,13 +522,13 @@ Another ex-Golden Stater , Paul Stankowski from Oxnard , is contending for a ber
 
   - **Affix**: prefix, suffix, infix, circumfix
 
-    - **Prefix**: e.g., possible → impossible
+    - **Prefix**: e.g., possible → <font color=blue>im</font>possible
 
-    - **Suffix**: e.g., walk → walking
+    - **Suffix**: e.g., walk → walk<font color=blue>ing</font>
 
-    - **Infix**: e.g., hingi → humingi (Tagalog)
+    - **Infix**: e.g., hingi → h<font color=blue>um</font>ingi (Tagalog)
 
-    - **Circumfix**: e.g., sagen → gesagt (German)
+    - **Circumfix**: e.g., sagen → <font color=blue>ge</font>sag<font color=blue>t</font> (German)
 
 ---
 
@@ -776,12 +776,12 @@ A plot of the rank versus frequency for the first 10 million words in 30 Wikiped
 ---
 
 - Examples of collocations
-  - noun phrases like *strong tea* and *weapons of mass destruction*  
-  - phrasal verbs like to *make up*, and other phrases like the *rich and powerful.*
+  - noun phrases like *<font color=blue>strong tea</font>* and *<font color=blue>weapons of mass destruction</font>*  
+  - phrasal verbs like to *<font color=blue>make up</font>*, and other phrases like the *<font color=blue>rich and powerful.</font>*
 
 - Valid or invalid?
-- *a stiff breeze* but not a *stiff wind* (while either a *strong breeze* or a *strong wind* is okay).  
-- *broad daylight* (but not bright daylight or narrow darkness).
+- *<font color=blue>a stiff breeze</font>* but not a *stiff wind* (while either a *strong breeze* or a *strong wind* is okay).  
+- *<font color=blue>broad daylight</font>* (but not bright daylight or narrow darkness).
 
 ---
 
@@ -819,15 +819,15 @@ A plot of the rank versus frequency for the first 10 million words in 30 Wikiped
 - We cannot substitute near-synonyms for the components of a collocation.
 
 - For example
-  - We can’t say *yellow wine* instead of **white wine** even though *yellow* is as good a description of the color of *white* wine as white is (it is kind of a yellowish white).
+  - We can’t say *yellow wine* instead of *<font color=blue>white wine</font>* even though *yellow* is as good a description of the color of *white* wine as white is (it is kind of a yellowish white).
 
 ---
 
 ### Non-Modifiability
 
 - Many collocations cannot be freely modified with additional lexical material or through grammatical transformations (Non-modifiability).
-  - E.g. *white wine*, but not *whiter wine*
-  - E.g. *mother in law*, but not *mother in laws*
+  - E.g. *<font color=blue>white wine</font>*, but not *whiter wine*
+  - E.g. *<font color=blue>mother in law</font>*, but not *mother in laws*
 
 ---
 
