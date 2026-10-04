@@ -600,6 +600,17 @@ Another <font color=blue>ex-Golden</font> <font color=red>Stater ,</font> Paul S
 
 ![](images/page_56_image_3.jpg)
 
+Rules:
+
+| current status | input | outut | next status |
+| ---- | -: | -: | ---- |
+| A    |  0 |  0 | A    |
+| A    |  1 |  1 | B    |
+| B    |  0 |  1 | D    |
+| B    |  1 |  0 | A    |
+| D    |  0 |  0 | B    |
+| D    |  1 |  1 | D    |
+
 | input | output |
 | --- | --- |
 | 0 | 0 |
@@ -609,6 +620,8 @@ Another <font color=blue>ex-Golden</font> <font color=red>Stater ,</font> Paul S
 | 1100 | 0100 |
 | 1111 | 0101 |
 | 10010 | 00110 |
+
+> Notes: Read from right to left ←
 
 ---
 
