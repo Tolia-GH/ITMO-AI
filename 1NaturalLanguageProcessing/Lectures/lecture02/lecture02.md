@@ -578,7 +578,7 @@ $$
 P (o \mid c) = \frac {\exp \left(u _ {o} ^ {T} v _ {c}\right)}{\sum_ {w \in V} \exp \left(u _ {w} ^ {T} v _ {c}\right)}
 $$
 
-1. Dot product compares similarity of $o$ and c: $\begin{array} { r } { \left( \boldsymbol { U } \cdot \boldsymbol { V } = \sum _ { i = 1 } ^ { d } u _ { i } v _ { i } , \right. } \end{array}$ larger dot product = larger probability
+1. Dot product compares similarity of $o$ and c: $u\cdot v=\sum_{i=1}^d u_iv_i$ larger dot product = larger probability
 
 2. Exponentiation makes anything positive
 
