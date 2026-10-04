@@ -376,17 +376,17 @@ outside context words in window of size 2
 
 - Update equation (in matrix notation):
 
-  $$
-  \theta^{\text{new}} = \theta^{\text {old}} - \alpha \nabla_{\theta} J (\theta)
-  $$
+$$
+\theta^{\text{new}} = \theta^{\text {old}} - \alpha \nabla_{\theta} J (\theta)
+$$
 
   where $\alpha =$ step size or learning rate
 
 - Update equation (for single parameter):
 
-  $$
-  \theta_{j}^{\text {new}} = \theta_{j}^{\text {old}} - \alpha \frac{\partial}{\partial \theta_{j}^{\text{old}}} J(\theta)
-  $$
+$$
+\theta_{j}^{\text {new}} = \theta_{j}^{\text {old}} - \alpha \frac{\partial}{\partial \theta_{j}^{\text{old}}} J(\theta)
+$$
 
 **Algorithm:**
 
@@ -436,7 +436,7 @@ $$
 #### Cost function for Logistic regression
 
 $$
-J (\theta) = \frac {1}{n} \sum_ {i = 1} ^ {n} \operatorname{Cost} \left(h _ {\theta} \left(x ^ {\{i \}}\right), y ^ {\{i \}}\right)
+J (\theta) = \frac {1}{n} \sum_ {i = 1} ^ {n} \text{Cost} \left(h _ {\theta} \left(x ^ {\{i \}}\right), y ^ {\{i \}}\right)
 $$
 
 where:
