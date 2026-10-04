@@ -377,7 +377,7 @@ outside context words in window of size 2
 - Update equation (in matrix notation):
 
   $$
-  \theta^ {\text {new}} = \theta^ {\text {old}} - \alpha \nabla_ {\theta} J (\theta)
+  \theta^{\text{new}} = \theta^{\text {old}} - \alpha \nabla_{\theta} J (\theta)
   $$
 
   where $\alpha =$ step size or learning rate
@@ -385,7 +385,7 @@ outside context words in window of size 2
 - Update equation (for single parameter):
 
   $$
-  \theta_ {j} ^ {\text {new}} = \theta_ {j} ^ {\text {old}} - \alpha \frac {\partial}{\partial \theta_ {j} ^ {\text {old}}} J (\theta)
+  \theta_{j}^{\text {new}} = \theta_{j}^{\text {old}} - \alpha \frac{\partial}{\partial \theta_{j}^{\text{old}}} J(\theta)
   $$
 
 **Algorithm:**
