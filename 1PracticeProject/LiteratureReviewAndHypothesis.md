@@ -55,6 +55,9 @@
   - [Preliminary Research Priority](#preliminary-research-priority)
   - [Hypothesis (Draft)](#hypothesis-draft)
     - [Neural ODE/CDE + Physical informed hybrid](#neural-odecde--physical-informed-hybrid)
+    - [Neural ODE/CDE + Calibrated Uncertainty](#neural-odecde--calibrated-uncertainty)
+    - [Importance of the diversity of battery data](#importance-of-the-diversity-of-battery-data)
+    - [Literture base:](#literture-base)
 
 
 ## Research Map
@@ -1283,211 +1286,51 @@ The following hypotheses are preliminary and should be treated as candidates for
 
 ### Neural ODE/CDE + Physical informed hybrid
 
-Research Question:
+**Research Question:**
+
 Can physics-informed constraints make neural operators more transferable across battery cells, operating conditions, and electrochemical systems?
 
-H1 — Generalization
+**H1 — Generalization**
 
 Physics-informed FNOs exhibit a smaller performance degradation under distribution shift than purely data-driven FNOs.
 
-H2 — Data efficiency
+**H2 — Data efficiency**
 
 Physics-informed FNOs require fewer independent cells to achieve a given level of cross-cell generalization.
 
-H3 — Transferability
+**H3 — Transferability**
 
 Physics-informed constraints based on chemistry-invariant electrochemical principles improve few-shot transfer to previously unseen battery chemistries.
 
-Literture base: 
+### Neural ODE/CDE + Calibrated Uncertainty 
+
+**H1— Calibration**
+
+Calibrated uncertainty provides reliable prediction intervals for FNO-based battery capacity estimation.
+
+**H2 — OOD calibration degradation**
+
+Uncertainty calibrated on in-distribution cells becomes increasingly overconfident under cell, operating-condition, and manufacturer distribution shifts.
+
+### Importance of the diversity of battery data
+
+**Research Question:**
+
+How does the diversity of independent battery cells and operating conditions affect the generalization of battery health prediction models?
+
+**H1 — Independent-cell scaling**
+
+At a fixed number of temporal samples, increasing the number of independent cells improves cross-cell generalization more effectively than increasing the number of temporal segments per cell.
+
+**H2 — Diversity scaling**
+
+The diversity of electrochemical systems and operating conditions is a stronger determinant of OOD generalization than the raw number of temporal observations.
+
+### Literture base: 
+
+- [Wang, Y., Guo, S., Cui, Y., Deng, L., Zhao, L., Li, J., & Wang, Z. (2025). A comprehensive review of machine learning-based state of health estimation for lithium-ion batteries: data, features, algorithms, and future challenges. Renewable and Sustainable Energy Reviews, 224, 116125.](https://www.sciencedirect.com/science/article/pii/S1364032125007981)
+- [Tu, K., Yuan, W., Wu, X., Zhang, X., & Liu, Q. (2026). Machine learning is rewiring Li-ion battery RUL prediction: A systematic review and outlook. Journal of Energy Chemistry.](https://www.sciencedirect.com/science/article/pii/S2095495626003426)
 - [Zakharov, A., Volovich, V., Makarov, I. (2026). Transferable Electric Vehicle Battery Capacity Estimation From Real-World Charging Data Using Spectral Learning. IEEE Open Journal of the Industrial Electronics Society (Q1).](https://ieeexplore.ieee.org/document/11495199)
 - [Wang, F., Zhai, Z., Zhao, Z., Di, Y., & Chen, X. (2024). Physics-informed neural network for lithium-ion battery degradation stable modeling and prognosis. Nature Communications, 15(1), 4332.](https://www.nature.com/articles/s41467-024-48779-z)
-
-<!-- ### H1 — Physics-informed generalization
-
-> **Physics-informed temporal and operator-learning models can generalize better to unseen cells and operating conditions than purely data-driven sequence models.**
-
-Possible comparison:
-
-```text
-LSTM / GRU
-     vs
-Transformer / PatchTST
-     vs
-Neural ODE / CDE
-     vs
-FNO / Physics-informed FNO
-```
-
-Evaluation:
-
-* In-domain performance
-* Cross-cell performance
-* Cross-condition performance
-* Long-horizon performance
-
----
-
-### H2 — Data-centric scaling law
-
-> **The number and diversity of independent cells contribute more to cross-cell generalization than the number of highly correlated temporal segments, even when the total number of training samples is identical.**
-
-Example:
-
-```text
-100 cells × 10 segments
-vs
-10 cells × 100 segments
-```
-
-with:
-
-$$
-N_{samples}=1000
-$$
-
-This hypothesis directly motivates a data-centric scaling-law study.
-
----
-
-### H3 — Robustness under imperfect observations
-
-> **Physics-informed models degrade more gracefully than purely data-driven models under sensor noise, missing observations, and irregular sampling.**
-
-Possible experiment:
-
-```text
-Clean data
-   ↓
-Noise injection
-   ↓
-Missing observations
-   ↓
-Irregular sampling
-   ↓
-Performance degradation
-```
-
-The research target is not only the best absolute performance, but the **rate of performance degradation** under increasingly difficult conditions.
-
----
-
-### H4 — Calibrated uncertainty
-
-> **Calibrated uncertainty estimates provide more reliable decision support under distribution shift than point prediction accuracy alone.**
-
-Compare:
-
-* Deep Ensemble
-* MC Dropout
-* Bayesian last layer
-* Conformal Prediction
-
-Evaluate:
-
-* RMSE / MAE
-* Coverage
-* CRPS
-* Prediction interval width
-* Calibration
-
----
-
-### H5 — Physics-informed cross-chemistry transfer
-
-> **Physics-informed representations can transfer more effectively across battery chemistries than purely data-driven representations when target-domain labeled data are limited.**
-
-Possible setting:
-
-```text
-Source chemistry
-       ↓
-   Pre-training
-       ↓
-Physics-informed model
-       ↓
-Few-shot target chemistry
-```
-
-Compare against:
-
-> Purely data-driven transfer learning.
-
----
-
-### H6 — Early-life RUL prediction
-
-> **Physics-informed continuous-time models can improve long-horizon RUL prediction from limited early-life degradation data compared with conventional sequence models.**
-
-Possible methods:
-
-* LSTM / GRU
-* Transformer
-* Neural ODE
-* Neural CDE
-* Physics-informed Neural ODE
-* Neural Operator
-
-Key evaluation:
-
-* Early prediction
-* Long-horizon trajectory error
-* RUL error
-* Uncertainty calibration
-
----
-
-### H7 — Unknown fault detection
-
-> **Self-supervised representations combined with OOD/open-set detection can detect previously unseen battery faults more reliably than closed-set supervised fault classifiers.**
-
-Possible setting:
-
-```text
-Training:
-Fault A + Fault B + Normal
-
-Testing:
-Fault A + Fault B + Unknown Fault C
-```
-
-The model should explicitly distinguish:
-
-> known fault vs unknown behavior.
-
----
-
-### H8 — Unified health representation
-
-> **A shared latent health representation can jointly improve SOH estimation, degradation forecasting, and anomaly detection compared with independently trained task-specific models.**
-
-Architecture:
-
-```text
-                  Sensor Data
-                      │
-                      ▼
-             Shared Health Encoder
-                      │
-                Latent State Z
-          ┌───────────┼───────────┐
-          ↓           ↓           ↓
-         SOH         RUL       Anomaly
-```
-
-This could potentially develop into a unified predictive-maintenance framework rather than another task-specific model.
-
----
-
-### H9 — Physics-informed early warning
-
-> **Combining degradation representations with anomaly detection can identify failure precursors earlier than conventional fault classifiers while maintaining an acceptable false-alarm rate.**
-
-The key metric would be:
-
-$$
-Warning\ Horizon
-$$
-
-rather than classification accuracy alone.
-
---- -->
+- [Brancato, L., Harej, A. G., Giglio, M., & Cadini, F. (2026). Physics-informed operator learning for real-time battery state estimation. Applied Energy, 402, 126987.](https://www.sciencedirect.com/science/article/pii/S0306261925017179)
+- [Hong, S., Kim, H., Kim, J., & Baek, J. (2026). Robust and data-efficient battery state of charge estimation via transfer learning-enhanced physics-informed neural networks. Journal of Energy Storage, 152, 120671.](https://www.sciencedirect.com/science/article/pii/S2352152X2600335X)
