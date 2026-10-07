@@ -54,8 +54,7 @@
   - [Cross-cutting Research Challenges](#cross-cutting-research-challenges)
   - [Preliminary Research Priority](#preliminary-research-priority)
   - [Hypothesis (Draft)](#hypothesis-draft)
-    - [H1 - Neural ODE/CDE + Physical inform hybrid](#h1---neural-odecde--physical-inform-hybrid)
-    - [H2 -](#h2--)
+    - [Neural ODE/CDE + Physical informed hybrid](#neural-odecde--physical-informed-hybrid)
 
 
 ## Research Map
@@ -1282,16 +1281,26 @@ The central research principle emerging from the literature is:
 
 The following hypotheses are preliminary and should be treated as candidates for further literature verification and experimental validation.
 
-### H1 - Neural ODE/CDE + Physical inform hybrid
+### Neural ODE/CDE + Physical informed hybrid
 
-Examples:
-> Improve model generalization ability in cross-domain scenarios by introducing physics-informed constraints into Neural ODEs/CDEs.
+Research Question:
+Can physics-informed constraints make neural operators more transferable across battery cells, operating conditions, and electrochemical systems?
+
+H1 — Generalization
+
+Physics-informed FNOs exhibit a smaller performance degradation under distribution shift than purely data-driven FNOs.
+
+H2 — Data efficiency
+
+Physics-informed FNOs require fewer independent cells to achieve a given level of cross-cell generalization.
+
+H3 — Transferability
+
+Physics-informed constraints based on chemistry-invariant electrochemical principles improve few-shot transfer to previously unseen battery chemistries.
 
 Literture base: 
 - [Zakharov, A., Volovich, V., Makarov, I. (2026). Transferable Electric Vehicle Battery Capacity Estimation From Real-World Charging Data Using Spectral Learning. IEEE Open Journal of the Industrial Electronics Society (Q1).](https://ieeexplore.ieee.org/document/11495199)
 - [Wang, F., Zhai, Z., Zhao, Z., Di, Y., & Chen, X. (2024). Physics-informed neural network for lithium-ion battery degradation stable modeling and prognosis. Nature Communications, 15(1), 4332.](https://www.nature.com/articles/s41467-024-48779-z)
-
-### H2 - 
 
 <!-- ### H1 — Physics-informed generalization
 
