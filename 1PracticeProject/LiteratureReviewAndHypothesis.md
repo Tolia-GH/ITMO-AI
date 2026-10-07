@@ -1,6 +1,66 @@
 # Predictive Maintenance for Industrial / Energy / Electrochemical Systems
 
+- [Predictive Maintenance for Industrial / Energy / Electrochemical Systems](#predictive-maintenance-for-industrial--energy--electrochemical-systems)
+  - [Research Map](#research-map)
+- [1. Health State Estimation](#1-health-state-estimation)
+  - [Methods](#methods)
+    - [1. Direct Measurement and Empirical Methods](#1-direct-measurement-and-empirical-methods)
+    - [2. Equivalent-Circuit and Electrochemical Models](#2-equivalent-circuit-and-electrochemical-models)
+    - [3. Classical Machine Learning](#3-classical-machine-learning)
+    - [4. Deep Learning](#4-deep-learning)
+    - [5. Transformer-based Models](#5-transformer-based-models)
+    - [6. Physics-informed and Hybrid Models](#6-physics-informed-and-hybrid-models)
+    - [7. Latent Health Representation Learning](#7-latent-health-representation-learning)
+  - [Gap / Problem](#gap--problem)
+    - [1. Laboratory-to-real-world gap](#1-laboratory-to-real-world-gap)
+    - [2. Weak cross-cell generalization](#2-weak-cross-cell-generalization)
+    - [3. Cross-chemistry generalization](#3-cross-chemistry-generalization)
+    - [4. Single-dimensional health definitions](#4-single-dimensional-health-definitions)
+    - [5. Accuracy does not imply reliability](#5-accuracy-does-not-imply-reliability)
+- [2. Degradation / RUL Forecasting](#2-degradation--rul-forecasting)
+  - [Methods](#methods-1)
+    - [1. Empirical and Physics-based Degradation Models](#1-empirical-and-physics-based-degradation-models)
+    - [2. Stochastic and Bayesian Models](#2-stochastic-and-bayesian-models)
+    - [3. Classical Machine Learning](#3-classical-machine-learning-1)
+    - [4. RNN / LSTM / GRU](#4-rnn--lstm--gru)
+    - [5. Transformer-based Forecasting](#5-transformer-based-forecasting)
+    - [6. Neural ODE / Neural CDE](#6-neural-ode--neural-cde)
+    - [7. Physics-informed Degradation Forecasting](#7-physics-informed-degradation-forecasting)
+    - [8. Probabilistic RUL Prediction](#8-probabilistic-rul-prediction)
+  - [Gap / Problem](#gap--problem-1)
+    - [1. Early-life prediction remains difficult](#1-early-life-prediction-remains-difficult)
+    - [2. Long-horizon forecasting](#2-long-horizon-forecasting)
+    - [3. Limited independent data](#3-limited-independent-data)
+    - [4. RUL uncertainty](#4-rul-uncertainty)
+    - [5. Cross-cell and cross-chemistry generalization](#5-cross-cell-and-cross-chemistry-generalization)
+    - [6. Benchmarking inconsistency](#6-benchmarking-inconsistency)
+- [3. Fault / Anomaly Detection](#3-fault--anomaly-detection)
+  - [Methods](#methods-2)
+    - [1. Threshold and Statistical Methods](#1-threshold-and-statistical-methods)
+    - [2. Model-based Fault Detection](#2-model-based-fault-detection)
+    - [3. Classical Machine Learning](#3-classical-machine-learning-2)
+    - [4. Deep Learning](#4-deep-learning-1)
+    - [5. Unsupervised and Self-supervised Anomaly Detection](#5-unsupervised-and-self-supervised-anomaly-detection)
+    - [6. Few-shot and Transfer Learning](#6-few-shot-and-transfer-learning)
+    - [7. OOD / Open-set / Unknown Fault Detection](#7-ood--open-set--unknown-fault-detection)
+    - [8. Early Warning / Precursor Detection](#8-early-warning--precursor-detection)
+  - [Gap / Problem](#gap--problem-2)
+    - [1. Severe lack of real fault data](#1-severe-lack-of-real-fault-data)
+    - [2. Laboratory-to-real-world fault gap](#2-laboratory-to-real-world-fault-gap)
+    - [3. Closed-set fault classification](#3-closed-set-fault-classification)
+    - [4. Early warning remains difficult](#4-early-warning-remains-difficult)
+    - [5. Multiple degradation and fault mechanisms can interact](#5-multiple-degradation-and-fault-mechanisms-can-interact)
+    - [6. Lack of unified representations](#6-lack-of-unified-representations)
+  - [Cross-cutting Research Challenges](#cross-cutting-research-challenges)
+  - [Preliminary Research Priority](#preliminary-research-priority)
+  - [Hypothesis (Draft)](#hypothesis-draft)
+    - [H1 - Neural ODE/CDE + Physical inform hybrid](#h1---neural-odecde--physical-inform-hybrid)
+    - [H2 -](#h2--)
+
+
 ## Research Map
+
+The main tasks of predictive-maintenance for industrial / energy / elsectrochemical systems can be repersented as follow: 
 
 ```text
 Predictive Maintenance for Industrial / Energy / Electrochemical Systems
@@ -25,54 +85,7 @@ Predictive Maintenance for Industrial / Energy / Electrochemical Systems
        └── Unknown / novel fault detection
 ```
 
-The three branches above represent the **core predictive-maintenance tasks**. They should be distinguished from two orthogonal dimensions:
-
-```text
-Machine Learning Methods
-│
-├── Data-driven methods
-│      ├── Statistical / empirical models
-│      ├── Classical ML
-│      ├── RNN / LSTM / GRU
-│      ├── CNN / GNN
-│      └── Transformer / foundation models
-│
-├── Physics + Data methods
-│      ├── Physics-informed neural networks (PINNs)
-│      ├── Physics-guided loss functions
-│      ├── Physics-informed data augmentation
-│      ├── Neural ODE / Neural CDE
-│      └── Neural Operators / FNO
-│
-└── Uncertainty-aware methods
-       ├── Bayesian models
-       ├── Ensembles
-       ├── MC Dropout
-       ├── Quantile / probabilistic forecasting
-       └── Conformal prediction
-```
-
-```text
-Generalization / Evaluation Settings
-│
-├── Cross-cell generalization
-├── Cross-condition generalization
-├── Cross-dataset generalization
-├── Cross-manufacturer generalization
-├── Cross-chemistry generalization
-├── Limited-label / few-shot adaptation
-└── Laboratory → real-world transfer
-```
-
-The distinction is important:
-
-> **Task = What do we want to predict or detect?**
-> **Method = How do we model it?**
-> **Generalization setting = Where do we expect the model to work?**
-
-For example:
-
-> **Capacity estimation** is the task, **FNO** is the modeling approach, and **cross-cell / cross-chemistry evaluation** is the generalization setting.
+Around these main tasks conducted a series of research
 
 ---
 
@@ -177,11 +190,11 @@ Deep learning enables direct learning from raw or minimally processed time-serie
 
 Common architectures include:
 
-* MLP
-* CNN
-* RNN
-* LSTM
-* GRU
+* Multilayer Perceptron (MLP)
+* Convolutional Neural Network (CNN)
+* Recurrent Neural Networks (RNN)
+* Long Short Term Memory (LSTM)
+* Gated Recurrent Unit (GRU)
 * CNN-LSTM hybrids
 
 A typical pipeline is:
@@ -1167,7 +1180,7 @@ This could provide a unified representation of battery health and degradation.
 
 ---
 
-# Cross-cutting Research Challenges
+## Cross-cutting Research Challenges
 
 Across the three tasks, several problems repeatedly appear:
 
@@ -1210,11 +1223,77 @@ The major cross-cutting research problems are therefore:
 
 ---
 
-# Hypothesis (Draft)
+## Preliminary Research Priority
+
+Based on the current literature landscape, the most promising research directions for further investigation are:
+
+```text
+Priority 1
+Physics-informed + Neural ODE/CDE/FNO
+            +
+Long-term degradation / RUL
+            +
+Cross-cell / cross-condition generalization
+
+
+Priority 2
+Data-centric scaling laws
+            +
+Independent cells vs temporal segments
+            +
+Generalization
+
+
+Priority 3
+Calibrated uncertainty
+            +
+Health estimation / RUL
+            +
+Distribution shift
+
+
+Priority 4
+Physics-informed cross-chemistry transfer
+            +
+Few-shot target-domain adaptation
+
+
+Priority 5
+Self-supervised anomaly representation
+            +
+OOD / unknown fault detection
+            +
+Early warning
+
+
+Priority 6
+Unified latent health representation
+            +
+SOH + RUL + anomaly detection
+```
+
+The central research principle emerging from the literature is:
+
+> **The next step is not simply to develop another more complex neural architecture. The more important question is whether a model can remain accurate, physically consistent, uncertainty-aware, and generalizable when the data distribution changes.**
+
+---
+
+## Hypothesis (Draft)
 
 The following hypotheses are preliminary and should be treated as candidates for further literature verification and experimental validation.
 
-### H1 — Physics-informed generalization
+### H1 - Neural ODE/CDE + Physical inform hybrid
+
+Examples:
+> Improve model generalization ability in cross-domain scenarios by introducing physics-informed constraints into Neural ODEs/CDEs.
+
+Literture base: 
+- [Zakharov, A., Volovich, V., Makarov, I. (2026). Transferable Electric Vehicle Battery Capacity Estimation From Real-World Charging Data Using Spectral Learning. IEEE Open Journal of the Industrial Electronics Society (Q1).](https://ieeexplore.ieee.org/document/11495199)
+- [Wang, F., Zhai, Z., Zhao, Z., Di, Y., & Chen, X. (2024). Physics-informed neural network for lithium-ion battery degradation stable modeling and prognosis. Nature Communications, 15(1), 4332.](https://www.nature.com/articles/s41467-024-48779-z)
+
+### H2 - 
+
+<!-- ### H1 — Physics-informed generalization
 
 > **Physics-informed temporal and operator-learning models can generalize better to unseen cells and operating conditions than purely data-driven sequence models.**
 
@@ -1402,101 +1481,4 @@ $$
 
 rather than classification accuracy alone.
 
----
-
-## Preliminary Research Priority
-
-Based on the current literature landscape, the most promising research directions for further investigation are:
-
-```text
-Priority 1
-Physics-informed + Neural ODE/CDE/FNO
-            +
-Long-term degradation / RUL
-            +
-Cross-cell / cross-condition generalization
-
-
-Priority 2
-Data-centric scaling laws
-            +
-Independent cells vs temporal segments
-            +
-Generalization
-
-
-Priority 3
-Calibrated uncertainty
-            +
-Health estimation / RUL
-            +
-Distribution shift
-
-
-Priority 4
-Physics-informed cross-chemistry transfer
-            +
-Few-shot target-domain adaptation
-
-
-Priority 5
-Self-supervised anomaly representation
-            +
-OOD / unknown fault detection
-            +
-Early warning
-
-
-Priority 6
-Unified latent health representation
-            +
-SOH + RUL + anomaly detection
-```
-
-The central research principle emerging from the literature is:
-
-> **The next step is not simply to develop another more complex neural architecture. The more important question is whether a model can remain accurate, physically consistent, uncertainty-aware, and generalizable when the data distribution changes.**
-
-Therefore, a potentially strong research contribution should ideally combine at least two of the following dimensions:
-
-$$
-\boxed{
-Task
-+
-Generalization
-+
-Physics
-+
-Data\ Efficiency
-+
-Uncertainty
-+
-Robustness
-}
-$$
-
-For example:
-
-$$
-\boxed{
-RUL
-+
-Physics-informed\ Neural\ Operator
-+
-Cross-cell\ Generalization
-+
-Uncertainty
-}
-$$
-
-is a substantially stronger research question than:
-
-$$
-\boxed{
-RUL
-+
-New\ Transformer\ Architecture
-}
-$$
-
-because the former tests a scientific hypothesis about **why and when a modeling approach generalizes**, rather than only demonstrating a small improvement on a fixed benchmark.
+--- -->
