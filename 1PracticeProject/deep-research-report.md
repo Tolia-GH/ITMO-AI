@@ -22,62 +22,46 @@
 
 **参考文献：** 以上内容基于公开文献和数据集整理，涵盖了电池寿命预测、故障诊断、神经算子模型和电解器优化等多方面研究。每项假设均可通过构建相应实验或仿真加以验证，从而为导师讨论和后续研究提供依据。
 
-研究方向：
+## Research Map
 
 ```text
-Predictive Maintenance / PHM
-│
-├── 1. Health State Estimation
-│      ├── State of Helth, SOH
-│      ├── Capacity
-│      ├── degradation state
-│      └── latent health representation
-│
-├── 2. Degradation / RUL Forecasting
-│      ├── long-term degradation
-│      ├── EOL / RUL
-│      ├── multi-step forecasting
-│      └── transient operating conditions
-│
-├── 3. Fault / Anomaly Detection
-│      ├── anomaly detection
-│      ├── fault diagnosis
-│      ├── early warning
-│      └── unknown fault detection
-│
-├── 4. Cross-domain / Transfer Learning
-│      ├── cell → cell
-│      ├── dataset → dataset
-│      ├── chemistry → chemistry
-│      ├── laboratory → real-world
-│      └── simulation → experiment
-│
-├── 5. Physics + Data Hybrid Learning
-│      ├── PINN
-│      ├── Neural ODE/CDE
-│      ├── Neural Operator / FNO
-│      ├── physics-guided loss
-│      └── surrogate models
-│
-├── 6. Uncertainty / Reliability
-│      ├── prediction intervals
-│      ├── calibration
-│      ├── conformal prediction
-│      └── decision-aware uncertainty
-│
-├── 7. Data-centric Predictive Maintenance
-│      ├── data quantity
-│      ├── number of cells
-│      ├── measurement duration
-│      ├── segmentation
-│      ├── missing data
-│      └── irregular sampling
-│
-└── 8. Electrochemical Process Intelligence
-       ├── temporal dynamics
-       ├── extrapolation
-       ├── hidden state inference
-       ├── kinetics / process stages
-       ├── operating-mode recognition
-       └── digital twins
+Predictive Maintenance for Industrial / Energy / Electrochemical Systems  
+│  
+├── 1. Health State Estimation  
+│      ├── SOH  
+│      ├── Capacity  
+│      ├── degradation state  
+│      └── latent health representation  
+│  
+├── 2. Degradation / RUL Forecasting  
+│      ├── multi-step forecasting  
+│      ├── degradation trajectory  
+│      ├── long-term degradation   
+│      └── EOL / RUL Prediction  
+│  
+└── 3. Fault / Anomaly Detection  
+       ├── anomaly detection  
+       ├── fault diagnosis  
+       ├── early warning  
+       └── unknown fault detection  
 ```
+
+## Health State Estimation 
+
+### Methods
+
+### Gap/Problem
+
+## Degradation / RUL Forecasting 
+
+### Methods
+
+### Gap/Problem
+
+## Fault / Anomaly Detection 
+
+### Methods
+
+### Gap/Problem
+
+## Hypothesis(Draft)
