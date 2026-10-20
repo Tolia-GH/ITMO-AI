@@ -137,7 +137,7 @@ $$
 - where $\mathbf { x } ^ { ( t + 1 ) }$ can be any word in the vocabulary 
 
 $$
-V = \left\{\mathbf {w} _ {1}, \dots , \mathbf {w} _ {| V |} \right\}
+V = \left\{\mathbf {w} _ {1}, \dots , \mathbf {w} _ {\vert V \vert} \right\}
 $$
 
 - A system that does this is called a **Language Model**. 
@@ -303,11 +303,11 @@ $$
 
 - “students opened their books” occurred 400 times
 
-  - → $P(\text{books} | \text{students opened their}) = 0.4$
+  - → $P(\text{books} \vert \text{students opened their}) = 0.4$
 
 - “students opened their exams” occurred 100 times
 
-  - → $P(\text{exams} | \text{students opened their}) = 0.1$
+  - → $P(\text{exams} \vert \text{students opened their}) = 0.1$
 
 > Should we have discarded the “proctor” context?
 
@@ -326,7 +326,7 @@ $$
 <strong><u>(Partial) Solution:</u></strong> Add small $\delta$ to the count for every $\mathbf w \in V$. This is called *smoothing*.
 
 $$
-P(\mathbf {w} | \text{students opened their})=\dfrac{\text{count}(\text{students opened their }\mathbf{w})}{\text{count}(\text{students opened their})}
+P(\mathbf {w} \vert \text{students opened their})=\dfrac{\text{count}(\text{students opened their }\mathbf{w})}{\text{count}(\text{students opened their})}
 $$
 
 **Sparsity Problem 2**
@@ -350,7 +350,7 @@ $$
 <strong><u>Storage:</u></strong> Need to store count for all n-grams you saw in the corpus.
 
 $$
-P(\mathbf{w} | \text{students opened their})=\dfrac{\text{count(students opened their }\mathbf{w})}{\text{count(students opened their)}}
+P(\mathbf{w} \vert \text{students opened their})=\dfrac{\text{count(students opened their }\mathbf{w})}{\text{count(students opened their)}}
 $$
 
 Increasing $n$ or increasing corpus increases model size!
@@ -487,9 +487,9 @@ Apply the same weights $\mathbf{W}$ repeatedly
 
 <details>
 
-$\hat { y } ^ { ( 4 ) } = P ( \mathbf { x } ^ { ( 5 ) }\lvert \text{the students opened their})$
+$\hat { y } ^ { ( 4 ) } = P ( \mathbf { x } ^ { ( 5 ) }\vert \text{the students opened their})$
 
-output distribution $\hat {\mathbf {y}} ^ {(t)} = \operatorname{softmax} \left(\mathbf {U} \mathbf {h} ^ {(t)} + \mathbf {b} _ {2}\right) \in \mathbb {R} ^ {| V |}$
+output distribution $\hat {\mathbf {y}} ^ {(t)} = \operatorname{softmax} \left(\mathbf {U} \mathbf {h} ^ {(t)} + \mathbf {b} _ {2}\right) \in \mathbb {R} ^ {\vert V \vert}$
 
 hidden states  
 $\mathbf {h} ^ {(t)} = \sigma \left(\mathbf {W} _ {h} \mathbf {h} ^ {(t - 1)} + \mathbf {W} _ {e} \mathbf {e} ^ {(t)} + \mathbf {b} _ {1}\right)$  
@@ -497,7 +497,7 @@ $h ^ { ( 0 ) }$ is the initial hidden state
 
 word embeddings $\mathbf {e} ^ {(t)} = \mathbf {E} \mathbf {x} ^ {(t)}$
 
-words / one-hot vectors $\mathbf {x} ^ {(t)} \in \mathbb {R} ^ {| V |}$
+words / one-hot vectors $\mathbf {x} ^ {(t)} \in \mathbb {R} ^ {\vert V \vert}$
 
 <u>Note</u>: this input sequence could be much longer, but this slide doesn’t have space!
 
@@ -588,7 +588,7 @@ A figure from Christopher Manning, Natural Language Processing with Deep Learnin
 
 <strong><u>Question:</u></strong> What’s the derivative of $\mathbf { J } ^ { ( t ) } ( \theta )$ w.r.t. the repeated weight matrix $W _ { h } ?$
 
-<strong><u>Answer:</u></strong> $\frac { \partial \mathbf { J } ^ { ( t ) } } { \partial \mathbf { W } _ { h } } = \sum _ { i = 1 } ^ { t } \left. \frac { \partial \mathbf { J } ^ { ( t ) } } { \partial \mathbf { W } _ { h } } \right| _ { ( i ) }$ “The gradient w.r.t. a repeated weight is the sum of the gradient w.r.t. each time it appears”
+<strong><u>Answer:</u></strong> $\dfrac { \partial \mathbf { J } ^ { ( t ) } } { \partial \mathbf { W } _ { h } } = \sum _ { i = 1 } ^ { t } \left. \dfrac { \partial \mathbf { J } ^ { ( t ) } } { \partial \mathbf { W } _ { h } } \right\vert _ { ( i ) }$ “The gradient w.r.t. a repeated weight is the sum of the gradient w.r.t. each time it appears”
 
 **Why?**
 
@@ -631,8 +631,8 @@ $$
 $$
 
 \begin{split} 
-  \frac {\partial J ^ {(t)}}{\partial \mathbf {W} _ {h}} = \sum_ {i = 1} ^ {t} \left. \frac {\partial J ^ {(t)}}{\partial \mathbf {W} _ {h}} \right| _ {(i)} \overset{=1}{\boxed {\frac {\partial \mathbf {W} _ {h} | _ {(i)}}{\partial \mathbf {W} _ {h}}}} \\ 
-  = \sum_ {i = 1} ^ {t} \left. \frac {\partial J ^ {(t)}}{\partial \mathbf {W} _ {h}} \right| _ {(i)} \end{split}
+  \frac {\partial J ^ {(t)}}{\partial \mathbf {W} _ {h}} = \sum_ {i = 1} ^ {t} \left. \frac {\partial J ^ {(t)}}{\partial \mathbf {W} _ {h}} \right\vert _ {(i)} \overset{=1}{\boxed {\frac {\partial \mathbf {W} _ {h} \vert _ {(i)}}{\partial \mathbf {W} _ {h}}}} \\ 
+  = \sum_ {i = 1} ^ {t} \left. \frac {\partial J ^ {(t)}}{\partial \mathbf {W} _ {h}} \right\vert _ {(i)} \end{split}
 $$
 
 <strong><u>Source:</u></strong> [Khan Academy: Multivariable chain rule, simple version](https://www.khanacademy.org/math/multivariable-calculus/multivariable-derivatives/differentiating-vector-valued-functions/a/multivariable-chain-rule-simple-version)
@@ -643,13 +643,11 @@ $$
 
 ![](images/page_45_image_4.jpg)
 
-
-
 <strong><u>Question:</u></strong> How do we calculate this?
 
 $$
 \qquad\qquad\downarrow\\
-\frac {\partial J ^ {(t)}}{\partial \mathbf {W} _ {h}} = \boxed{\sum_ {i = 1} ^ {t} \left. \frac {\partial J ^ {(t)}}{\partial \mathbf {W} _ {h}} \right| _ {(i)}}\\
+\frac {\partial J ^ {(t)}}{\partial \mathbf {W} _ {h}} = \boxed{\sum_ {i = 1} ^ {t} \left. \frac {\partial J ^ {(t)}}{\partial \mathbf {W} _ {h}} \right\vert _ {(i)}}\\
 $$
 
 <strong><u>Answer:</u></strong> Backpropagate over timesteps $i = t, . . . , 0$, summing gradients as you go. This algorithm is called **“backpropagation through time”** [Werbos, P.G., 1988, Neural Networks 1, and others]
@@ -905,10 +903,10 @@ $$
 - Consider matrix L2 norms:
 
 $$
-\left\| \frac {\partial J ^ {(i)} (\theta)}{\partial \mathbf {h} ^ {(j)}} \right\| \leq \left\| \frac {\partial J ^ {(i)} (\theta)}{\partial \mathbf {h} ^ {(i)}} \right\| \| \mathbf {W} _ {h} \| ^ {(i - j)} \prod_ {j <   t \leq i} \left\| \operatorname{diag} \left(\sigma^ {\prime} \left(\mathbf {W} _ {h} \mathbf {h} ^ {(t - 1)} + \mathbf {W} _ {x} \mathbf {x} ^ {(t)} + \mathbf {b} _ {1}\right)\right) \right\|
+\left\Vert \frac {\partial J ^ {(i)} (\theta)}{\partial \mathbf {h} ^ {(j)}} \right\Vert \leq \left\Vert \frac {\partial J ^ {(i)} (\theta)}{\partial \mathbf {h} ^ {(i)}} \right\Vert \Vert \mathbf {W} _ {h} \Vert ^ {(i - j)} \prod_ {j <   t \leq i} \left\Vert \operatorname{diag} \left(\sigma^ {\prime} \left(\mathbf {W} _ {h} \mathbf {h} ^ {(t - 1)} + \mathbf {W} _ {x} \mathbf {x} ^ {(t)} + \mathbf {b} _ {1}\right)\right) \right\Vert
 $$
 
-- Pascanu et al showed that if the *largest eigenvalue* of $W _ { h }$ is *less than 1*, then the gradient $\left\| \frac { \partial J ^ { ( i ) } ( \theta ) } { \partial \mathbf { h } ^ { ( j ) } } \right\|$ will *shrink* exponentially Here the bound is 1 because we have sigmoid nonlinearity
+- Pascanu et al showed that if the *largest eigenvalue* of $W _ { h }$ is *less than 1*, then the gradient $\left\Vert \frac { \partial J ^ { ( i ) } ( \theta ) } { \partial \mathbf { h } ^ { ( j ) } } \right\Vert$ will *shrink* exponentially Here the bound is 1 because we have sigmoid nonlinearity
 
 <strong><u>Source</u></strong>: “On the difficulty of training recurrent neural networks”, Pascanu et al, 2013. [proceedings.mlr.press/v28/pascanu13.pdf](http://proceedings.mlr.press/v28/pascanu13.pdf)
 
@@ -1192,8 +1190,8 @@ $$
 \boxed{
 \begin{split}
   &\hat {\mathbf {g}} \leftarrow \frac {\partial L}{\partial \theta}\\
-  &\textbf{if} \| \hat { \mathbf { g } } \| \ge \text{threshold} \textbf{ then}\\
-  &\qquad\hat {\mathbf {g}} \leftarrow \frac {\text{threshold}}{\| \hat {\mathbf {g}} \|} \hat {\mathbf {g}}\\
+  &\textbf{if} \Vert \hat { \mathbf { g } } \Vert \ge \text{threshold} \textbf{ then}\\
+  &\qquad\hat {\mathbf {g}} \leftarrow \frac {\text{threshold}}{\Vert \hat {\mathbf {g}} \Vert} \hat {\mathbf {g}}\\
   &\textbf{end if}
 \end{split}
 }
@@ -1469,15 +1467,16 @@ The decision by the independent MP <font color=red>Andrew Wilkie</font> to withd
 
 ### The Named Entity Recognition Task
 
+
 - Task: Predict entities in a text
 
-<font color=blue>ORG</font> <font color=blue>ORG</font> <font color=gray>O</font> <font color=red>PER</font> <font color=red>PER</font> <font color=gray>O</font> <font color=blue>ORG</font>:
+<span style="color: blue;">ORG</span> <span style="color: blue;">ORG</span> <span style="color: gray;">O</span> <span style="color: red;">PER</span> <span style="color: red;">PER</span> <span style="color: gray;">O</span> <span style="color: blue;">ORG</span>:
 
-<font color=blue>Foreign</font> <font color=blue>Ministry</font> spokesman <font color=red>Shen Guofang</font> told <font color=blue>Reuters</font>:
+<span style="color: blue;">Foreign</span> <span style="color: blue;">Ministry</span> spokesman <span style="color: red;">Shen Guofang</span> told <span style="color: blue;">Reuters</span>:
 
-<font color=red>PER</font> person <font color=blue>ORG</font> organization <font color=gray>O</font> outside (not an entity)
+<span style="color: red;">PER</span> person <span style="color: blue;">ORG</span> organization <span style="color: gray;">O</span> outside (not an entity)
 
-Standard evaluation is per entity, not per token
+Standard evaluation is per entity, not per token.
 
 ---
 
