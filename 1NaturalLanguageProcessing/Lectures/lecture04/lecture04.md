@@ -296,10 +296,10 @@ $$
 
 ### n-gram Language Models
 
-First we make a Markov assumption: $\pmb { X } ^ { ( t + 1 ) }$ depends only on the preceding $n - 1$ words.
+- First we make a Markov assumption: $\mathbf { X } ^ { ( t + 1 ) }$ depends only on the preceding $n - 1$ words.
 
 $$
-P \big (\boldsymbol {x} ^ {(t + 1)} \mid \boldsymbol {x} ^ {(t)}, \ldots , \boldsymbol {x} ^ {(1)} \big) = P \big (\boldsymbol {x} ^ {(t + 1)} \mid \overbrace {\boldsymbol {x} ^ {(t)} , \ldots , \boldsymbol {x} ^ {(t - n + 2)}} ^ {n - 1 \text {words}}\left. \right)
+P \big (\mathbf {x} ^ {(t + 1)} \mid \mathbf {x} ^ {(t)}, \ldots , \mathbf {x} ^ {(1)} \big) = P \big (\mathbf {x} ^ {(t + 1)} \mid \overbrace {\mathbf {x} ^ {(t)} , \ldots , \mathbf {x} ^ {(t - n + 2)}} ^ {n - 1 \text {words}}\left. \right)
 $$
 
 (assumption)
@@ -309,7 +309,7 @@ prob of a n-gram
 prob of a (n-1)-gram
 
 $$
-\begin{array}{l} \longrightarrow P \big (\boldsymbol {x} ^ {(t + 1)}, \boldsymbol {x} ^ {(t)}, \dots , \boldsymbol {x} ^ {(t - n + 2)} \big) \\ = \overbrace {\longrightarrow P \big (\boldsymbol {x} ^ {(t)} , \dots , \boldsymbol {x} ^ {(t - n + 2)} \big)} \end{array}
+\begin{array}{l} \longrightarrow P \big (\mathbf {x} ^ {(t + 1)}, \mathbf {x} ^ {(t)}, \dots , \mathbf {x} ^ {(t - n + 2)} \big) \\ = \overbrace {\longrightarrow P \big (\mathbf {x} ^ {(t)} , \dots , \mathbf {x} ^ {(t - n + 2)} \big)} \end{array}
 $$
 
 (definition of conditional prob)
@@ -319,7 +319,7 @@ $$
 <strong><u>Answer:</u></strong> By counting them in some large corpus of text!
 
 $$
-\approx \frac {\operatorname{count} \left(\boldsymbol {x} ^ {(t + 1)} , \boldsymbol {x} ^ {(t)} , \dots , \boldsymbol {x} ^ {(t - n + 2)}\right)}{\operatorname{count} \left(\boldsymbol {x} ^ {(t)} , \dots , \boldsymbol {x} ^ {(t - n + 2)}\right)}
+\approx \frac {\operatorname{count} \left(\mathbf {x} ^ {(t + 1)} , \mathbf {x} ^ {(t)} , \dots , \mathbf {x} ^ {(t - n + 2)}\right)}{\operatorname{count} \left(\mathbf {x} ^ {(t)} , \dots , \mathbf {x} ^ {(t - n + 2)}\right)}
 $$
 
 (statistical approximation)
@@ -368,7 +368,7 @@ discard
 condition on this
 
 $$
-P (\boldsymbol {w} \mid \text {students opened their}) = \frac {\text {count(students opened their } \boldsymbol {w})}{\text {count(students opened their)}}
+P (\mathbf {w} \mid \text {students opened their}) = \frac {\text {count(students opened their } \mathbf {w})}{\text {count(students opened their)}}
 $$
 
 <u>For example, suppose that in the corpus:</u>
@@ -491,9 +491,9 @@ Sequence Tagging
 
 Recall the Language Modeling task:
 
-Input: sequence of words $\pmb { x } ^ { ( 1 ) } , \pmb { x } ^ { ( 2 ) } , \ldots , \pmb { x } ^ { ( t ) }$
+Input: sequence of words $\mathbf { x } ^ { ( 1 ) } , \mathbf { x } ^ { ( 2 ) } , \ldots , \mathbf { x } ^ { ( t ) }$
 
-Output: prob dist of the next word $P ( { \pmb x } ^ { ( t + 1 ) } \mid { \pmb x } ^ { ( t ) } , \ldots , { \pmb x } ^ { ( 1 ) } )$
+Output: prob dist of the next word $P ( { \mathbf x } ^ { ( t + 1 ) } \mid { \mathbf x } ^ { ( t ) } , \ldots , { \mathbf x } ^ { ( 1 ) } )$
 
 How about a window-based neural model? Predict the next word from a fixed window of the last words:
 
@@ -504,14 +504,14 @@ as the proctor started the clock discard
 ### A fixed-window neural Language Model
 
 $$
-\begin{array}{l} \text {output distribution} \\ \hat {\boldsymbol {y}} = \operatorname{softmax} (\boldsymbol {U h} + \boldsymbol {b} _ {2}) \in \mathbb {R} ^ {| V |} \end{array}
+\begin{array}{l} \text {output distribution} \\ \hat {\mathbf {y}} = \operatorname{softmax} (\mathbf {U h} + \mathbf {b} _ {2}) \in \mathbb {R} ^ {| V |} \end{array}
 $$
 
 hidden layer h = f(**W e** + b<sub>1</sub>)
 
-concatenated word embeddings $\pmb { e } = [ \pmb { e } ^ { ( 1 ) } ; \pmb { e } ^ { ( 2 ) } ; \pmb { e } ^ { ( 3 ) } ; \pmb { e } ^ { ( 4 ) } ]$
+concatenated word embeddings $\mathbf { e } = [ \mathbf { e } ^ { ( 1 ) } ; \mathbf { e } ^ { ( 2 ) } ; \mathbf { e } ^ { ( 3 ) } ; \mathbf { e } ^ { ( 4 ) } ]$
 
-words / one-hot vectors $\pmb { x } ^ { ( 1 ) } , \pmb { x } ^ { ( 2 ) } , \pmb { x } ^ { ( 3 ) } , \pmb { x } ^ { ( 4 ) }$
+words / one-hot vectors $\mathbf { x } ^ { ( 1 ) } , \mathbf { x } ^ { ( 2 ) } , \mathbf { x } ^ { ( 3 ) } , \mathbf { x } ^ { ( 4 ) }$
 
 ![](images/page_28_image_7.jpg)
 
@@ -535,7 +535,7 @@ Enlarging window enlarges W
 
 Window can never be large enough!
 
-$\pmb { X } ^ { ( 1 ) }$ and $\pmb { X } ^ { ( 2 ) }$ are multiplied by completely different weights in W. No symmetry in how the inputs are processed.
+$\mathbf { X } ^ { ( 1 ) }$ and $\mathbf { X } ^ { ( 2 ) }$ are multiplied by completely different weights in W. No symmetry in how the inputs are processed.
 
 ### We need a neural architecture that can process any length input
 
@@ -561,20 +561,20 @@ input sequence (any length)
 
 A figure from Christopher Manning, Natural Language Processing with Deep Learning, Stanford U. CS224n
 
-$\hat { y } ^ { ( 4 ) } = P ( \pmb { x } ^ { ( 5 ) }$ the students opened their)
+$\hat { y } ^ { ( 4 ) } = P ( \mathbf { x } ^ { ( 5 ) }$ the students opened their)
 
 ### A Simple RNN Language Model
 
 output distribution
 
 $$
-\hat {\boldsymbol {y}} ^ {(t)} = \operatorname{softmax} \left(\boldsymbol {U} \boldsymbol {h} ^ {(t)} + \boldsymbol {b} _ {2}\right) \in \mathbb {R} ^ {| V |}
+\hat {\mathbf {y}} ^ {(t)} = \operatorname{softmax} \left(\mathbf {U} \mathbf {h} ^ {(t)} + \mathbf {b} _ {2}\right) \in \mathbb {R} ^ {| V |}
 $$
 
 hidden states
 
 $$
-\boldsymbol {h} ^ {(t)} = \sigma \left(\boldsymbol {W} _ {h} \boldsymbol {h} ^ {(t - 1)} + \boldsymbol {W} _ {e} \boldsymbol {e} ^ {(t)} + \boldsymbol {b} _ {1}\right)
+\mathbf {h} ^ {(t)} = \sigma \left(\mathbf {W} _ {h} \mathbf {h} ^ {(t - 1)} + \mathbf {W} _ {e} \mathbf {e} ^ {(t)} + \mathbf {b} _ {1}\right)
 $$
 
 $h ^ { ( 0 ) }$ is the initial hidden state
@@ -582,13 +582,13 @@ $h ^ { ( 0 ) }$ is the initial hidden state
 word embeddings
 
 $$
-\boldsymbol {e} ^ {(t)} = \boldsymbol {E} \boldsymbol {x} ^ {(t)}
+\mathbf {e} ^ {(t)} = \mathbf {E} \mathbf {x} ^ {(t)}
 $$
 
 words / one-hot vectors
 
 $$
-\boldsymbol {x} ^ {(t)} \in \mathbb {R} ^ {| V |}
+\mathbf {x} ^ {(t)} \in \mathbb {R} ^ {| V |}
 $$
 
 <u>Note</u>: this input sequence could be much
@@ -671,7 +671,7 @@ Bi-directional RNNs and multi-layer RNNs
 
 ### Training an RNN Language Model
 
-Get a big corpus of text which is a sequence of words $\boldsymbol { x } ^ { ( 1 ) } , \ldots , \boldsymbol { x } ^ { ( T ) }$
+Get a big corpus of text which is a sequence of words $\mathbf { x } ^ { ( 1 ) } , \ldots , \mathbf { x } ^ { ( T ) }$
 
 Feed into RNN-LM; compute output distribution $\hat { y } ^ { ( t ) }$ for every step t
 
@@ -733,9 +733,9 @@ Compute loss $J ^ { ( t ) }$ for a sentence (actually a batch of sentences), com
 
 ![](images/page_42_image_4.jpg)
 
-<strong><u>Question:</u></strong> What’s the derivative of $\boldsymbol { J } ^ { ( t ) } ( \theta )$ w.r.t. the repeated weight matrix $W _ { h } ?$
+<strong><u>Question:</u></strong> What’s the derivative of $\mathbf { J } ^ { ( t ) } ( \theta )$ w.r.t. the repeated weight matrix $W _ { h } ?$
 
-<strong><u>Answer:</u></strong> $\frac { \partial \boldsymbol { J } ^ { ( t ) } } { \partial \boldsymbol { W } _ { h } } = \sum _ { i = 1 } ^ { t } \left. \frac { \partial \boldsymbol { J } ^ { ( t ) } } { \partial \boldsymbol { W } _ { h } } \right| _ { ( i ) }$ “The gradient w.r.t. a repeated weight is the sum of the gradient w.r.t. each time it appears”
+<strong><u>Answer:</u></strong> $\frac { \partial \mathbf { J } ^ { ( t ) } } { \partial \mathbf { W } _ { h } } = \sum _ { i = 1 } ^ { t } \left. \frac { \partial \mathbf { J } ^ { ( t ) } } { \partial \mathbf { W } _ { h } } \right| _ { ( i ) }$ “The gradient w.r.t. a repeated weight is the sum of the gradient w.r.t. each time it appears”
 
 **Why?**
 
@@ -780,7 +780,7 @@ Derivative of composition function
 <u>Apply the multivariable chain rule:</u>
 
 $$
-\begin{array}{c} \frac {\partial \boldsymbol {J} ^ {(t)}}{\partial \boldsymbol {W} _ {h}} = \sum_ {i = 1} ^ {t} \left. \frac {\partial \boldsymbol {J} ^ {(t)}}{\partial \boldsymbol {W} _ {h}} \right| _ {(i)} \boxed {\frac {\partial \boldsymbol {W} _ {h} | _ {(i)}}{\partial \boldsymbol {W} _ {h}}} \\ = \sum_ {i = 1} ^ {t} \left. \frac {\partial \boldsymbol {J} ^ {(t)}}{\partial \boldsymbol {W} _ {h}} \right| _ {(i)} \end{array} \tag {1}
+\begin{array}{c} \frac {\partial \mathbf {J} ^ {(t)}}{\partial \mathbf {W} _ {h}} = \sum_ {i = 1} ^ {t} \left. \frac {\partial \mathbf {J} ^ {(t)}}{\partial \mathbf {W} _ {h}} \right| _ {(i)} \boxed {\frac {\partial \mathbf {W} _ {h} | _ {(i)}}{\partial \mathbf {W} _ {h}}} \\ = \sum_ {i = 1} ^ {t} \left. \frac {\partial \mathbf {J} ^ {(t)}}{\partial \mathbf {W} _ {h}} \right| _ {(i)} \end{array} \tag {1}
 $$
 
 <strong><u>Source:</u></strong> [Khan Academy: Multivariable chain rule, simple version](https://www.khanacademy.org/math/multivariable-calculus/multivariable-derivatives/differentiating-vector-valued-functions/a/multivariable-chain-rule-simple-version)
@@ -1020,7 +1020,7 @@ The standard evaluation metric for Language Models is perplexity.
 perplexity
 
 $$
-= \prod_ {t = 1} ^ {T} \left(\frac {1}{P _ {\mathrm{LM}} \left(\boldsymbol {x} ^ {(t + 1)} \mid \boldsymbol {x} ^ {(t)} , \dots , \boldsymbol {x} ^ {(1)}\right)}\right) ^ {1 / T}
+= \prod_ {t = 1} ^ {T} \left(\frac {1}{P _ {\mathrm{LM}} \left(\mathbf {x} ^ {(t + 1)} \mid \mathbf {x} ^ {(t)} , \dots , \mathbf {x} ^ {(1)}\right)}\right) ^ {1 / T}
 $$
 
 Normalized by number of words
@@ -1030,7 +1030,7 @@ Inverse probability of corpus, according to Language Model
 This is equal to the exponential of the cross-entropy loss $J ( \theta )$
 
 $$
-= \prod_ {t = 1} ^ {T} \left(\frac {1}{\hat {\mathbf {y}} _ {\boldsymbol {x} _ {t + 1}} ^ {(t)}}\right) ^ {1 / T} = \exp \left(\frac {1}{T} \sum_ {t = 1} ^ {T} - \log \hat {\mathbf {y}} _ {\boldsymbol {x} _ {t + 1}} ^ {(t)}\right) = \exp (J (\theta))
+= \prod_ {t = 1} ^ {T} \left(\frac {1}{\hat {\mathbf {y}} _ {\mathbf {x} _ {t + 1}} ^ {(t)}}\right) ^ {1 / T} = \exp \left(\frac {1}{T} \sum_ {t = 1} ^ {T} - \log \hat {\mathbf {y}} _ {\mathbf {x} _ {t + 1}} ^ {(t)}\right) = \exp (J (\theta))
 $$
 
 **Lower** perplexity is better!
@@ -1120,15 +1120,15 @@ A figure from Christopher Manning, Natural Language Processing with Deep Learnin
 Recall:
 
 $$
-\boldsymbol {h} ^ {(t)} = \sigma \left(\boldsymbol {W} _ {h} \boldsymbol {h} ^ {(t - 1)} + \boldsymbol {W} _ {x} \boldsymbol {x} ^ {(t)} + \boldsymbol {b} _ {1}\right)
+\mathbf {h} ^ {(t)} = \sigma \left(\mathbf {W} _ {h} \mathbf {h} ^ {(t - 1)} + \mathbf {W} _ {x} \mathbf {x} ^ {(t)} + \mathbf {b} _ {1}\right)
 $$
 
-Therefore: $\frac{\partial \boldsymbol{h}^{(t)}}{\partial \boldsymbol{h}^{(t-1)}} = \mathrm{diag} \left( \sigma' \left( \boldsymbol{W}_h \boldsymbol{h}^{(t-1)} + \boldsymbol{W}_x \boldsymbol{x}^{(t)} + \boldsymbol{b}_1 \right) \right) \boldsymbol{W}_h$ (chain rule)
+Therefore: $\frac{\partial \mathbf{h}^{(t)}}{\partial \mathbf{h}^{(t-1)}} = \mathrm{diag} \left( \sigma' \left( \mathbf{W}_h \mathbf{h}^{(t-1)} + \mathbf{W}_x \mathbf{x}^{(t)} + \mathbf{b}_1 \right) \right) \mathbf{W}_h$ (chain rule)
 
 Consider the gradient of the loss $\mathcal { J } ^ { ( i ) } ( \theta )$ on step i, with respect to the hidden state $h ^ { ( j ) }$ on some previous step j.
 
 $$
-\left| \begin{array}{l} \frac {\partial \boldsymbol {J} ^ {(i)} (\theta)}{\partial \boldsymbol {h} ^ {(j)}} = \frac {\partial \boldsymbol {J} ^ {(i)} (\theta)}{\partial \boldsymbol {h} ^ {(i)}} \prod_ {j <   t \leq i} \frac {\partial \boldsymbol {h} ^ {(t)}}{\partial \boldsymbol {h} ^ {(t - 1)}} \\ = \frac {\partial \boldsymbol {J} ^ {(i)} (\theta)}{\partial \boldsymbol {h} ^ {(i)}} \boxed {\boldsymbol {W} _ {h} ^ {(i - j)}} \prod_ {j <   t \leq i} \operatorname{diag} \left(\sigma^ {\prime} \left(\boldsymbol {W} _ {h} \boldsymbol {h} ^ {(t - 1)} + \boldsymbol {W} _ {x} \boldsymbol {x} ^ {(t)} + \boldsymbol {b} _ {1}\right)\right) \quad (\text {chain rule}) \\ & \text {(value of} \frac {\partial \boldsymbol {h} ^ {(t)}}{\partial \boldsymbol {h} ^ {(t - 1)}}) \end{array} \right.
+\left| \begin{array}{l} \frac {\partial \mathbf {J} ^ {(i)} (\theta)}{\partial \mathbf {h} ^ {(j)}} = \frac {\partial \mathbf {J} ^ {(i)} (\theta)}{\partial \mathbf {h} ^ {(i)}} \prod_ {j <   t \leq i} \frac {\partial \mathbf {h} ^ {(t)}}{\partial \mathbf {h} ^ {(t - 1)}} \\ = \frac {\partial \mathbf {J} ^ {(i)} (\theta)}{\partial \mathbf {h} ^ {(i)}} \boxed {\mathbf {W} _ {h} ^ {(i - j)}} \prod_ {j <   t \leq i} \operatorname{diag} \left(\sigma^ {\prime} \left(\mathbf {W} _ {h} \mathbf {h} ^ {(t - 1)} + \mathbf {W} _ {x} \mathbf {x} ^ {(t)} + \mathbf {b} _ {1}\right)\right) \quad (\text {chain rule}) \\ & \text {(value of} \frac {\partial \mathbf {h} ^ {(t)}}{\partial \mathbf {h} ^ {(t - 1)}}) \end{array} \right.
 $$
 
 If $W _ { h }$ is small, then this term gets
@@ -1142,10 +1142,10 @@ vanishingly small as i and j get further apart
 Consider matrix $L 2$ norms:
 
 $$
-\left\| \frac {\partial \boldsymbol {J} ^ {(i)} (\theta)}{\partial \boldsymbol {h} ^ {(j)}} \right\| \leq \left\| \frac {\partial \boldsymbol {J} ^ {(i)} (\theta)}{\partial \boldsymbol {h} ^ {(i)}} \right\| \| \boldsymbol {W} _ {h} \| ^ {(i - j)} \prod_ {j <   t \leq i} \left\| \operatorname{diag} \left(\sigma^ {\prime} \left(\boldsymbol {W} _ {h} \boldsymbol {h} ^ {(t - 1)} + \boldsymbol {W} _ {x} \boldsymbol {x} ^ {(t)} + \boldsymbol {b} _ {1}\right)\right) \right\|
+\left\| \frac {\partial \mathbf {J} ^ {(i)} (\theta)}{\partial \mathbf {h} ^ {(j)}} \right\| \leq \left\| \frac {\partial \mathbf {J} ^ {(i)} (\theta)}{\partial \mathbf {h} ^ {(i)}} \right\| \| \mathbf {W} _ {h} \| ^ {(i - j)} \prod_ {j <   t \leq i} \left\| \operatorname{diag} \left(\sigma^ {\prime} \left(\mathbf {W} _ {h} \mathbf {h} ^ {(t - 1)} + \mathbf {W} _ {x} \mathbf {x} ^ {(t)} + \mathbf {b} _ {1}\right)\right) \right\|
 $$
 
-Pascanu et al showed that if the largest eigenvalue of $W _ { h }$ is less than 1, then the gradient $\left\| \frac { \partial J ^ { ( i ) } ( \theta ) } { \partial \pmb { h } ^ { ( j ) } } \right\|$ will shrink exponentially Here the bound is 1 because we have sigmoid nonlinearity
+Pascanu et al showed that if the largest eigenvalue of $W _ { h }$ is less than 1, then the gradient $\left\| \frac { \partial J ^ { ( i ) } ( \theta ) } { \partial \mathbf { h } ^ { ( j ) } } \right\|$ will shrink exponentially Here the bound is 1 because we have sigmoid nonlinearity
 
 <strong><u>Source</u></strong>: “On the difficulty of training recurrent neural networks”, Pascanu et al, 2013. [proceedings.mlr.press/v28/pascanu13.pdf](http://proceedings.mlr.press/v28/pascanu13.pdf)
 
@@ -1253,7 +1253,7 @@ The gates are dynamic: their value is computed based on the current context
 
 ### Long Short-Term Memory (LSTM)
 
-We have a sequence of inputs $\pmb { X } ^ { ( t ) }$ , and we will compute a sequence of hidden states $h ^ { ( t ) }$ and cell states $\pmb { c } ^ { ( t ) }$ . On timestep t:
+We have a sequence of inputs $\mathbf { X } ^ { ( t ) }$ , and we will compute a sequence of hidden states $h ^ { ( t ) }$ and cell states $\mathbf { c } ^ { ( t ) }$ . On timestep t:
 
 **Forget gate:** controls what is kept vs forgotten, from previous cell state
 
@@ -1268,21 +1268,21 @@ We have a sequence of inputs $\pmb { X } ^ { ( t ) }$ , and we will compute a se
 **Hidden state:** read (“output”) <u>some content from the cell</u>
 
 $$
-\begin{array}{l}\rightarrow \boldsymbol {f} ^ {(t)} = \sigma \big (\boldsymbol {W} _ {f} \boldsymbol {h} ^ {(t - 1)} + \boldsymbol {U} _ {f} \boldsymbol {x} ^ {(t)} + \boldsymbol {b} _ {f} \big)\\\rightarrow \boldsymbol {i} ^ {(t)} = \sigma \big (\boldsymbol {W} _ {i} \boldsymbol {h} ^ {(t - 1)} + \boldsymbol {U} _ {i} \boldsymbol {x} ^ {(t)} + \boldsymbol {b} _ {i} \big)\\\rightarrow \boldsymbol {o} ^ {(t)} = \sigma \big (\boldsymbol {W} _ {o} \boldsymbol {h} ^ {(t - 1)} + \boldsymbol {U} _ {o} \boldsymbol {x} ^ {(t)} + \boldsymbol {b} _ {o} \big)\end{array}
+\begin{array}{l}\rightarrow \mathbf {f} ^ {(t)} = \sigma \big (\mathbf {W} _ {f} \mathbf {h} ^ {(t - 1)} + \mathbf {U} _ {f} \mathbf {x} ^ {(t)} + \mathbf {b} _ {f} \big)\\\rightarrow \mathbf {i} ^ {(t)} = \sigma \big (\mathbf {W} _ {i} \mathbf {h} ^ {(t - 1)} + \mathbf {U} _ {i} \mathbf {x} ^ {(t)} + \mathbf {b} _ {i} \big)\\\rightarrow \mathbf {o} ^ {(t)} = \sigma \big (\mathbf {W} _ {o} \mathbf {h} ^ {(t - 1)} + \mathbf {U} _ {o} \mathbf {x} ^ {(t)} + \mathbf {b} _ {o} \big)\end{array}
 $$
 
 **Sigmoid function:** all gate values are between 0 and 1
 
 $$
-\tilde {\boldsymbol {c}} ^ {(t)} = \tanh \left(\boldsymbol {W} _ {c} \boldsymbol {h} ^ {(t - 1)} + \boldsymbol {U} _ {c} \boldsymbol {x} ^ {(t)} + \boldsymbol {b} _ {c}\right)
+\tilde {\mathbf {c}} ^ {(t)} = \tanh \left(\mathbf {W} _ {c} \mathbf {h} ^ {(t - 1)} + \mathbf {U} _ {c} \mathbf {x} ^ {(t)} + \mathbf {b} _ {c}\right)
 $$
 
 $$
-\boldsymbol {c} ^ {(t)} = \boldsymbol {f} ^ {(t)} \circ \boldsymbol {c} ^ {(t - 1)} + \boldsymbol {i} ^ {(t)} \circ \tilde {\boldsymbol {c}} ^ {(t)}
+\mathbf {c} ^ {(t)} = \mathbf {f} ^ {(t)} \circ \mathbf {c} ^ {(t - 1)} + \mathbf {i} ^ {(t)} \circ \tilde {\mathbf {c}} ^ {(t)}
 $$
 
 $$
-\boldsymbol {h} ^ {(t)} = \boldsymbol {o} ^ {(t)} \circ \tanh \boldsymbol {c} ^ {(t)}
+\mathbf {h} ^ {(t)} = \mathbf {o} ^ {(t)} \circ \tanh \mathbf {c} ^ {(t)}
 $$
 
 Gates are applied using element-wise product ◦. All these are vectors of same length n
@@ -1382,19 +1382,19 @@ On each timestep t we have input $X ^ { ( t ) }$ and hidden state $h ^ { ( t ) }
 **Hidden state:** update gate simultaneously controls what is kept from previous hidden state, and what is updated to new hidden state content
 
 $$
-\boldsymbol {u} ^ {(t)} = \sigma \left(\boldsymbol {W} _ {u} \boldsymbol {h} ^ {(t - 1)} + \boldsymbol {U} _ {u} \boldsymbol {x} ^ {(t)} + \boldsymbol {b} _ {u}\right)
+\mathbf {u} ^ {(t)} = \sigma \left(\mathbf {W} _ {u} \mathbf {h} ^ {(t - 1)} + \mathbf {U} _ {u} \mathbf {x} ^ {(t)} + \mathbf {b} _ {u}\right)
 $$
 
 $$
-\boldsymbol {r} ^ {(t)} = \sigma \left(\boldsymbol {W} _ {r} \boldsymbol {h} ^ {(t - 1)} + \boldsymbol {U} _ {r} \boldsymbol {x} ^ {(t)} + \boldsymbol {b} _ {r}\right)
+\mathbf {r} ^ {(t)} = \sigma \left(\mathbf {W} _ {r} \mathbf {h} ^ {(t - 1)} + \mathbf {U} _ {r} \mathbf {x} ^ {(t)} + \mathbf {b} _ {r}\right)
 $$
 
 $$
-\tilde {\boldsymbol {h}} ^ {(t)} = \tanh \left(\boldsymbol {W} _ {h} (\boldsymbol {r} ^ {(t)} \circ \boldsymbol {h} ^ {(t - 1)}) + \boldsymbol {U} _ {h} \boldsymbol {x} ^ {(t)} + \boldsymbol {b} _ {h}\right)
+\tilde {\mathbf {h}} ^ {(t)} = \tanh \left(\mathbf {W} _ {h} (\mathbf {r} ^ {(t)} \circ \mathbf {h} ^ {(t - 1)}) + \mathbf {U} _ {h} \mathbf {x} ^ {(t)} + \mathbf {b} _ {h}\right)
 $$
 
 $$
-\boldsymbol {\hat {h}} ^ {(t)} = \left(1 - \boldsymbol {u} ^ {(t)}\right) \circ \boldsymbol {\hat {h}} ^ {(t - 1)} + \boldsymbol {u} ^ {(t)} \circ \tilde {\boldsymbol {h}} ^ {(t)}
+\mathbf {\hat {h}} ^ {(t)} = \left(1 - \mathbf {u} ^ {(t)}\right) \circ \mathbf {\hat {h}} ^ {(t - 1)} + \mathbf {u} ^ {(t)} \circ \tilde {\mathbf {h}} ^ {(t)}
 $$
 
 **How does this solve vanishing gradient?** Like LSTM, GRU makes it easier to retain info long-term (e.g. by setting update gate to 0)
@@ -1460,13 +1460,13 @@ Gradient clipping: if the norm of the gradient is greater than some threshold, s
 ### Algorithm: norm clipping
 
 $$
-\hat {\boldsymbol {g}} \leftarrow \frac {\partial L}{\partial \theta}
+\hat {\mathbf {g}} \leftarrow \frac {\partial L}{\partial \theta}
 $$
 
-**if** $\| \hat { \pmb { g } } \| \geq$ threshold **then**
+**if** $\| \hat { \mathbf { g } } \| \geq$ threshold **then**
 
 $$
-\hat {\boldsymbol {g}} \leftarrow \frac {\text {threshold}}{\| \hat {\boldsymbol {g}} \|} \hat {\boldsymbol {g}}
+\hat {\mathbf {g}} \leftarrow \frac {\text {threshold}}{\| \hat {\mathbf {g}} \|} \hat {\mathbf {g}}
 $$
 
 **end if**
@@ -1674,17 +1674,17 @@ This is a general notation to mean “compute one forward step of the RNN” –
 Forward RNN
 
 $$
-\overrightarrow {\boldsymbol {h}} (t) = \boxed {\mathrm{RNN} _ {\mathrm{FW}}}
+\overrightarrow {\mathbf {h}} (t) = \boxed {\mathrm{RNN} _ {\mathrm{FW}}}
 $$
 
 $$
-\left(\overrightarrow {\boldsymbol {h}} ^ {(t - 1)}, \boldsymbol {x} ^ {(t)}\right)
+\left(\overrightarrow {\mathbf {h}} ^ {(t - 1)}, \mathbf {x} ^ {(t)}\right)
 $$
 
 Backward RNN
 
 $$
-\overleftarrow {\boldsymbol {h}} ^ {(t)} = \mathrm{RNN} _ {\mathrm{BW}} \left(\overleftarrow {\boldsymbol {h}} ^ {(t + 1)}, \boldsymbol {x} ^ {(t)}\right)
+\overleftarrow {\mathbf {h}} ^ {(t)} = \mathrm{RNN} _ {\mathrm{BW}} \left(\overleftarrow {\mathbf {h}} ^ {(t + 1)}, \mathbf {x} ^ {(t)}\right)
 $$
 
 Generally, these two RNNs have separate weights
@@ -1692,7 +1692,7 @@ Generally, these two RNNs have separate weights
 Concatenated hidden states
 
 $$
-\boxed {\boldsymbol {h} ^ {(t)}} = \left[ \overrightarrow {\boldsymbol {h}} ^ {(t)}; \overleftarrow {\boldsymbol {h}} ^ {(t)} \right]
+\boxed {\mathbf {h} ^ {(t)}} = \left[ \overrightarrow {\mathbf {h}} ^ {(t)}; \overleftarrow {\mathbf {h}} ^ {(t)} \right]
 $$
 
 We regard this as “the hidden state” of a bidirectional RNN. This is what we pass on to the next parts of the network.
