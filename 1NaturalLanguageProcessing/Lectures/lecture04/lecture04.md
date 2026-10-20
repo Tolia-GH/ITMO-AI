@@ -319,23 +319,23 @@ $$
 
 <details>
 
-**Sparsity Problem 1**
+**Sparsity Problem 1**  
 
-<strong><u>Problem:</u></strong> What if “students opened their $\mathbf w$” never occurred in data? Then $\mathbf w$ has probability 0!
+<strong><u>Problem:</u></strong> What if “students opened their $\mathbf w$” never occurred in data? Then $\mathbf w$ has probability 0!  
 
-<strong><u>(Partial) Solution:</u></strong> Add small $\delta$ to the count for every $\mathbf w \in V$. This is called *smoothing*.
+<strong><u>(Partial) Solution:</u></strong> Add small $\delta$ to the count for every $\mathbf w \in V$. This is called *smoothing*.  
 
 $$
 P(\mathbf {w} \vert \text{students opened their})=\dfrac{\text{count}(\text{students opened their }\mathbf{w})}{\text{count}(\text{students opened their})}
 $$
 
-**Sparsity Problem 2**
+**Sparsity Problem 2**  
 
-<strong><u>Problem:</u></strong> What if *“students opened their”* never occurred in data? Then we can’t calculate probability for *any* $\mathbf w$!
+<strong><u>Problem:</u></strong> What if *“students opened their”* never occurred in data? Then we can’t calculate probability for *any* $\mathbf w$!  
 
-<strong><u>(Partial) Solution:</u></strong> Just condition on *“opened their”* instead. This is called *backoff*.
+<strong><u>(Partial) Solution:</u></strong> Just condition on *“opened their”* instead. This is called *backoff*.  
 
-<strong><u>Note:</u></strong> Increasing $n$ makes sparsity problems worse. Typically we can’t have $n$ bigger than 5.
+<strong><u>Note:</u></strong> Increasing $n$ makes sparsity problems worse. Typically we can’t have $n$ bigger than 5.  
 
 </details>
 
