@@ -21,134 +21,64 @@ The course is delivered at MIPT, HSE (Moscow), ITMO (Saint Petersburg), and IITU
   - [Bigram LM: Probabilities](#bigram-lm-probabilities)
   - [n-gram Language Models: Example](#n-gram-language-models-example)
   - [Sparsity Problems with n-gram Language Models](#sparsity-problems-with-n-gram-language-models)
-  - [Sparsity Problem 1](#sparsity-problem-1)
   - [Storage Problems with n-gram Language Models](#storage-problems-with-n-gram-language-models)
   - [n-gram Language Models in practice](#n-gram-language-models-in-practice)
-  - [Generating text with a n-gram Language Model](#generating-text-with-a-n-gram-language-model)
-  - [Generating text with a n-gram Language Model](#generating-text-with-a-n-gram-language-model-1)
-  - [Generating text with a n-gram Language Model](#generating-text-with-a-n-gram-language-model-2)
-  - [Generating text with a n-gram Language Model](#generating-text-with-a-n-gram-language-model-3)
-  - [Generating text with a n-gram Language Model](#generating-text-with-a-n-gram-language-model-4)
-  - [Content](#content)
+- [3 Language Models Based on Recurrent Neural Networks](#3-language-models-based-on-recurrent-neural-networks)
   - [How to build a neural Language Model?](#how-to-build-a-neural-language-model)
   - [A fixed-window neural Language Model](#a-fixed-window-neural-language-model)
-  - [A fixed-window neural Language Model](#a-fixed-window-neural-language-model-1)
-  - [Remaining problems:](#remaining-problems)
-  - [We need a neural architecture that can process any length input](#we-need-a-neural-architecture-that-can-process-any-length-input)
   - [Recurrent Neural Networks (RNN)](#recurrent-neural-networks-rnn)
-  - [A family of neural architectures](#a-family-of-neural-architectures)
-  - [Core idea:](#core-idea)
-  - [Apply the same weights W repeatedly](#apply-the-same-weights-w-repeatedly)
-  - [A Simple RNN Language Model](#a-simple-rnn-language-model)
-  - [RNN Language Models](#rnn-language-models)
-  - [Content](#content-1)
-  - [3 Language Models Based on Recurrent Neural Networks](#3-language-models-based-on-recurrent-neural-networks)
-  - [Content](#content-2)
-  - [3 Language Models Based on Recurrent Neural Networks](#3-language-models-based-on-recurrent-neural-networks-1)
+    - [A Simple RNN Language Model](#a-simple-rnn-language-model)
+    - [RNN Language Models](#rnn-language-models)
   - [Training an RNN Language Model](#training-an-rnn-language-model)
-  - [Training an RNN Language Model](#training-an-rnn-language-model-1)
-  - [Training an RNN Language Model](#training-an-rnn-language-model-2)
-  - [Training an RNN Language Model](#training-an-rnn-language-model-3)
-  - [Training an RNN Language Model](#training-an-rnn-language-model-4)
-  - [Training an RNN Language Model](#training-an-rnn-language-model-5)
-  - [Training a RNN Language Model](#training-a-rnn-language-model)
-  - [Backpropagation for RNNs](#backpropagation-for-rnns)
-  - [Multivariable Chain Rule](#multivariable-chain-rule)
-  - [Backpropagation for RNNs: Proof sketch](#backpropagation-for-rnns-proof-sketch)
-  - [Backpropagation for RNNs](#backpropagation-for-rnns-1)
-  - [Content](#content-3)
-  - [3 Language Models Based on Recurrent Neural Networks](#3-language-models-based-on-recurrent-neural-networks-2)
-  - [Generating text with a RNN Language Model](#generating-text-with-a-rnn-language-model)
-  - [Generating text with a RNN Language Model](#generating-text-with-a-rnn-language-model-1)
+    - [Backpropagation for RNNs](#backpropagation-for-rnns)
+    - [Multivariable Chain Rule](#multivariable-chain-rule)
+    - [Backpropagation for RNNs: Proof sketch](#backpropagation-for-rnns-proof-sketch)
+    - [Backpropagation for RNNs](#backpropagation-for-rnns-1)
+  - [Other applications of neural language models](#other-applications-of-neural-language-models)
+    - [Generating text with a RNN Language Model](#generating-text-with-a-rnn-language-model)
   - [Let’s have some fun!](#lets-have-some-fun)
-  - [Generating text with a RNN Language Model](#generating-text-with-a-rnn-language-model-2)
-  - [Let’s have some fun!](#lets-have-some-fun-1)
-  - [RNNs can be used for sentence classification](#rnns-can-be-used-for-sentence-classification)
-  - [e.g. sentiment classification](#eg-sentiment-classification)
-  - [RNNs can be used for sentence classification](#rnns-can-be-used-for-sentence-classification-1)
-  - [e.g. sentiment classification](#eg-sentiment-classification-1)
-  - [RNNs can be used for sentence classification](#rnns-can-be-used-for-sentence-classification-2)
-  - [e.g. sentiment classification](#eg-sentiment-classification-2)
-  - [RNNs can be used as an encoder module](#rnns-can-be-used-as-an-encoder-module)
-  - [e.g. question answering, machine translation, many other tasks!](#eg-question-answering-machine-translation-many-other-tasks)
-  - [Answer: German](#answer-german)
-  - [A note on terminology](#a-note-on-terminology)
-  - [Content](#content-4)
-  - [3 Language Models Based on Recurrent Neural Networks](#3-language-models-based-on-recurrent-neural-networks-3)
-  - [Evaluating Language Models](#evaluating-language-models)
+    - [RNNs can be used for sentence classification](#rnns-can-be-used-for-sentence-classification)
+    - [RNNs can be used as an encoder module](#rnns-can-be-used-as-an-encoder-module)
+    - [A note on terminology](#a-note-on-terminology)
+  - [Evaluation of language models](#evaluation-of-language-models)
+    - [Evaluating Language Models](#evaluating-language-models)
   - [RNNs have greatly improved perplexity](#rnns-have-greatly-improved-perplexity)
-  - [Content](#content-5)
-  - [3 Language Models Based on Recurrent Neural Networks](#3-language-models-based-on-recurrent-neural-networks-4)
-  - [Vanishing gradient intuition](#vanishing-gradient-intuition)
-  - [Vanishing gradient intuition](#vanishing-gradient-intuition-1)
-  - [Vanishing gradient intuition](#vanishing-gradient-intuition-2)
-  - [Vanishing gradient intuition](#vanishing-gradient-intuition-3)
-  - [Vanishing gradient intuition](#vanishing-gradient-intuition-4)
-  - [Vanishing gradient intuition](#vanishing-gradient-intuition-5)
-  - [Vanishing gradient proof sketch](#vanishing-gradient-proof-sketch)
-  - [Vanishing gradient proof sketch](#vanishing-gradient-proof-sketch-1)
-  - [Why is vanishing gradient a problem?](#why-is-vanishing-gradient-a-problem)
-  - [Why is vanishing gradient a problem?](#why-is-vanishing-gradient-a-problem-1)
-  - [Effect of vanishing gradient on RNN-LM](#effect-of-vanishing-gradient-on-rnn-lm)
-  - [How to fix vanishing gradient problem?](#how-to-fix-vanishing-gradient-problem)
-  - [Content](#content-6)
-  - [3 Language Models Based on Recurrent Neural Networks](#3-language-models-based-on-recurrent-neural-networks-5)
+  - [Vanishing gradient](#vanishing-gradient)
+    - [Vanishing gradient intuition](#vanishing-gradient-intuition)
+    - [Vanishing gradient proof sketch](#vanishing-gradient-proof-sketch)
+    - [Why is vanishing gradient a problem?](#why-is-vanishing-gradient-a-problem)
+    - [Effect of vanishing gradient on RNN-LM](#effect-of-vanishing-gradient-on-rnn-lm)
+    - [How to fix vanishing gradient problem?](#how-to-fix-vanishing-gradient-problem)
   - [Long Short Term Memory (LSTM)](#long-short-term-memory-lstm)
-  - [Long Short-Term Memory (LSTM)](#long-short-term-memory-lstm-1)
-  - [Long Short-Term Memory (LSTM)](#long-short-term-memory-lstm-2)
-  - [Long Short-Term Memory (LSTM)](#long-short-term-memory-lstm-3)
-  - [Long Short-Term Memory (LSTM)](#long-short-term-memory-lstm-4)
-  - [You can think of the LSTM equations visually like this:](#you-can-think-of-the-lstm-equations-visually-like-this)
-  - [How does LSTM solve vanishing gradients?](#how-does-lstm-solve-vanishing-gradients)
-  - [LSTMs: real-world success](#lstms-real-world-success)
-  - [Content](#content-7)
-  - [3 Language Models Based on Recurrent Neural Networks](#3-language-models-based-on-recurrent-neural-networks-6)
+    - [Long Short-Term Memory (LSTM)](#long-short-term-memory-lstm-1)
+    - [Long Short-Term Memory (LSTM)](#long-short-term-memory-lstm-2)
+    - [How does LSTM solve vanishing gradients?](#how-does-lstm-solve-vanishing-gradients)
+    - [LSTMs: real-world success](#lstms-real-world-success)
   - [Gated Recurrent Units (GRUs)](#gated-recurrent-units-grus)
-  - [Gated Recurrent Units (GRU)](#gated-recurrent-units-gru)
-  - [LSTM vs GRU](#lstm-vs-gru)
-  - [Content](#content-8)
-  - [3 Language Models Based on Recurrent Neural Networks](#3-language-models-based-on-recurrent-neural-networks-7)
+    - [LSTM vs GRU](#lstm-vs-gru)
   - [Exploding gradient](#exploding-gradient)
-  - [Why is exploding gradient a problem?](#why-is-exploding-gradient-a-problem)
-  - [Gradient clipping: solution for exploding gradient](#gradient-clipping-solution-for-exploding-gradient)
-  - [Algorithm: norm clipping](#algorithm-norm-clipping)
-  - [Gradient clipping: solution for exploding gradient](#gradient-clipping-solution-for-exploding-gradient-1)
-  - [Content](#content-9)
-  - [3 Language Models Based on Recurrent Neural Networks](#3-language-models-based-on-recurrent-neural-networks-8)
-  - [Is vanishing/exploding gradient just a RNN problem?](#is-vanishingexploding-gradient-just-a-rnn-problem)
-  - [For example:](#for-example)
-  - [Is vanishing/exploding gradient just a RNN problem?](#is-vanishingexploding-gradient-just-a-rnn-problem-1)
-  - [For example:](#for-example-1)
-  - [Is vanishing/exploding gradient just a RNN problem?](#is-vanishingexploding-gradient-just-a-rnn-problem-2)
-  - [For example: Highway connections aka “HighwayNet”](#for-example-highway-connections-aka-highwaynet)
-  - [Is vanishing/exploding gradient just a RNN problem?](#is-vanishingexploding-gradient-just-a-rnn-problem-3)
-  - [For example: Highway connections aka “HighwayNet”](#for-example-highway-connections-aka-highwaynet-1)
-  - [Conclusion: Though vanishing/exploding gradients are a general problem, RNNs are particularly unstable due to the repeated multiplication by the same weight matrix \[Bengio et al, 1994\]](#conclusion-though-vanishingexploding-gradients-are-a-general-problem-rnns-are-particularly-unstable-due-to-the-repeated-multiplication-by-the-same-weight-matrix-bengio-et-al-1994)
-  - [Content](#content-10)
-  - [3 Language Models Based on Recurrent Neural Networks](#3-language-models-based-on-recurrent-neural-networks-9)
-  - [Bidirectional RNNs: motivation](#bidirectional-rnns-motivation)
-  - [Task: Sentiment Classification](#task-sentiment-classification)
-  - [What about right context?](#what-about-right-context)
-  - [Bidirectional RNNs](#bidirectional-rnns)
-  - [Bidirectional RNNs](#bidirectional-rnns-1)
-  - [Bidirectional RNNs: simplified diagram](#bidirectional-rnns-simplified-diagram)
-  - [Bidirectional RNNs](#bidirectional-rnns-2)
+    - [Why is exploding gradient a problem?](#why-is-exploding-gradient-a-problem)
+    - [Gradient clipping: solution for exploding gradient](#gradient-clipping-solution-for-exploding-gradient)
+    - [Gradient clipping: solution for exploding gradient](#gradient-clipping-solution-for-exploding-gradient-1)
+  - [Vanishing and exploding gradient for other neural networks](#vanishing-and-exploding-gradient-for-other-neural-networks)
+    - [Is vanishing/exploding gradient just a RNN problem?](#is-vanishingexploding-gradient-just-a-rnn-problem)
+  - [Bi-directional RNNs and multi-layer RNNs](#bi-directional-rnns-and-multi-layer-rnns)
+    - [Bidirectional RNNs: motivation](#bidirectional-rnns-motivation)
+    - [Bidirectional RNNs](#bidirectional-rnns)
+    - [Bidirectional RNNs: simplified diagram](#bidirectional-rnns-simplified-diagram)
+    - [Bidirectional RNNs](#bidirectional-rnns-1)
   - [Multi-layer RNNs](#multi-layer-rnns)
-  - [Multi-layer RNNs](#multi-layer-rnns-1)
-  - [Multi-layer RNNs in practice](#multi-layer-rnns-in-practice)
-  - [Content](#content-11)
+    - [Multi-layer RNNs](#multi-layer-rnns-1)
+    - [Multi-layer RNNs in practice](#multi-layer-rnns-in-practice)
+- [4 Sequence Tagging](#4-sequence-tagging)
   - [Named Entity Recognition (NER)](#named-entity-recognition-ner)
   - [Named Entity Recognition (NER)](#named-entity-recognition-ner-1)
-  - [Named Entity Recognition (NER)](#named-entity-recognition-ner-2)
-  - [The uses:](#the-uses)
-  - [Concretely:](#concretely)
   - [Three approaches to NER](#three-approaches-to-ner)
   - [Hand-written Patterns for Information Extraction](#hand-written-patterns-for-information-extraction)
   - [The Named Entity Recognition Task](#the-named-entity-recognition-task)
   - [Encoding classes for sequence labeling](#encoding-classes-for-sequence-labeling)
   - [RNNs can be used for tagging](#rnns-can-be-used-for-tagging)
-  - [The ML sequence model approach to NER](#the-ml-sequence-model-approach-to-ner)
-  - [Content](#content-12)
+- [Content](#content)
 
 ---
 
@@ -294,35 +224,35 @@ $$
 
 - Idea: Collect statistics about how frequent different n-grams are, and use these to predict next word.
 
+---
+
 ### n-gram Language Models
 
 - First we make a Markov assumption: $\mathbf { X } ^ { ( t + 1 ) }$ depends only on the preceding $n - 1$ words.
 
 $$
-P \big (\mathbf {x} ^ {(t + 1)} \mid \mathbf {x} ^ {(t)}, \ldots , \mathbf {x} ^ {(1)} \big) = P \big (\mathbf {x} ^ {(t + 1)} \mid \overbrace {\mathbf {x} ^ {(t)} , \ldots , \mathbf {x} ^ {(t - n + 2)}} ^ {n - 1 \text {words}}\left. \right)
+
+\begin{split} 
+  P \big (\mathbf {x} ^ {(t + 1)} \mid \mathbf {x} ^ {(t)}, \ldots , \mathbf {x} ^ {(1)} \big) &= P \big (\mathbf {x} ^ {(t + 1)} \mid \overbrace {\mathbf {x} ^ {(t)} , \ldots , \mathbf {x} ^ {(t - n + 2)}} ^ {n - 1 \text {words}}\left. \right)\qquad\text{(assumption)}\\
+
+  \begin{split}
+    \text{prob of a n-gram}\longrightarrow\\
+    \text{prob of a (n-1)-gram}\longrightarrow
+  \end{split}
+   &= \frac{\boxed{P \big (\mathbf {x} ^ {(t + 1)}, \mathbf {x} ^ {(t)}, \dots , \mathbf {x} ^ {(t - n + 2)} \big)}}{\boxed{P \big (\mathbf {x} ^ {(t)} , \dots , \mathbf {x} ^ {(t - n + 2)} \big)}}\qquad\text{(definition of conditional prob)}
+\end{split}
 $$
 
-(assumption)
+- <strong><u>Question:</u></strong> How do we get these n-gram and (n-1)-gram probabilities?
 
-prob of a n-gram
-
-prob of a (n-1)-gram
-
-$$
-\begin{array}{l} \longrightarrow P \big (\mathbf {x} ^ {(t + 1)}, \mathbf {x} ^ {(t)}, \dots , \mathbf {x} ^ {(t - n + 2)} \big) \\ = \overbrace {\longrightarrow P \big (\mathbf {x} ^ {(t)} , \dots , \mathbf {x} ^ {(t - n + 2)} \big)} \end{array}
-$$
-
-(definition of conditional prob)
-
-<strong><u>Question:</u></strong> How do we get these n-gram and (n-1)-gram probabilities?
-
-<strong><u>Answer:</u></strong> By counting them in some large corpus of text!
+- <strong><u>Answer:</u></strong> By counting them in some large corpus of text!
 
 $$
 \approx \frac {\operatorname{count} \left(\mathbf {x} ^ {(t + 1)} , \mathbf {x} ^ {(t)} , \dots , \mathbf {x} ^ {(t - n + 2)}\right)}{\operatorname{count} \left(\mathbf {x} ^ {(t)} , \dots , \mathbf {x} ^ {(t - n + 2)}\right)}
+\qquad \text{(statistical approximation)}
 $$
 
-(statistical approximation)
+---
 
 ### Bigram LM: Parameters
 
@@ -337,9 +267,11 @@ $$
 | lunch | 2 | 0 | 0 | 0 | 0 | 1 | 0 | 0 |
 | spend | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 0 |
 
+---
+
 ### Bigram LM: Probabilities
 
-Normalize by unigrams:
+- Normalize by unigrams:
 
 $$
 P (w _ {n} \mid w _ {n - 1}) = \frac {C (w _ {n - 1} w _ {n})}{C (w _ {n - 1})}
@@ -357,15 +289,15 @@ $$
 | lunch | .0059 | 0 | 0 | 0 | 0 | .0029 | 0 | 0 |
 | spend | .0036 | 0 | .0036 | 0 | 0 | 0 | 0 | 0 |
 
+---
+
 ### n-gram Language Models: Example
 
 Suppose we are learning a 4-gram Language Model.
 
-as the e clock, the students opened their
-
-discard
-
-condition on this
+$$
+\underset{\text{discard}}{\sout{\text{as the proctor started the clock}}}\text{, }\underbrace{\text{the students opened their}}_{\text{condition on this}}\ \underline{\qquad} \\
+$$
 
 $$
 P (\mathbf {w} \mid \text {students opened their}) = \frac {\text {count(students opened their } \mathbf {w})}{\text {count(students opened their)}}
@@ -373,363 +305,290 @@ $$
 
 <u>For example, suppose that in the corpus:</u>
 
-“students opened their” occurred 1000 times
+- “students opened their” occurred 1000 times
 
-“students opened their books” occurred 400 times
+- “students opened their books” occurred 400 times
 
-→ P(books | students opened their) = 0.4
+  - → $P(\text{books} | \text{students opened their}) = 0.4$
 
-Should we have discarded the “proctor” context?
+- “students opened their exams” occurred 100 times
 
-“students opened their exams” occurred 100 times
+  - → $P(\text{exams} | \text{students opened their}) = 0.1$
 
-→ P(exams | students opened their) = 0.1
+> Should we have discarded the “proctor” context?
+
+---
 
 ### Sparsity Problems with n-gram Language Models
 
-### Sparsity Problem 1
-
-<strong><u>Problem:</u></strong> What if “students opened their w” never occurred in data? Then w has probability 0!
-
 ![](images/page_18_image_5.jpg)
 
-P(w | students opened their)
+<details>
 
-<u>count(students opened their w)</u>
+**Sparsity Problem 1**
 
-<u>count(students opened their)</u>
+<strong><u>Problem:</u></strong> What if “students opened their $\mathbf w$” never occurred in data? Then $\mathbf w$ has probability 0!
 
-<u>Sparsity Problem 2</u>
+<strong><u>(Partial) Solution:</u></strong> Add small $\delta$ to the count for every $\mathbf w \in V$. This is called *smoothing*.
 
-<strong><u>Problem:</u></strong> What if “students opened their” never occurred in data? Then we can’t calculate probability for any w!
+$$
+P(\mathbf {w} | \text{students opened their})=\dfrac{\text{count}(\text{students opened their }\mathbf{w})}{\text{count}(\text{students opened their})}
+$$
 
-<strong><u>(Partial) Solution:</u></strong> Just condition on “opened their” <u>instead. This is called backoff.</u>
+**Sparsity Problem 2**
 
-<strong><u>Note:</u></strong> Increasing n makes sparsity problems worse. Typically we can’t have n bigger than 5.
+<strong><u>Problem:</u></strong> What if *“students opened their”* never occurred in data? Then we can’t calculate probability for *any* $\mathbf w$!
+
+<strong><u>(Partial) Solution:</u></strong> Just condition on *“opened their”* instead. This is called *backoff*.</u>
+
+<strong><u>Note:</u></strong> Increasing $n$ makes sparsity problems worse. Typically we can’t have $n$ bigger than 5.
+
+</details>
+
+---
 
 ### Storage Problems with n-gram Language Models
 
-<strong><u>Storage:</u></strong> Need to store count for all n-grams you saw in the corpus.
-
 ![](images/page_19_image_4.jpg)
 
-P(w | students opened their)
+<details>
 
-<u>count(students opened their w)</u>
+<strong><u>Storage:</u></strong> Need to store count for all n-grams you saw in the corpus.
 
-count(students opened their)
+$$
+P(\mathbf{w} | \text{students opened their})=\dfrac{\text{count(students opened their }\mathbf{w})}{\text{count(students opened their)}}
+$$
 
-Increasing n or increasing corpus increases model size!
+Increasing $n$ or increasing corpus increases model size!
+
+</details>
+
+---
 
 ### n-gram Language Models in practice
 
-You can build a simple trigram Language Model over a 1.7 million word corpus (Reuters) in a few seconds on your laptop
-
-today the
+- You can build a simple trigram Language Model over a 1.7 million word corpus (Reuters) in a few seconds on your laptop
 
 ![](images/page_20_image_5.jpg)
 
-Otherwise, seems reasonable!
+> Try for yourself: [nlpforhackers.io/language-models](https://nlpforhackers.io/language-models/)
 
-Try for yourself: [nlpforhackers.io/language-models](https://nlpforhackers.io/language-models/)
+---
 
-### Generating text with a n-gram Language Model
-
-You can also use a Language Model to generate text.
+You can also use a Language Model to **generate text**.
 
 ![](images/page_21_image_4.jpg)
 
-### Generating text with a n-gram Language Model
+---
 
-You can also use a Language Model to generate text.
 
 ![](images/page_22_image_4.jpg)
 
-### Generating text with a n-gram Language Model
-
-You can also use a Language Model to generate text.
-
-today the price of
+---
 
 ![](images/page_23_image_5.jpg)
 
-### Generating text with a n-gram Language Model
+---
 
-You can also use a Language Model to generate text.
+> today the price of gold per ton , while production of shoe lasts and shoe industry , the bank intervened just after it considered and rejected an imf demand to rebuild depleted european stocks , sept 30 end primary 76 cts a share .
 
-today the price of gold
+- Surprisingly grammatical! . . . but incoherent. We need to consider more than three words at a time if we want to model language well.
 
-### Generating text with a n-gram Language Model
+- But increasing n worsens sparsity problem, and increases model size...
 
-You can also use a Language Model to generate text.
+---
 
-today the price of gold per ton , while production of shoe lasts and shoe industry , the bank intervened just after it considered and rejected an imf demand to rebuild depleted european stocks , sept 30 end primary 76 cts a share .
+## 3 Language Models Based on Recurrent Neural Networks
 
-Surprisingly grammatical! . . . but incoherent. We need to consider more than three words at a time if we want to model language well.
+- Recurrent Neural Networks (RNNs)
 
-But increasing n worsens sparsity problem, and increases model size. . .
+- Training a neural language model
 
-### Content
+- Other applications of neural language models
 
-![](images/page_26_image_3.jpg)
+- Evaluation of language models
 
-Language Models (LMs)
+- Vanishing gradient
 
-![](images/page_26_image_5.jpg)
+- Long Short Term Memory (LSTM)
 
-N-gram Language Models
+- Gated Recurrent Units (GRUs)
 
-![](images/page_26_image_7.jpg)
+- Exploding gradient
 
-Language Models Based on Recurrent Neural Networks
+- Vanishing and exploding gradient for other neural networks
 
-![](images/page_26_image_9.jpg)
-
-Sequence Tagging
+- Bi-directional RNNs and multi-layer RNNs
 
 ### How to build a neural Language Model?
 
-Recall the Language Modeling task:
+- Recall the Language Modeling task:
 
-Input: sequence of words $\mathbf { x } ^ { ( 1 ) } , \mathbf { x } ^ { ( 2 ) } , \ldots , \mathbf { x } ^ { ( t ) }$
+  - Input: sequence of words $\mathbf { x } ^ { ( 1 ) } , \mathbf { x } ^ { ( 2 ) } , \ldots , \mathbf { x } ^ { ( t ) }$  
+  - Output: prob dist of the next word $P ( { \mathbf x } ^ { ( t + 1 ) } \mid { \mathbf x } ^ { ( t ) } , \ldots , { \mathbf x } ^ { ( 1 ) } )$
 
-Output: prob dist of the next word $P ( { \mathbf x } ^ { ( t + 1 ) } \mid { \mathbf x } ^ { ( t ) } , \ldots , { \mathbf x } ^ { ( 1 ) } )$
-
-How about a window-based neural model? Predict the next word from a fixed window of the last words:
-
-as the proctor started the clock discard
+- How about a window-based neural model? Predict the next word from a fixed window of the last words:
 
 ![](images/page_27_image_8.jpg)
 
+---
+
 ### A fixed-window neural Language Model
 
-$$
-\begin{array}{l} \text {output distribution} \\ \hat {\mathbf {y}} = \operatorname{softmax} (\mathbf {U h} + \mathbf {b} _ {2}) \in \mathbb {R} ^ {| V |} \end{array}
-$$
+![](images/page_28_image_7.jpg)
 
-hidden layer h = f(**W e** + b<sub>1</sub>)
+<details>
+
+output distribution $\hat {\mathbf {y}} = \operatorname{softmax} (\mathbf {U h} + \mathbf {b} _ {2}) \in \mathbb {R} ^ {\lvert V \rvert}$
+
+hidden layer $\mathbf {h} = f(\mathbf{W e} + \mathbf{b}_ {1})$
 
 concatenated word embeddings $\mathbf { e } = [ \mathbf { e } ^ { ( 1 ) } ; \mathbf { e } ^ { ( 2 ) } ; \mathbf { e } ^ { ( 3 ) } ; \mathbf { e } ^ { ( 4 ) } ]$
 
 words / one-hot vectors $\mathbf { x } ^ { ( 1 ) } , \mathbf { x } ^ { ( 2 ) } , \mathbf { x } ^ { ( 3 ) } , \mathbf { x } ^ { ( 4 ) }$
 
-![](images/page_28_image_7.jpg)
+</details>
 
-A figure from Christopher Manning, Natural Language Processing with Deep Learning, Stanford U. CS224n
+> A figure from Christopher Manning, Natural Language Processing with Deep Learning, Stanford U. CS224n
 
-### A fixed-window neural Language Model
+---
 
 Approximately: Y. Bengio, et al. (2000/2003): A Neural Probabilistic Language Model
 
 **Improvements** over n-gram LM:
 
-No sparsity problem
+- No sparsity problem  
+- Don’t need to store all observed n-grams
 
-Don’t need to store all observed n-grams
+Remaining **problems**:
 
-### Remaining problems:
+- Fixed window is too small  
+- Enlarging window enlarges W  
+- Window can never be large enough!  
+- $\mathbf { X } ^ { ( 1 ) }$ and $\mathbf { X } ^ { ( 2 ) }$ are multiplied by completely different weights in W. No symmetry in how the inputs are processed.
 
-Fixed window is too small
+**We need a neural architecture that can process any length input**
 
-Enlarging window enlarges W
+> A figure from Christopher Manning, Natural Language Processing with Deep Learning, Stanford U. CS224n
 
-Window can never be large enough!
-
-$\mathbf { X } ^ { ( 1 ) }$ and $\mathbf { X } ^ { ( 2 ) }$ are multiplied by completely different weights in W. No symmetry in how the inputs are processed.
-
-### We need a neural architecture that can process any length input
-
-![](images/page_29_image_13.jpg)
-
-A figure from Christopher Manning, Natural Language Processing with Deep Learning, Stanford U. CS224n
+---
 
 ### Recurrent Neural Networks (RNN)
 
-### A family of neural architectures
+A family of neural architectures
 
-outputs (optional)
+Core idea:
 
-hidden states
-
-input sequence (any length)
-
-### Core idea:
-
-### Apply the same weights W repeatedly
+Apply the same weights $\mathbf{W}$ repeatedly
 
 ![](images/page_30_image_9.jpg)
 
-A figure from Christopher Manning, Natural Language Processing with Deep Learning, Stanford U. CS224n
+> A figure from Christopher Manning, Natural Language Processing with Deep Learning, Stanford U. CS224n
 
-$\hat { y } ^ { ( 4 ) } = P ( \mathbf { x } ^ { ( 5 ) }$ the students opened their)
+---
 
-### A Simple RNN Language Model
-
-output distribution
-
-$$
-\hat {\mathbf {y}} ^ {(t)} = \operatorname{softmax} \left(\mathbf {U} \mathbf {h} ^ {(t)} + \mathbf {b} _ {2}\right) \in \mathbb {R} ^ {| V |}
-$$
-
-hidden states
-
-$$
-\mathbf {h} ^ {(t)} = \sigma \left(\mathbf {W} _ {h} \mathbf {h} ^ {(t - 1)} + \mathbf {W} _ {e} \mathbf {e} ^ {(t)} + \mathbf {b} _ {1}\right)
-$$
-
-$h ^ { ( 0 ) }$ is the initial hidden state
-
-word embeddings
-
-$$
-\mathbf {e} ^ {(t)} = \mathbf {E} \mathbf {x} ^ {(t)}
-$$
-
-words / one-hot vectors
-
-$$
-\mathbf {x} ^ {(t)} \in \mathbb {R} ^ {| V |}
-$$
-
-<u>Note</u>: this input sequence could be much
-
-longer, but this slide doesn’t have space!
+#### A Simple RNN Language Model
 
 ![](images/page_31_image_15.jpg)
 
-A figure from Christopher Manning, Natural Language Processing with Deep Learning, Stanford U. CS224n
+<details>
 
-### RNN Language Models
+$\hat { y } ^ { ( 4 ) } = P ( \mathbf { x } ^ { ( 5 ) }\lvert \text{the students opened their})$
+
+output distribution $\hat {\mathbf {y}} ^ {(t)} = \operatorname{softmax} \left(\mathbf {U} \mathbf {h} ^ {(t)} + \mathbf {b} _ {2}\right) \in \mathbb {R} ^ {| V |}$
+
+hidden states  
+$\mathbf {h} ^ {(t)} = \sigma \left(\mathbf {W} _ {h} \mathbf {h} ^ {(t - 1)} + \mathbf {W} _ {e} \mathbf {e} ^ {(t)} + \mathbf {b} _ {1}\right)$  
+$h ^ { ( 0 ) }$ is the initial hidden state
+
+word embeddings $\mathbf {e} ^ {(t)} = \mathbf {E} \mathbf {x} ^ {(t)}$
+
+words / one-hot vectors $\mathbf {x} ^ {(t)} \in \mathbb {R} ^ {| V |}$
+
+<u>Note</u>: this input sequence could be much longer, but this slide doesn’t have space!
+
+</details>
+
+> A figure from Christopher Manning, Natural Language Processing with Deep Learning, Stanford U. CS224n
+
+---
+
+#### RNN Language Models
 
 | Advantages | Disadvantages |
 | --- | --- |
-| ✓ Can process any length | × Recurrent computation is |
-| input | slow |
-| ✓ Computation for step t can | × In practice, difficult to |
-| (in theory) use information | access information from |
-| from many steps back | many steps back |
-| ✓ Model size doesn't |  |
-| increase for longer input |  |
-| ✓ Same weights applied on |  |
-| every timestep, so there is |  |
-| symmetry in how inputs are |  |
-| processed |  |
+| ✓ Can process any length input | × Recurrent computation is slow |
+| ✓ Computation for step t can (in theory) use information from many steps back |  In practice, difficult to access information from many steps back |
+| ✓ Model size doesn’t increase for longer input |  |
+| ✓ Same weights applied on every timestep, so there is symmetry in how inputs are processed |  |
 
 (More on these later in the course)
 
-### Content
-
-![](images/page_33_image_4.jpg)
-
-### 3 Language Models Based on Recurrent Neural Networks
-
-Recurrent Neural Networks (RNNs)
-
-Training a neural language model
-
-Other applications of neural language models
-
-Evaluation of language models
-
-Vanishing gradient
-
-Long Short Term Memory (LSTM)
-
-Gated Recurrent Units (GRUs)
-
-Exploding gradient
-
-Vanishing and exploding gradient for other neural networks
-
-Bi-directional RNNs and multi-layer RNNs
-
-### Content
-
-![](images/page_34_image_4.jpg)
-
-### 3 Language Models Based on Recurrent Neural Networks
-
-Recurrent Neural Networks (RNNs)
-
-Training a neural language model
-
-Other applications of neural language models
-
-Evaluation of language models
-
-Vanishing gradient
-
-Long Short Term Memory (LSTM)
-
-Gated Recurrent Units (GRUs)
-
-Exploding gradient
-
-Vanishing and exploding gradient for other neural networks
-
-Bi-directional RNNs and multi-layer RNNs
+---
 
 ### Training an RNN Language Model
 
-Get a big corpus of text which is a sequence of words $\mathbf { x } ^ { ( 1 ) } , \ldots , \mathbf { x } ^ { ( T ) }$
+- Get a *big corpus of text* which is a sequence of words $\mathbf { x } ^ { ( 1 ) } , \ldots , \mathbf { x } ^ { ( T ) }$
 
-Feed into RNN-LM; compute output distribution $\hat { y } ^ { ( t ) }$ for every step t
+- Feed into RNN-LM; compute output distribution $\hat { y } ^ { ( t ) }$ *for every step* $t$
 
-i.e. predict probability dist of every word, given words so far
+  - i.e. predict probability dist of every word, given words so far
 
-Loss function on step t is cross-entropy between predicted probability distribution $\hat { y } ^ { ( t ) }$ , and the true next word $y ^ { ( t ) }$ (one-hot for $\dot { x } ^ { ( t + 1 ) } )$
+- *Loss function* on step $t$ is *cross-entropy* between predicted probability distribution $\hat { y } ^ { ( t ) }$ , and the true next word $y ^ { ( t ) }$ (one-hot for $\dot { x } ^ { ( t + 1 ) } )$
 
 $$
 J ^ {(t)} (\theta) = C E \big (y ^ {(t)}, \hat {y} ^ {(t)} \big) = - \sum_ {w \in V} y _ {w} ^ {(t)} \log \hat {y} _ {w} ^ {(t)} = - \log \hat {y} _ {x _ {t + 1}} ^ {(t)}
 $$
 
-Average this to get overall loss for entire training set:
+- Average this to get *overall loss* for entire training set:
 
 $$
 J (\theta) = \frac {1}{T} \sum_ {t = 1} ^ {T} J ^ {(t)} (\theta) = \frac {1}{T} \sum_ {t = 1} ^ {T} - \log \hat {y} _ {x _ {t + 1}} ^ {(t)}
 $$
 
-### Training an RNN Language Model
+---
 
 ![](images/page_36_image_4.jpg)
 
 A figure from Christopher Manning, Natural Language Processing with Deep Learning, Stanford U. CS224n
 
-### Training an RNN Language Model
+---
 
 ![](images/page_37_image_4.jpg)
 
-A figure from Christopher Manning, Natural Language Processing with Deep Learning, Stanford U. CS224n
+> A figure from Christopher Manning, Natural Language Processing with Deep Learning, Stanford U. CS224n
 
-### Training an RNN Language Model
+---
 
 ![](images/page_38_image_4.jpg)
 
-A figure from Christopher Manning, Natural Language Processing with Deep Learning, Stanford U. CS224n
+> A figure from Christopher Manning, Natural Language Processing with Deep Learning, Stanford U. CS224n
 
-### Training an RNN Language Model
+---
 
 ![](images/page_39_image_4.jpg)
 
-A figure from Christopher Manning, Natural Language Processing with Deep Learning, Stanford U. CS224n
+> A figure from Christopher Manning, Natural Language Processing with Deep Learning, Stanford U. CS224n
 
-### Training an RNN Language Model
+---
 
 ![](images/page_40_image_4.jpg)
 
-A figure from Christopher Manning, Natural Language Processing with Deep Learning, Stanford U. CS224n
+> A figure from Christopher Manning, Natural Language Processing with Deep Learning, Stanford U. CS224n
 
-### Training a RNN Language Model
+---
 
-However: Computing loss and gradients across entire corpus is too expensive!
+- However: Computing loss and gradients across *entire corpus* is *too expensive*!
 
-In practice, consider $X ^ { ( t ) }$ as a sentence (or a document)
+- In practice, consider $X ^ { ( t ) }$ as a *sentence* (or a document)
 
-Recall: Stochastic Gradient Descent allows us to compute loss and gradients for small chunk of data, and update
+- Recall: *Stochastic Gradient Descent* allows us to compute loss and gradients for small chunk of data, and update
 
-Compute loss $J ^ { ( t ) }$ for a sentence (actually a batch of sentences), compute gradients and update weights. Repeat.
+- Compute loss $J ^ { ( t ) }$ for a sentence (actually a batch of sentences), compute gradients and update weights. Repeat.
 
-### Backpropagation for RNNs
+---
+
+#### Backpropagation for RNNs
 
 ![](images/page_42_image_4.jpg)
 
@@ -739,39 +598,35 @@ Compute loss $J ^ { ( t ) }$ for a sentence (actually a batch of sentences), com
 
 **Why?**
 
-A figure from Christopher Manning, Natural Language Processing with Deep Learning, Stanford U. CS224n
+> A figure from Christopher Manning, Natural Language Processing with Deep Learning, Stanford U. CS224n
 
-### Multivariable Chain Rule
+---
 
-Given a multivariable function $f ( x , y )$ , and two single variable functions $x ( t )$ and $y ( t )$ , here’s what the multivariable chain rule says:
+#### Multivariable Chain Rule
 
-$$
-\underbrace {\frac {d}{d t} f (x (t) , y (t))}
-$$
+- Given a multivariable function $f ( x , y )$ , and two single variable functions $x ( t )$ and $y ( t )$ , here’s what the multivariable chain rule says:
 
 $$
+\underbrace {\frac {d}{d t} f (x (t) , y (t))}_\text {Derivative of composition function}
 = \frac {\partial f}{\partial x} \frac {d x}{d t} + \frac {\partial f}{\partial y} \frac {d y}{d t}
 $$
 
-Derivative of composition function
+
 
 ![](images/page_43_image_8.jpg)
 
-<strong><u>Source:</u></strong> [Khan Academy: Multivariable chain rule, simple version](https://www.khanacademy.org/math/multivariable-calculus/multivariable-derivatives/differentiating-vector-valued-functions/a/multivariable-chain-rule-simple-version)
+> Source: [Khan Academy: Multivariable chain rule, simple version](https://www.khanacademy.org/math/multivariable-calculus/multivariable-derivatives/differentiating-vector-valued-functions/a/multivariable-chain-rule-simple-version)
 
-### Backpropagation for RNNs: Proof sketch
+---
 
-Given a multivariable function $f ( x , y )$ , and two single variable functions $x ( t )$ and $y ( t )$ , here’s what the multivariable chain rule says:
+#### Backpropagation for RNNs: Proof sketch
 
-$$
-\underbrace {\frac {d}{d t} f (x (t) , y (t))}
-$$
+- Given a multivariable function $f ( x , y )$ , and two single variable functions $x ( t )$ and $y ( t )$ , here’s what the multivariable chain rule says:
 
 $$
+\underbrace {\frac {d}{d t} f (x (t) , y (t))}_\text {Derivative of composition function}
 = \frac {\partial f}{\partial x} \frac {d x}{d t} + \frac {\partial f}{\partial y} \frac {d y}{d t}
 $$
-
-Derivative of composition function
 
 <u>In our example:</u>
 
@@ -780,82 +635,68 @@ Derivative of composition function
 <u>Apply the multivariable chain rule:</u>
 
 $$
-\begin{array}{c} \frac {\partial \mathbf {J} ^ {(t)}}{\partial \mathbf {W} _ {h}} = \sum_ {i = 1} ^ {t} \left. \frac {\partial \mathbf {J} ^ {(t)}}{\partial \mathbf {W} _ {h}} \right| _ {(i)} \boxed {\frac {\partial \mathbf {W} _ {h} | _ {(i)}}{\partial \mathbf {W} _ {h}}} \\ = \sum_ {i = 1} ^ {t} \left. \frac {\partial \mathbf {J} ^ {(t)}}{\partial \mathbf {W} _ {h}} \right| _ {(i)} \end{array} \tag {1}
+
+\begin{split} 
+  \frac {\partial J ^ {(t)}}{\partial \mathbf {W} _ {h}} = \sum_ {i = 1} ^ {t} \left. \frac {\partial J ^ {(t)}}{\partial \mathbf {W} _ {h}} \right| _ {(i)} \overset{=1}{\boxed {\frac {\partial \mathbf {W} _ {h} | _ {(i)}}{\partial \mathbf {W} _ {h}}}} \\ 
+  = \sum_ {i = 1} ^ {t} \left. \frac {\partial J ^ {(t)}}{\partial \mathbf {W} _ {h}} \right| _ {(i)} \end{split}
 $$
 
 <strong><u>Source:</u></strong> [Khan Academy: Multivariable chain rule, simple version](https://www.khanacademy.org/math/multivariable-calculus/multivariable-derivatives/differentiating-vector-valued-functions/a/multivariable-chain-rule-simple-version)
 
-### Backpropagation for RNNs
+---
+
+#### Backpropagation for RNNs
 
 ![](images/page_45_image_4.jpg)
 
-![](images/page_45_image_5.jpg)
+
 
 <strong><u>Question:</u></strong> How do we calculate this?
 
-<strong><u>Answer:</u></strong> Backpropagate over timesteps i = t, . . . , 0, summing gradients as you go. This algorithm is called **“backpropagation through time”** [Werbos, P.G., 1988, Neural Networks 1, and others]
+$$
+\qquad\qquad\downarrow\\
+\frac {\partial J ^ {(t)}}{\partial \mathbf {W} _ {h}} = \boxed{\sum_ {i = 1} ^ {t} \left. \frac {\partial J ^ {(t)}}{\partial \mathbf {W} _ {h}} \right| _ {(i)}}\\
+$$
 
-A figure from Christopher Manning, Natural Language Processing with Deep Learning, Stanford U. CS224n
+<strong><u>Answer:</u></strong> Backpropagate over timesteps $i = t, . . . , 0$, summing gradients as you go. This algorithm is called **“backpropagation through time”** [Werbos, P.G., 1988, Neural Networks 1, and others]
 
-### Content
+> A figure from Christopher Manning, Natural Language Processing with Deep Learning, Stanford U. CS224n
 
-![](images/page_46_image_4.jpg)
+---
 
-### 3 Language Models Based on Recurrent Neural Networks
+### Other applications of neural language models
 
-Recurrent Neural Networks (RNNs)
-
-Training a neural language model
-
-Other applications of neural language models
-
-Evaluation of language models
-
-Vanishing gradient
-
-Long Short Term Memory (LSTM)
-
-Gated Recurrent Units (GRUs)
-
-Exploding gradient
-
-Vanishing and exploding gradient for other neural networks
-
-Bi-directional RNNs and multi-layer RNNs
-
-### Generating text with a RNN Language Model
+#### Generating text with a RNN Language Model
 
 Just like a n-gram Language Model, you can use a RNN Language Model to generate text by repeated sampling. Sampled output is next step’s input.
 
 ![](images/page_47_image_5.jpg)
 
-A figure from Christopher Manning, Natural Language Processing with Deep Learning, Stanford U. CS224n
+> A figure from Christopher Manning, Natural Language Processing with Deep Learning, Stanford U. CS224n
 
-### Generating text with a RNN Language Model
+---
 
-### Let’s have some fun!
+Let’s have some fun!
 
-You can train a RNN-LM on any kind of text, then generate text in that style.
+- You can train a RNN-LM on any kind of text, then generate text in that style.
 
-RNN-LM trained on Harry Potter:
+- RNN-LM trained on *Harry Potter*:
 
 ![](images/page_48_image_7.jpg)
 
-“Sorry,” Harry shouted, panicking—“I’ll leave those brooms in London, are they?”
+> “Sorry,” Harry shouted, panicking—“I’ll leave those brooms in London, are they?”
+> 
+> “No idea,” said Nearly Headless Nick, casting low close by Cedric, carrying the last bit of treacle Charms, from Harry’s shoulder, and to answer him the common room perched upon it, four arms held a shining knob from when the spider hadn’t felt it seemed. He reached the teams too.
 
-“No idea,” said Nearly Headless Nick, casting low close by Cedric, carrying the last bit of treacle Charms, from Harry’s shoulder, and to answer him the common room perched upon it, four arms held a shining knob from when the spider hadn’t felt it seemed. He reached the teams too.
+<strong><u>Source:</u></strong> [medium.com/deep-writing/harry-potter-written-by-artificial-intelligence](https://medium.com/deep-writing/harry-potter-written-by-artificial-intelligence-8a9431803da6)
 
-Source: [medium.com/deep-writing/harry-potter-written-by-artificial-intelligence](https://medium.com/deep-writing/harry-potter-written-by-artificial-intelligence-8a9431803da6)
-
-### Generating text with a RNN Language Model
+---
 
 ### Let’s have some fun!
 
-You can train a RNN-LM on any kind of text, then generate text in that style.
+- RNN-LM trained on recipes:
 
-RNN-LM trained on recipes:
-
-```txt
+```text
 Title: CHOCOLATE RANCH BARBECUE
 Categories: Game, Casseroles, Cookies, Cookies
 Yield: 6 Servings
@@ -863,439 +704,353 @@ Yield: 6 Servings
 2 tb Parmesan cheese -- chopped
 1 c Coconut milk
 3 Eggs, beaten
-```
-
-![](images/page_49_image_8.jpg)
 
 Place each pasta over layers of lumps. Shape mixture into the moderate oven and simmer until firm. Serve hot in bodied fresh, mustard, orange and cheese.
 
 Combine the cheese and salt together the dough in a large skillet; add the ingredients and stir in the chocolate and pepper.
+```
 
-Source: [gist.github.com/nylki/1efbaa36635956d35bcc](https://gist.github.com/nylki/1efbaa36635956d35bcc)
+![](images/page_49_image_8.jpg)
 
-### RNNs can be used for sentence classification
+<strong><u>Source:</u></strong> [gist.github.com/nylki/1efbaa36635956d35bcc](https://gist.github.com/nylki/1efbaa36635956d35bcc)
 
-### e.g. sentiment classification
+---
 
-positive
+#### RNNs can be used for sentence classification
 
-![](images/page_50_image_6.jpg)
+e.g. <u>sentiment classification</u>
 
 How to compute sentence encoding?
 
-Sentence encoding
+![](images/page_50_image_6.jpg)
 
-![](images/page_50_image_9.jpg)
+> A figure from Christopher Manning, Natural Language Processing with Deep Learning, Stanford U. CS224n
 
-overall
-
-![](images/page_50_image_11.jpg)
-
-1
-
-![](images/page_50_image_13.jpg)
-
-enjoyed
-
-![](images/page_50_image_15.jpg)
-
-the
-
-![](images/page_50_image_17.jpg)
-
-movie
-
-![](images/page_50_image_19.jpg)
-
-a
-
-![](images/page_50_image_21.jpg)
-
-lot
-
-A figure from Christopher Manning, Natural Language Processing with Deep Learning, Stanford U. CS224n
-
-a
-
-### RNNs can be used for sentence classification
-
-### e.g. sentiment classification
-
-A figure from Christopher Manning, Natural Language Processing with Deep Learning, Stanford U. CS224n
-
-![](images/page_51_image_7.jpg)
+---
 
 How to compute sentence encoding?
 
 <u>Basic way:</u> Use final hidden state
 
-overall
+![](images/page_51_image_7.jpg)
 
-1
+> A figure from Christopher Manning, Natural Language Processing with Deep Learning, Stanford U. CS224n
 
-enjoyed
+---
 
-the
+How to compute sentence encoding?
 
-movie
-
-lot
-
-### RNNs can be used for sentence classification
-
-### e.g. sentiment classification
+<u>Usually better:</u> Take element-wise max or mean of all hidden states
 
 ![](images/page_52_image_5.jpg)
 
-overall
+> A figure from Christopher Manning, Natural Language Processing with Deep Learning, Stanford U. CS224n
 
-enjoyed
+---
 
-the
+#### RNNs can be used as an encoder module
 
-movie
-
-A figure from Christopher Manning, Natural Language Processing with Deep Learning, Stanford U. CS224n
-
-### RNNs can be used as an encoder module
-
-### e.g. question answering, machine translation, many other tasks!
+e.g. question answering, machine translation, many other tasks!
 
 Here the RNN acts as an **encoder** for the Question (the hidden states represent the Question). The encoder is part of a larger neural system.
 
+<strong><u>Question:</u></strong> what nationality was Beethoven?
+
+<strong><u>Context:</u></strong> Ludwig van Beethoven was a German composer and pianist. A crucial figure ...
+
+<strong><u>Answer:</u></strong> German
+
 ![](images/page_53_image_6.jpg)
 
-### Answer: German
+> A figure from Christopher Manning, Natural Language Processing with Deep Learning, Stanford U. CS224n 
 
-Context: Ludwig van Beethoven was a German composer and pianist. A crucial figure ...
+---
 
-Question: what
+#### A note on terminology
 
-nationality
+- The RNN described in this lecture = *simple/vanilla/Elman RNN*
 
-was
+- Next lecture: You will learn about other RNN flavors like **GRU** and **LSTM** and multi-layer RNNs
 
-Beethoven
+- By the end of the course: You will understand phrases like *“stacked bidirectional LSTM with residual connections and self-attention”*
 
-A figure from Christopher Manning, Natural Language Processing with Deep Learning, Stanford U. CS224n
+---
 
-### A note on terminology
+### Evaluation of language models
 
-The RNN described in this lecture = simple/vanilla/Elman RNN
+#### Evaluating Language Models
 
-Next lecture: You will learn about other RNN flavors like **GRU** and **LSTM** and multi-layer RNNs
-
-By the end of the course: You will understand phrases like “stacked bidirectional LSTM with residual connections and self-attention”
-
-### Content
-
-![](images/page_55_image_4.jpg)
-
-### 3 Language Models Based on Recurrent Neural Networks
-
-Recurrent Neural Networks (RNNs)
-
-Training a neural language model
-
-Other applications of neural language models
-
-Evaluation of language models
-
-Vanishing gradient
-
-Long Short Term Memory (LSTM)
-
-Gated Recurrent Units (GRUs)
-
-Exploding gradient
-
-Vanishing and exploding gradient for other neural networks
-
-Bi-directional RNNs and multi-layer RNNs
-
-### Evaluating Language Models
-
-The standard evaluation metric for Language Models is perplexity.
-
-perplexity
+- The standard *evaluation metric* for Language Models is *perplexity*.
 
 $$
-= \prod_ {t = 1} ^ {T} \left(\frac {1}{P _ {\mathrm{LM}} \left(\mathbf {x} ^ {(t + 1)} \mid \mathbf {x} ^ {(t)} , \dots , \mathbf {x} ^ {(1)}\right)}\right) ^ {1 / T}
+\text{perplexity} = \underset{\text{Inverse probability of corpus, according to Language Model} }{\underbrace{\prod_ {t = 1} ^ {T} \left(\frac {1}{P _ {\mathrm{LM}} \left(\mathbf {x} ^ {(t + 1)} \mid \mathbf {x} ^ {(t)} , \dots , \mathbf {x} ^ {(1)}\right)}\right)}^{1/T}}^{\leftarrow\text{Normalized by number of words}}
 $$
 
-Normalized by number of words
-
-Inverse probability of corpus, according to Language Model
-
-This is equal to the exponential of the cross-entropy loss $J ( \theta )$
+- This is equal to the exponential of the cross-entropy loss $J ( \theta )$
 
 $$
 = \prod_ {t = 1} ^ {T} \left(\frac {1}{\hat {\mathbf {y}} _ {\mathbf {x} _ {t + 1}} ^ {(t)}}\right) ^ {1 / T} = \exp \left(\frac {1}{T} \sum_ {t = 1} ^ {T} - \log \hat {\mathbf {y}} _ {\mathbf {x} _ {t + 1}} ^ {(t)}\right) = \exp (J (\theta))
 $$
 
-**Lower** perplexity is better!
+$$
+\bold{Lower} \text{ perplexity is better!}
+$$
 
 ### RNNs have greatly improved perplexity
 
-<table><tr><td rowspan="9">n-gram model Increasingly complex RNNs</td><td>Model</td><td>Perplexity</td></tr><tr><td>Interpolated Kneser-Ney 5-gram (Chelba et al., 2013)</td><td>67.6</td></tr><tr><td>RNN-1024 + MaxEnt 9-gram (Chelba et al., 2013)</td><td>51.3</td></tr><tr><td>RNN-2048 + BlackOut sampling (Ji et al., 2015)</td><td>68.3</td></tr><tr><td>Sparse Non-negative Matrix factorization (Shazeer et al., 2015)</td><td>52.9</td></tr><tr><td>LSTM-2048 (Jozefowicz et al., 2016)</td><td>43.7</td></tr><tr><td>2-layer LSTM-8192 (Jozefowicz et al., 2016)</td><td>30</td></tr><tr><td>Ours small (LSTM-2048)</td><td>43.9</td></tr><tr><td>Ours large (2-layer LSTM-2048)</td><td>39.8</td></tr></table>
+![](images/page_57_table_4.jpg)
 
-Perplexity improves (lower is better)
+<details>
+
+<table>
+  <tr><td></td><td>Model</td><td>Perplexity</td><td rowspan="9">Perplexity improves↓ <br>(lower is better)</td></tr>
+  <tr><td>n-gram model →</td><td>Interpolated Kneser-Ney 5-gram (Chelba et al., 2013)</td><td>67.6</td></tr>
+  <tr><td rowspan="8">Increasingly complex RNNs↓</td><td>RNN-1024 + MaxEnt 9-gram (Chelba et al., 2013)</td><td>51.3</td></tr>
+  <tr><td>RNN-2048 + BlackOut sampling (Ji et al., 2015)</td><td>68.3</td></tr>
+  <tr><td>Sparse Non-negative Matrix factorization (Shazeer et al., 2015)</td><td>52.9</td></tr>
+  <tr><td>LSTM-2048 (Jozefowicz et al., 2016)</td><td>43.7</td></tr>
+  <tr><td>2-layer LSTM-8192 (Jozefowicz et al., 2016)</td><td>30</td></tr>
+  <tr><td>Ours small (LSTM-2048)</td><td>43.9</td></tr>
+  <tr><td>Ours large (2-layer LSTM-2048)</td><td>39.8</td></tr>
+</table>
+
+</details>
 
 **Source:** [research.fb.com/building-an-efficient-neural-language-model-over-a-billion-words](https://research.fb.com/building-an-efficient-neural-language-model-over-a-billion-words/)
 
-### Content
+---
 
-![](images/page_58_image_4.jpg)
+### Vanishing gradient
 
-### 3 Language Models Based on Recurrent Neural Networks
-
-Recurrent Neural Networks (RNNs)
-
-Training a neural language model
-
-Other applications of neural language models
-
-Evaluation of language models
-
-Vanishing gradient
-
-Long Short Term Memory (LSTM)
-
-Gated Recurrent Units (GRUs)
-
-Exploding gradient
-
-Vanishing and exploding gradient for other neural networks
-
-Bi-directional RNNs and multi-layer RNNs
-
-### Vanishing gradient intuition
+#### Vanishing gradient intuition
 
 ![](images/page_59_image_4.jpg)
 
-A figure from Christopher Manning, Natural Language Processing with Deep Learning, Stanford U. CS224n
+> A figure from Christopher Manning, Natural Language Processing with Deep Learning, Stanford U. CS224n
 
-### Vanishing gradient intuition
+---
 
 ![](images/page_60_image_4.jpg)
 
-A figure from Christopher Manning, Natural Language Processing with Deep Learning, Stanford U. CS224n
+> A figure from Christopher Manning, Natural Language Processing with Deep Learning, Stanford U. CS224n
 
-### Vanishing gradient intuition
+---
 
 ![](images/page_61_image_4.jpg)
 
 chain rule!
 
-A figure from Christopher Manning, Natural Language Processing with Deep Learning, Stanford U. CS224n
+> A figure from Christopher Manning, Natural Language Processing with Deep Learning, Stanford U. CS224n
 
-### Vanishing gradient intuition
+---
 
 ![](images/page_62_image_4.jpg)
 
 chain rule!
 
-A figure from Christopher Manning, Natural Language Processing with Deep Learning, Stanford U. CS224n
+> A figure from Christopher Manning, Natural Language Processing with Deep Learning, Stanford U. CS224n
 
-### Vanishing gradient intuition
+---
 
 ![](images/page_63_image_4.jpg)
 
 chain rule!
 
-A figure from Christopher Manning, Natural Language Processing with Deep Learning, Stanford U. CS224n
+> A figure from Christopher Manning, Natural Language Processing with Deep Learning, Stanford U. CS224n
 
-### Vanishing gradient intuition
+---
 
 ![](images/page_64_image_4.jpg)
+
+<details>
 
 What happens if these are small?
 
 <u>Vanishing gradient problem:</u> When these are small, the gradient signal gets smaller and smaller as it backpropagates further
 
-A figure from Christopher Manning, Natural Language Processing with Deep Learning, Stanford U. CS224n
+</details>
 
-### Vanishing gradient proof sketch
+> A figure from Christopher Manning, Natural Language Processing with Deep Learning, Stanford U. CS224n
 
-Recall:
+---
 
-$$
-\mathbf {h} ^ {(t)} = \sigma \left(\mathbf {W} _ {h} \mathbf {h} ^ {(t - 1)} + \mathbf {W} _ {x} \mathbf {x} ^ {(t)} + \mathbf {b} _ {1}\right)
-$$
+#### Vanishing gradient proof sketch
 
-Therefore: $\frac{\partial \mathbf{h}^{(t)}}{\partial \mathbf{h}^{(t-1)}} = \mathrm{diag} \left( \sigma' \left( \mathbf{W}_h \mathbf{h}^{(t-1)} + \mathbf{W}_x \mathbf{x}^{(t)} + \mathbf{b}_1 \right) \right) \mathbf{W}_h$ (chain rule)
+- Recall: $\mathbf {h} ^ {(t)} = \sigma \left(\mathbf {W} _ {h} \mathbf {h} ^ {(t - 1)} + \mathbf {W} _ {x} \mathbf {x} ^ {(t)} + \mathbf {b} _ {1}\right)$
 
-Consider the gradient of the loss $\mathcal { J } ^ { ( i ) } ( \theta )$ on step i, with respect to the hidden state $h ^ { ( j ) }$ on some previous step j.
+- Therefore: $\dfrac{\partial \mathbf{h}^{(t)}}{\partial \mathbf{h}^{(t-1)}} = \mathrm{diag} \left( \sigma' \left( \mathbf{W}_h \mathbf{h}^{(t-1)} + \mathbf{W}_x \mathbf{x}^{(t)} + \mathbf{b}_1 \right) \right) \mathbf{W}_h \qquad(\text{chain rule})$
 
-$$
-\left| \begin{array}{l} \frac {\partial \mathbf {J} ^ {(i)} (\theta)}{\partial \mathbf {h} ^ {(j)}} = \frac {\partial \mathbf {J} ^ {(i)} (\theta)}{\partial \mathbf {h} ^ {(i)}} \prod_ {j <   t \leq i} \frac {\partial \mathbf {h} ^ {(t)}}{\partial \mathbf {h} ^ {(t - 1)}} \\ = \frac {\partial \mathbf {J} ^ {(i)} (\theta)}{\partial \mathbf {h} ^ {(i)}} \boxed {\mathbf {W} _ {h} ^ {(i - j)}} \prod_ {j <   t \leq i} \operatorname{diag} \left(\sigma^ {\prime} \left(\mathbf {W} _ {h} \mathbf {h} ^ {(t - 1)} + \mathbf {W} _ {x} \mathbf {x} ^ {(t)} + \mathbf {b} _ {1}\right)\right) \quad (\text {chain rule}) \\ & \text {(value of} \frac {\partial \mathbf {h} ^ {(t)}}{\partial \mathbf {h} ^ {(t - 1)}}) \end{array} \right.
-$$
-
-If $W _ { h }$ is small, then this term gets
-
-vanishingly small as i and j get further apart
-
-<strong><u>Source</u></strong>: $^ \mathrm { { { } ^ \mathrm { { } ^ \mathrm { { } } } O } n }$ the difficulty of training recurrent neural networks”, Pascanu et al, 2013. [proceedings.mlr.press/v28/pascanu13.pdf](http://proceedings.mlr.press/v28/pascanu13.pdf)
-
-### Vanishing gradient proof sketch
-
-Consider matrix $L 2$ norms:
+- Consider the gradient of the loss $\mathcal { J } ^ { ( i ) } ( \theta )$ on step i, with respect to the hidden state $\mathbf{h} ^ { ( j ) }$ on some previous step j.
 
 $$
-\left\| \frac {\partial \mathbf {J} ^ {(i)} (\theta)}{\partial \mathbf {h} ^ {(j)}} \right\| \leq \left\| \frac {\partial \mathbf {J} ^ {(i)} (\theta)}{\partial \mathbf {h} ^ {(i)}} \right\| \| \mathbf {W} _ {h} \| ^ {(i - j)} \prod_ {j <   t \leq i} \left\| \operatorname{diag} \left(\sigma^ {\prime} \left(\mathbf {W} _ {h} \mathbf {h} ^ {(t - 1)} + \mathbf {W} _ {x} \mathbf {x} ^ {(t)} + \mathbf {b} _ {1}\right)\right) \right\|
+\begin{array}{llr}
+  \dfrac {\partial J ^ {(i)} (\theta)}{\partial \mathbf {h} ^ {(j)}} &= \dfrac {\partial J ^ {(i)} (\theta)}{\partial \mathbf {h} ^ {(i)}} \prod_ {j <   t \leq i} \dfrac {\partial \mathbf {h} ^ {(t)}}{\partial \mathbf {h} ^ {(t - 1)}} &(\text {chain rule})\\
+  \\
+  & = \dfrac {\partial J ^ {(i)} (\theta)}{\partial \mathbf {h} ^ {(i)}} \underset{\uparrow}{{\boxed {\mathbf {W} _ {h} ^ {(i - j)}}}} \prod_ {j <   t \leq i} \operatorname{diag} \left(\sigma^ {\prime} \left(\mathbf {W} _ {h} \mathbf {h} ^ {(t - 1)} + \mathbf {W} _ {x} \mathbf {x} ^ {(t)} + \mathbf {b} _ {1}\right)\right) &(\text {value of} \frac {\partial \mathbf {h} ^ {(t)}}{\partial \mathbf {h} ^ {(t - 1)}})\\
+  & \text{If }\mathbf{W} _ { h }\text{ is small, then this term gets} \\ 
+  & \text{vanishingly small as }i\text{ and}j\text{ get further apart} \\
+\end{array}\\
 $$
-
-Pascanu et al showed that if the largest eigenvalue of $W _ { h }$ is less than 1, then the gradient $\left\| \frac { \partial J ^ { ( i ) } ( \theta ) } { \partial \mathbf { h } ^ { ( j ) } } \right\|$ will shrink exponentially Here the bound is 1 because we have sigmoid nonlinearity
 
 <strong><u>Source</u></strong>: “On the difficulty of training recurrent neural networks”, Pascanu et al, 2013. [proceedings.mlr.press/v28/pascanu13.pdf](http://proceedings.mlr.press/v28/pascanu13.pdf)
 
-### Why is vanishing gradient a problem?
+---
+
+- Consider matrix L2 norms:
+
+$$
+\left\| \frac {\partial J ^ {(i)} (\theta)}{\partial \mathbf {h} ^ {(j)}} \right\| \leq \left\| \frac {\partial J ^ {(i)} (\theta)}{\partial \mathbf {h} ^ {(i)}} \right\| \| \mathbf {W} _ {h} \| ^ {(i - j)} \prod_ {j <   t \leq i} \left\| \operatorname{diag} \left(\sigma^ {\prime} \left(\mathbf {W} _ {h} \mathbf {h} ^ {(t - 1)} + \mathbf {W} _ {x} \mathbf {x} ^ {(t)} + \mathbf {b} _ {1}\right)\right) \right\|
+$$
+
+- Pascanu et al showed that if the *largest eigenvalue* of $W _ { h }$ is *less than 1*, then the gradient $\left\| \frac { \partial J ^ { ( i ) } ( \theta ) } { \partial \mathbf { h } ^ { ( j ) } } \right\|$ will *shrink* exponentially Here the bound is 1 because we have sigmoid nonlinearity
+
+<strong><u>Source</u></strong>: “On the difficulty of training recurrent neural networks”, Pascanu et al, 2013. [proceedings.mlr.press/v28/pascanu13.pdf](http://proceedings.mlr.press/v28/pascanu13.pdf)
+
+---
+
+#### Why is vanishing gradient a problem?
 
 ![](images/page_67_image_4.jpg)
+
+<details>
 
 Gradient signal from faraway is lost because it’s much smaller than gradient signal from close-by.
 
 So model weights are only updated with respect to near effects, not long-term effects.
 
-A figure from Christopher Manning, Natural Language Processing with Deep Learning, Stanford U. CS224n
+</details>
 
-### Why is vanishing gradient a problem?
+> A figure from Christopher Manning, Natural Language Processing with Deep Learning, Stanford U. CS224n
 
-Another explanation: Gradient can be viewed as a measure of the effect of the past on the future
+---
 
-If the gradient becomes vanishingly small over longer distances (step t to step t + n), then we can’t tell whether:
+- Another explanation: *Gradient* can be viewed as a measure of *the effect of the past on the future*
 
-1 There’s no dependency between step t and t + n in the data
+- If the gradient becomes vanishingly small over longer distances (step $t$ to step $t + n$), then we can’t tell whether:
 
-2 We have wrong parameters to capture the true dependency between t and t + n
+  1. There’s *no dependency* between step $t$ and $t + n$ in the data
 
-### Effect of vanishing gradient on RNN-LM
+  2. We have *wrong parameters* to capture the true dependency between $t$ and $t + n$
 
-**LM task:** The writer of the books
+---
 
-![](images/page_69_image_5.jpg)
+#### Effect of vanishing gradient on RNN-LM
 
-**Correct answer**: The writer of the books is planning a sequel
+- **LM task:** 
 
-**Syntactic recency:** The <u>writer</u> of the books is
+$$
+\text{The writer of the books} \underline{\qquad} \begin{cases} \text{is}\\ \text{are} \end{cases}
+$$
 
-(correct)
+- **Correct answer**: 
 
-**Sequential recency:** The writer of the <u>books</u> are
+$$
+\text{The writer of the books } \underline{\text{is}} \text{ planning a sequel}
+$$
 
-(incorrect)
+- **Syntactic recency:** 
 
-Due to vanishing gradient, RNN-LMs are better at learning from sequential recency than syntactic recency, so they make this type of error more often than we’d like [Linzen et al 2016]
+$$
+\text{The \underline{wri}}\overgroup{\text{\underline{ter} of the books  \underline{\text{i}}}}\underline{s}\qquad(\text{correct})
+$$
 
-“Assessing the Ability of LSTMs to Learn Syntax-Sensitive Dependencies”, Linzen et al, 2016. [arxiv.org/pdf/1611.01368.pdf](https://arxiv.org/pdf/1611.01368.pdf)
+- **Sequential recency:** 
 
-### How to fix vanishing gradient problem?
+$$
+\text{The writer of the \underline{bo}}\overgroup{\text{\underline{oks} \underline{\text{ar}}}}\underline{e}\qquad(\text{incorrect})
+$$
 
-The main problem is that it’s too difficult for the RNN to learn to preserve information over many timesteps.
+- Due to vanishing gradient, RNN-LMs are better at learning from **sequential recency** than **syntactic recency**, so they make this type of error more often than we’d like [Linzen et al 2016]
 
-In a vanilla RNN, the hidden state is constantly being rewritten:
+> “Assessing the Ability of LSTMs to Learn Syntax-Sensitive Dependencies”, Linzen et al, 2016. [arxiv.org/pdf/1611.01368.pdf](https://arxiv.org/pdf/1611.01368.pdf)
+
+---
+
+#### How to fix vanishing gradient problem?
+
+- The main problem is that it’s too difficult for the RNN to learn to *preserve information over many timesteps*.
+
+- In a vanilla RNN, the hidden state is constantly being *rewritten*:
 
 $$
 h ^ {(t)} = f \big (h ^ {(t - 1)}, x ^ {(t)} \big)
 $$
 
-How about a RNN with separate memory?
+- *How about a RNN with separate memory?*
 
-### Content
-
-![](images/page_71_image_4.jpg)
-
-### 3 Language Models Based on Recurrent Neural Networks
-
-Recurrent Neural Networks (RNNs)
-
-Training a neural language model
-
-Other applications of neural language models
-
-Evaluation of language models
-
-Vanishing gradient
+---
 
 ### Long Short Term Memory (LSTM)
 
-Gated Recurrent Units (GRUs)
+- A type of RNN proposed by Hochreiter and Schmidhuber in 1997 as a solution to the vanishing gradients problem.
 
-Exploding gradient
+- On step $t$, there is a *hidden state* $h ^ { ( t ) }$ and a *cell state* $c ^ { ( t ) }$  
+- Both are vectors length $n$  
+- The cell stores* long-term information*  
+- The LSTM can *erase*, *write* and *read* information from the cell
 
-Vanishing and exploding gradient for other neural networks
+- The selection of which information is erased/written/read is controlled by three corresponding gates
 
-Bi-directional RNNs and multi-layer RNNs
+  - The gates are also vectors length $n$  
+  - On each timestep, each element of the gates can be *open* (1), *closed* (0), or somewhere in-between
+  - The gates are *dynamic*: their value is computed based on the current context 
 
-### Long Short-Term Memory (LSTM)
+> “Long short-term memory”, Hochreiter and Schmidhuber, 1997,  
+> [https://www.bioinf.jku.at/publications/older/2604.pdf](https://www.bioinf.jku.at/publications/older/2604.pdf)
 
-A type of RNN proposed by Hochreiter and Schmidhuber in 1997 as a solution to the vanishing gradients problem.
+---
 
-On step t, there is a hidden state $h ^ { ( t ) }$ and a cell state $c ^ { ( t ) }$
-
-Both are vectors length n
-
-The cell stores long-term information
-
-The LSTM can erase, write and read information from the cell
-
-The selection of which information is erased/written/read is controlled by three corresponding gates
-
-The gates are also vectors length n
-
-On each timestep, each element of the gates can be open (1), closed (0), or somewhere in-between
-
-The gates are dynamic: their value is computed based on the current context
-
-“Long short-term memory”, Hochreiter and Schmidhuber, 1997,
-
-[https://www.bioinf.jku.at/publications/older/2604.pdf](https://www.bioinf.jku.at/publications/older/2604.pdf)
-
-### Long Short-Term Memory (LSTM)
+#### Long Short-Term Memory (LSTM)
 
 We have a sequence of inputs $\mathbf { X } ^ { ( t ) }$ , and we will compute a sequence of hidden states $h ^ { ( t ) }$ and cell states $\mathbf { c } ^ { ( t ) }$ . On timestep t:
 
-**Forget gate:** controls what is kept vs forgotten, from previous cell state
+![](images/page_73_equation_4.jpg)
 
-**Input gate:** controls what parts of the new cell content are written to cell
+<details>
 
-**Output gate:** controls what parts <u>of cell are output to hidden state</u>
+**Sigmoid function**: all gate values are between 0 and 1
+
+- **Forget gate:** controls what is kept vs forgotten, from previous cell state 
+
+$$
+\rightarrow \mathbf {f} ^ {(t)} = \sigma \big (\mathbf {W} _ {f} \mathbf {h} ^ {(t - 1)} + \mathbf {U} _ {f} \mathbf {x} ^ {(t)} + \mathbf {b} _ {f} \big)
+$$
+
+- **Input gate:** controls what parts of the new cell content are written to cell
+
+$$
+\rightarrow \mathbf {i} ^ {(t)} = \sigma \big (\mathbf {W} _ {i} \mathbf {h} ^ {(t - 1)} + \mathbf {U} _ {i} \mathbf {x} ^ {(t)} + \mathbf {b} _ {i} \big)
+$$
+
+- **Output gate:** controls what parts <u>of cell are output to hidden state</u>
+
+$$
+\rightarrow \mathbf {o} ^ {(t)} = \sigma \big (\mathbf {W} _ {o} \mathbf {h} ^ {(t - 1)} + \mathbf {U} _ {o} \mathbf {x} ^ {(t)} + \mathbf {b} _ {o} \big)
+$$
 
 **New cell content:** this is the new <u>content to be written to the cell</u>
 
+$$
+\rightarrow \tilde {\mathbf {c}} ^ {(t)} = \tanh \left(\mathbf {W} _ {c} \mathbf {h} ^ {(t - 1)} + \mathbf {U} _ {c} \mathbf {x} ^ {(t)} + \mathbf {b} _ {c}\right)
+$$
+
 **Cell state:** erase (“forget”) some content from last cell state, and write (“input”) some new cell content
 
+$$
+\rightarrow \mathbf {c} ^ {(t)} = \mathbf {f} ^ {(t)} \circ \mathbf {c} ^ {(t - 1)} + \mathbf {i} ^ {(t)} \circ \tilde {\mathbf {c}} ^ {(t)}
+$$
+
+Gates are applied using element-wise product ◦. All these are vectors of same length $n$
+
 **Hidden state:** read (“output”) <u>some content from the cell</u>
-
-$$
-\begin{array}{l}\rightarrow \mathbf {f} ^ {(t)} = \sigma \big (\mathbf {W} _ {f} \mathbf {h} ^ {(t - 1)} + \mathbf {U} _ {f} \mathbf {x} ^ {(t)} + \mathbf {b} _ {f} \big)\\\rightarrow \mathbf {i} ^ {(t)} = \sigma \big (\mathbf {W} _ {i} \mathbf {h} ^ {(t - 1)} + \mathbf {U} _ {i} \mathbf {x} ^ {(t)} + \mathbf {b} _ {i} \big)\\\rightarrow \mathbf {o} ^ {(t)} = \sigma \big (\mathbf {W} _ {o} \mathbf {h} ^ {(t - 1)} + \mathbf {U} _ {o} \mathbf {x} ^ {(t)} + \mathbf {b} _ {o} \big)\end{array}
-$$
-
-**Sigmoid function:** all gate values are between 0 and 1
-
-$$
-\tilde {\mathbf {c}} ^ {(t)} = \tanh \left(\mathbf {W} _ {c} \mathbf {h} ^ {(t - 1)} + \mathbf {U} _ {c} \mathbf {x} ^ {(t)} + \mathbf {b} _ {c}\right)
-$$
-
-$$
-\mathbf {c} ^ {(t)} = \mathbf {f} ^ {(t)} \circ \mathbf {c} ^ {(t - 1)} + \mathbf {i} ^ {(t)} \circ \tilde {\mathbf {c}} ^ {(t)}
-$$
 
 $$
 \mathbf {h} ^ {(t)} = \mathbf {o} ^ {(t)} \circ \tanh \mathbf {c} ^ {(t)}
 $$
 
-Gates are applied using element-wise product ◦. All these are vectors of same length n
+</details>
 
-Vector Transfer
-
-Pointwise Operation
-
-Concatenate
-
-Neural Network Layer
-
-### Long Short-Term Memory (LSTM)
+---
 
 You can think of the LSTM equations visually like this:
 
@@ -1303,95 +1058,77 @@ You can think of the LSTM equations visually like this:
 
 <strong><u>Source:</u></strong> [colah.github.io/posts/2015-08-Understanding-LSTMs](http://colah.github.io/posts/2015-08-Understanding-LSTMs/)
 
-### Long Short-Term Memory (LSTM)
+---
 
-### You can think of the LSTM equations visually like this:
+#### Long Short-Term Memory (LSTM)
+
+You can think of the LSTM equations visually like this:
 
 ![](images/page_75_image_5.jpg)
 
 <strong><u>Source:</u></strong> [colah.github.io/posts/2015-08-Understanding-LSTMs](http://colah.github.io/posts/2015-08-Understanding-LSTMs/)
 
-### How does LSTM solve vanishing gradients?
+---
 
-The LSTM architecture makes it easier for the RNN to preserve information over many timesteps
+#### How does LSTM solve vanishing gradients?
 
-e.g. if the forget gate is set to remember everything on every timestep, then the info in the cell is preserved indefinitely
+- The LSTM architecture makes it easier for the RNN to preserve information over many timesteps  
+  - e.g. if the forget gate is set to remember everything on every timestep, then the info in the cell is preserved indefinitely
 
-By contrast, it’s harder for vanilla RNN to learn a recurrent weight matrix $W _ { h }$ that preserves info in hidden state
+- By contrast, it’s harder for vanilla RNN to learn a recurrent weight matrix $W _ { h }$ that preserves info in hidden state
 
-LSTM doesn’t guarantee that there is no vanishing/exploding gradient, but it does provide an easier way for the model to learn long-distance dependencies
+- LSTM doesn’t guarantee that there is no vanishing/exploding gradient, but it does provide an easier way for the model to learn long-distance dependencies
 
-### LSTMs: real-world success
+---
 
-In 2013-2015, LSTMs started achieving state-of-the-art results
+#### LSTMs: real-world success
 
-Successful tasks include: handwriting recognition, speech recognition, machine translation, parsing, image captioning
+- In *2013-2015*, LSTMs started achieving state-of-the-art results
 
-LSTM became the dominant approach
+- Successful tasks include: handwriting recognition, speech recognition, machine translation, parsing, image captioning
 
-Now (2019), other approaches (e.g. Transformers) have become more dominant for certain tasks
+- LSTM became the *dominant approach*
 
-For example in WMT (a MT conference + competition):
+- *Now (2019)*, other approaches (e.g. *Transformers*) have become more dominant for certain tasks  
+  - For example in WMT (a MT conference + competition):  
+    - In the WMT *2016*, the summary report contains “RNN” *44* times  
+    - In the WMT *2018*, the report contains “RNN” *9* times and “Transformer” *63* times
 
-In WMT 2016, the summary report contains “RNN” 44 times
+> Sources: “Findings of the 2016 Conference on Machine Translation (WMT16)”, Bojar et al. 2016; “Findings of the 2018  
+> 
+> Conference on Machine Translation (WMT18)”, Bojar et al. 2018
 
-In WMT 2018, the report contains “RNN” 9 times and “Transformer” 63 times
-
-Sources: “Findings of the 2016 Conference on Machine Translation (WMT16)”, Bojar et al. 2016; “Findings of the 2018
-
-Conference on Machine Translation (WMT18)”, Bojar et al. 2018
-
-### Content
-
-![](images/page_78_image_4.jpg)
-
-### 3 Language Models Based on Recurrent Neural Networks
-
-Recurrent Neural Networks (RNNs)
-
-Training a neural language model
-
-Other applications of neural language models
-
-Evaluation of language models
-
-Vanishing gradient
-
-Long Short Term Memory (LSTM)
+---
 
 ### Gated Recurrent Units (GRUs)
 
-Exploding gradient
+- Proposed by Cho et al. in 2014 as a simpler alternative to the LSTM.
 
-Vanishing and exploding gradient for other neural networks
+- On each timestep t we have input $X ^ { ( t ) }$ and hidden state $h ^ { ( t ) }$ (no cell state).
 
-Bi-directional RNNs and multi-layer RNNs
+![](images/page_79_equation_4.jpg)
 
-### Gated Recurrent Units (GRU)
-
-Proposed by Cho et al. in 2014 as a simpler alternative to the LSTM.
-
-On each timestep t we have input $X ^ { ( t ) }$ and hidden state $h ^ { ( t ) }$ (no cell state).
+<details>
 
 **Update gate:** controls what parts of hidden state are updated vs preserved
-
-**Reset gate:** controls what parts of previous hidden state are used to compute new content
-
-**New hidden state content:** reset gate selects useful parts of prev hidden state Use this and current input to compute new hidden content.
-
-**Hidden state:** update gate simultaneously controls what is kept from previous hidden state, and what is updated to new hidden state content
 
 $$
 \mathbf {u} ^ {(t)} = \sigma \left(\mathbf {W} _ {u} \mathbf {h} ^ {(t - 1)} + \mathbf {U} _ {u} \mathbf {x} ^ {(t)} + \mathbf {b} _ {u}\right)
 $$
 
+**Reset gate:** controls what parts of previous hidden state are used to compute new content
+
 $$
 \mathbf {r} ^ {(t)} = \sigma \left(\mathbf {W} _ {r} \mathbf {h} ^ {(t - 1)} + \mathbf {U} _ {r} \mathbf {x} ^ {(t)} + \mathbf {b} _ {r}\right)
 $$
 
+**New hidden state content:** reset gate selects useful parts of prev hidden state Use this and current input to compute new hidden content.
+
 $$
 \tilde {\mathbf {h}} ^ {(t)} = \tanh \left(\mathbf {W} _ {h} (\mathbf {r} ^ {(t)} \circ \mathbf {h} ^ {(t - 1)}) + \mathbf {U} _ {h} \mathbf {x} ^ {(t)} + \mathbf {b} _ {h}\right)
 $$
+
+**Hidden state:** update gate simultaneously controls what is kept from previous hidden state, and what is updated to new hidden state content
 
 $$
 \mathbf {\hat {h}} ^ {(t)} = \left(1 - \mathbf {u} ^ {(t)}\right) \circ \mathbf {\hat {h}} ^ {(t - 1)} + \mathbf {u} ^ {(t)} \circ \tilde {\mathbf {h}} ^ {(t)}
@@ -1399,289 +1136,188 @@ $$
 
 **How does this solve vanishing gradient?** Like LSTM, GRU makes it easier to retain info long-term (e.g. by setting update gate to 0)
 
-“Learning Phrase Representations using RNN Encoder–Decoder for SMT”, Cho et al. 2014. [arxiv.org/pdf/1406.1078v3.pdf](https://arxiv.org/pdf/1406.1078v3.pdf)
+</details>
 
-### LSTM vs GRU
+> “Learning Phrase Representations using RNN Encoder–Decoder for SMT”, Cho et al. 2014. [arxiv.org/pdf/1406.1078v3.pdf](https://arxiv.org/pdf/1406.1078v3.pdf)
 
-Researchers have proposed many gated RNN variants, but LSTM and GRU are the most widely-used
+#### LSTM vs GRU
 
-The biggest difference is that GRU is quicker to compute and has fewer parameters
+- Researchers have proposed many gated RNN variants, but LSTM and *GRU* are the most widely-used
 
-There is no conclusive evidence that one consistently performs better than the other
+- The biggest difference is that *GRU is quicker to compute* and has fewer parameters
 
-LSTM is a good default choice (especially if your data has particularly long dependencies, or you have lots of training data)
+- There is no conclusive evidence that one consistently performs better than the other
 
-Rule of thumb: start with LSTM, but switch to GRU if you want something more efficient
+- *LSTM is a good default choice* (especially if your data has particularly long dependencies, or you have lots of training data)
 
-### Content
+- *Rule of thumb*: start with LSTM, but switch to GRU if you want something more efficient
 
-![](images/page_81_image_4.jpg)
-
-### 3 Language Models Based on Recurrent Neural Networks
-
-Recurrent Neural Networks (RNNs)
-
-Training a neural language model
-
-Other applications of neural language models
-
-Evaluation of language models
-
-Vanishing gradient
-
-Long Short Term Memory (LSTM)
-
-Gated Recurrent Units (GRUs)
+---
 
 ### Exploding gradient
 
-Vanishing and exploding gradient for other neural networks
+#### Why is exploding gradient a problem?
 
-Bi-directional RNNs and multi-layer RNNs
+- The mirror image of vanishing: if the *largest eigenvalue* of $W _ { h }$ is* greater than 1*, the gradient can grow exponentially [Pascanu et al, 2013]
 
-### Why is exploding gradient a problem?
-
-The mirror image of vanishing: if the largest eigenvalue of $W _ { h }$ is greater than 1, the gradient can grow exponentially [Pascanu et al, 2013]
-
-If the gradient becomes too big, then the SGD update step becomes too big:
+- If the gradient becomes too big, then the SGD update step becomes too big:
 
 $$
-\left| \theta_ {\text {new}} = \theta_ {\text {old}} - \underbrace {\alpha} _ {\text {learning rate}} \underbrace {\nabla_ {\theta} J (\theta)} _ {\text {gradient}} \right|
+\theta_ {\text {new}} = \theta_ {\text {old}} - \underbrace {\alpha} _ {\text {learning rate}} \underbrace {\nabla_ {\theta} J (\theta)} _ {\text {gradient}}
 $$
 
-This can cause bad updates: we take too large a step and reach a bad parameter configuration (with large loss)
+- This can cause *bad updates*: we take too large a step and reach a bad parameter configuration (with large loss)
 
-In the worst case, this will result in Inf or NaN in your network (then you have to restart training from an earlier checkpoint)
+- In the worst case, this will result in *Inf* or *NaN* in your network (then you have to restart training from an earlier checkpoint)
 
-### Gradient clipping: solution for exploding gradient
+---
 
-Gradient clipping: if the norm of the gradient is greater than some threshold, scale it down before applying SGD update
+#### Gradient clipping: solution for exploding gradient
 
-### Algorithm: norm clipping
+*Gradient clipping*: if the norm of the gradient is greater than some threshold, scale it down before applying SGD update
 
-$$
-\hat {\mathbf {g}} \leftarrow \frac {\partial L}{\partial \theta}
-$$
-
-**if** $\| \hat { \mathbf { g } } \| \geq$ threshold **then**
+**Algorithm: norm clipping**
 
 $$
-\hat {\mathbf {g}} \leftarrow \frac {\text {threshold}}{\| \hat {\mathbf {g}} \|} \hat {\mathbf {g}}
+\boxed{
+\begin{split}
+  &\hat {\mathbf {g}} \leftarrow \frac {\partial L}{\partial \theta}\\
+  &\textbf{if} \| \hat { \mathbf { g } } \| \ge \text{threshold} \textbf{ then}\\
+  &\qquad\hat {\mathbf {g}} \leftarrow \frac {\text{threshold}}{\| \hat {\mathbf {g}} \|} \hat {\mathbf {g}}\\
+  &\textbf{end if}
+\end{split}
+}
 $$
 
-**end if**
+- *Intuition*: take a step in the same direction, but a smaller step
 
-Intuition: take a step in the same direction, but a smaller step
+> <strong><u>Source:</u></strong> On the difficulty of training recurrent neural networks”, Pascanu et al, 2013. [proceedings.mlr.press/v28/pascanu13.pdf](http://proceedings.mlr.press/v28/pascanu13.pdf)
 
-<strong><u>Source:</u></strong> $\mathrm { { ^ \circ O n } }$ the difficulty of training recurrent neural networks”, Pascanu et al, 2013. [proceedings.mlr.press/v28/pascanu13.pdf](http://proceedings.mlr.press/v28/pascanu13.pdf)
+---
 
-### Gradient clipping: solution for exploding gradient
+#### Gradient clipping: solution for exploding gradient
 
 ![](images/page_84_image_4.jpg)
 
-![](images/page_84_image_5.jpg)
+- This shows the loss surface of a simple RNN (hidden state is a scalar not a vector)
 
-This shows the loss surface of a simple RNN (hidden state is a scalar not a vector)
+- The *“cliff” is dangerous* because it has steep gradient
 
-The “cliff” is dangerous because it has steep gradient
+- On the left, gradient descent takes *two very big steps* due to steep gradient, resulting in climbing the cliff then shooting off to the right (both *bad updates*)
 
-On the left, gradient descent takes two very big steps due to steep gradient, resulting in climbing the cliff then shooting off to the right (both bad updates)
+- On the right, gradient clipping reduces the size of those steps, so effect is *less drastic*  
 
-On the right, gradient clipping reduces the size of those steps, so effect is less drastic
+> <strong><u>Source:</u></strong> “Deep Learning”, Goodfellow, Bengio and Courville, 2016. Chapter 10.11.1. [deeplearningbook.org/contents/rnn.html](https://www.deeplearningbook.org/contents/rnn.html)
 
-<strong><u>Source:</u></strong> “Deep Learning”, Goodfellow, Bengio and Courville, 2016. Chapter 10.11.1. [deeplearningbook.org/contents/rnn.html](https://www.deeplearningbook.org/contents/rnn.html)
+---
 
-### Content
+### Vanishing and exploding gradient for other neural networks
 
-![](images/page_85_image_4.jpg)
+#### Is vanishing/exploding gradient just a RNN problem?
 
-### 3 Language Models Based on Recurrent Neural Networks
+- No! It can be a problem for all neural architectures (including *feed-forward* and *convolutional*), especially *deep* ones.  
+  - Due to chain rule / choice of nonlinearity function, gradient can become vanishingly small as it backpropagates  
+  - Thus lower layers are learnt very slowly (hard to train)  
+  - Solution: lots of new deep feedforward/convolutional architectures that *add more direct connections* (thus allowing the gradient to flow)
 
-Recurrent Neural Networks (RNNs)
+<u>For example:</u>
 
-Training a neural language model
+- *Residual connections* aka “ResNet”
 
-Other applications of neural language models
+- Also known as *skip-connections*
 
-Evaluation of language models
+- The *identity connection preserves information* by default
 
-Vanishing gradient
-
-Long Short Term Memory (LSTM)
-
-Gated Recurrent Units (GRUs)
-
-Exploding gradient
-
-Vanishing and exploding gradient for other neural networks
-
-Bi-directional RNNs and multi-layer RNNs
-
-### Is vanishing/exploding gradient just a RNN problem?
-
-No! It can be a problem for all neural architectures (including feed-forward and convolutional), especially deep ones.
-
-Due to chain rule / choice of nonlinearity function, gradient can become vanishingly small as it backpropagates
-
-Thus lower layers are learnt very slowly (hard to train)
-
-Solution: lots of new deep feedforward/convolutional architectures that add more direct connections (thus allowing the gradient to flow)
-
-### For example:
-
-Residual connections aka “ResNet”
-
-Also known as skip-connections
-
-The identity connection preserves information by default
-
-This makes deep networks much easier to train
+- This makes *deep* networks much *easier to train* 
 
 ![](images/page_86_image_13.jpg)
 
 Figure 2. Residual learning: a building block.
 
-“Deep Residual Learning for Image Recognition”, He et al, 2015. [arxiv.org/pdf/1512.03385.pdf](https://arxiv.org/pdf/1512.03385.pdf)
+> “Deep Residual Learning for Image Recognition”, He et al, 2015. [arxiv.org/pdf/1512.03385.pdf](https://arxiv.org/pdf/1512.03385.pdf)
 
-### Is vanishing/exploding gradient just a RNN problem?
+---
 
-No! It can be a problem for all neural architectures (including feed-forward and convolutional), especially deep ones.
+<u>For example:</u>
 
-Due to chain rule / choice of nonlinearity function, gradient can become vanishingly small as it backpropagates
+- *Dense connections* aka “DenseNet”
 
-Thus lower layers are learnt very slowly (hard to train)
-
-Solution: lots of new deep feedforward/convolutional architectures that add more direct connections (thus allowing the gradient to flow)
-
-### For example:
-
-Dense connections aka “DenseNet”
-
-Directly connect everything to everything!
+- Directly connect everything to everything!
 
 ![](images/page_87_image_12.jpg)
 
 Figure 1: A 5-layer dense block with a growth rate of k = 4. Each layer takes all preceding feature-maps as input.
 
-“Densely Connected Convolutional Networks”, Huang et al, 2017. [arxiv.org/pdf/1608.06993.pdf](https://arxiv.org/pdf/1608.06993.pdf)
+> “Densely Connected Convolutional Networks”, Huang et al, 2017. [arxiv.org/pdf/1608.06993.pdf](https://arxiv.org/pdf/1608.06993.pdf)
 
-### Is vanishing/exploding gradient just a RNN problem?
+---
 
-### For example: Highway connections aka “HighwayNet”
+**For example: Highway connections aka “HighwayNet”**
 
-Similar to residual connections, but the identity connection vs the transformation layer is controlled by a dynamic gate
+- Similar to residual connections, but the identity connection vs the transformation layer is controlled by a dynamic gate
 
-Inspired by LSTMs, but applied to deep feedforward/convolutional networks
+- Inspired by LSTMs, but applied to deep feedforward/convolutional networks
 
 Conclusion: Though vanishing/exploding gradients are a general problem, RNNs are particularly unstable due to the repeated multiplication by the same weight matrix [Bengio et al, 1994]
 
-“Learning Long-Term Dependencies with Gradient Descent is Difficult”, Bengio et al. 1994,
+> “Learning Long-Term Dependencies with Gradient Descent is Difficult”, Bengio et al. 1994,
+> [http://ai.dinfo.unifi.it/paolo//ps/tnn-94-gradient.pdf](http://ai.dinfo.unifi.it/paolo//ps/tnn-94-gradient.pdf)
 
-[http://ai.dinfo.unifi.it/paolo//ps/tnn-94-gradient.pdf](http://ai.dinfo.unifi.it/paolo//ps/tnn-94-gradient.pdf)
+---
 
-### Is vanishing/exploding gradient just a RNN problem?
+### Bi-directional RNNs and multi-layer RNNs
 
-### For example: Highway connections aka “HighwayNet”
+#### Bidirectional RNNs: motivation
 
-Similar to residual connections, but the identity connection vs the transformation layer is controlled by a dynamic gate
-
-Inspired by LSTMs, but applied to deep feedforward/convolutional networks
-
-### Conclusion: Though vanishing/exploding gradients are a general problem, RNNs are particularly unstable due to the repeated multiplication by the same weight matrix [Bengio et al, 1994]
-
-“Learning Long-Term Dependencies with Gradient Descent is Difficult”, Bengio et al. 1994,
-
-[http://ai.dinfo.unifi.it/paolo//ps/tnn-94-gradient.pdf](http://ai.dinfo.unifi.it/paolo//ps/tnn-94-gradient.pdf)
-
-### Content
-
-![](images/page_90_image_4.jpg)
-
-### 3 Language Models Based on Recurrent Neural Networks
-
-Recurrent Neural Networks (RNNs)
-
-Training a neural language model
-
-Other applications of neural language models
-
-Evaluation of language models
-
-Vanishing gradient
-
-Long Short Term Memory (LSTM)
-
-Gated Recurrent Units (GRUs)
-
-Exploding gradient
-
-Vanishing and exploding gradient for other neural networks
-
-Bi-directional RNNs and multi-layer RNNs
-
-### Bidirectional RNNs: motivation
-
-### Task: Sentiment Classification
-
-We can regard this hidden state as a representation of the word “terribly” in the context of this sentence. We call this a contextual representation.
-
-Sentence encoding
+<u>Task: Sentiment Classification</u>
 
 ![](images/page_91_image_7.jpg)
 
-the
+<details>
 
-movie
+We can regard this hidden state as a representation of the word *“terribly”* in the context of this sentence. We call this a *contextual representation*.
 
-was
+These contextual representations only contain information about the *left* context (e.g. *“the movie was”*).
 
-terribly
+**What about *right* context?**
 
-exciting
+In this example, *“exciting”* is in the right context and this modifies the meaning of *“terribly”* (from negative to positive)
 
-These contextual representations only contain information about the left context (e.g. “the movie was”).
+</details>
 
-### What about right context?
+> A figure from Christopher Manning, Natural Language Processing with Deep Learning, Stanford U. CS224n
 
-In this example, “exciting” is in the right context and this modifies the meaning of “terribly” (from negative to positive)
+---
 
-A figure from Christopher Manning, Natural Language Processing with Deep Learning, Stanford U. CS224n
-
-### Bidirectional RNNs
-
-This contextual representation of “terribly” has both left and right context!
+#### Bidirectional RNNs
 
 ![](images/page_92_image_5.jpg)
 
-the
+<details>
 
-movie
+This contextual representation of “terribly” has both left and right context!
 
-was
+</details>
 
-terribly
+> A figure from Christopher Manning, Natural Language Processing with Deep Learning, Stanford U. CS224n
 
-exciting
+---
 
-A figure from Christopher Manning, Natural Language Processing with Deep Learning, Stanford U. CS224n
+On timestep $t$:
 
-### Bidirectional RNNs
+![](images/page_93_equation_4.jpg)
 
-On timestep t:
+<details>
 
 This is a general notation to mean “compute one forward step of the RNN” – it could be a vanilla, LSTM or GRU computation.
 
-Forward RNN
+- Forward RNN
 
 $$
-\overrightarrow {\mathbf {h}} (t) = \boxed {\mathrm{RNN} _ {\mathrm{FW}}}
+\overrightarrow {\mathbf {h}} (t) = \boxed {\mathrm{RNN} _ {\mathrm{FW}}}\left(\overrightarrow {\mathbf {h}} ^ {(t - 1)}, \mathbf {x} ^ {(t)}\right)
 $$
 
-$$
-\left(\overrightarrow {\mathbf {h}} ^ {(t - 1)}, \mathbf {x} ^ {(t)}\right)
-$$
-
-Backward RNN
+- Backward RNN
 
 $$
 \overleftarrow {\mathbf {h}} ^ {(t)} = \mathrm{RNN} _ {\mathrm{BW}} \left(\overleftarrow {\mathbf {h}} ^ {(t + 1)}, \mathbf {x} ^ {(t)}\right)
@@ -1689,7 +1325,7 @@ $$
 
 Generally, these two RNNs have separate weights
 
-Concatenated hidden states
+- Concatenated hidden states
 
 $$
 \boxed {\mathbf {h} ^ {(t)}} = \left[ \overrightarrow {\mathbf {h}} ^ {(t)}; \overleftarrow {\mathbf {h}} ^ {(t)} \right]
@@ -1697,267 +1333,211 @@ $$
 
 We regard this as “the hidden state” of a bidirectional RNN. This is what we pass on to the next parts of the network.
 
-### Bidirectional RNNs: simplified diagram
+</details>
+
+---
+
+#### Bidirectional RNNs: simplified diagram
 
 ![](images/page_94_image_4.jpg)
 
-the
-
-![](images/page_94_image_6.jpg)
-
-movie
-
-![](images/page_94_image_8.jpg)
-
-was
-
-![](images/page_94_image_10.jpg)
-
-terribly
-
-![](images/page_94_image_12.jpg)
-
-exciting
-
-![](images/page_94_image_14.jpg)
+<details>
 
 The two-way arrows indicate bidirectionality and the depicted hidden states are assumed to be the concatenated forwards+backwards states.
 
-A figure from Christopher Manning, Natural Language Processing with Deep Learning, Stanford U. CS224n
+</details>
 
-### Bidirectional RNNs
+> A figure from Christopher Manning, Natural Language Processing with Deep Learning, Stanford U. CS224n
 
-Note: bidirectional RNNs are only applicable if you have access to the entire input sequence
+---
 
-They are not applicable to Language Modeling, because in LM you only have left context available
+#### Bidirectional RNNs
 
-If you do have entire input sequence (e.g. any kind of encoding), bidirectionality is powerful (you should use it by default)
+- Note: bidirectional RNNs are only applicable if you have access to the *entire input sequence*
 
-For example, BERT (Bidirectional Encoder Representations from Transformers) is a powerful pretrained contextual representation system built on bidirectionality
+- They are not applicable to Language Modeling, because in LM you only have left context available
 
-You will learn more about BERT later in the course!
+- If you do have entire input sequence (e.g. any kind of encoding), *bidirectionality is powerful* (you should use it by default)  
+  - For example, *BERT* (Bidirectional Encoder Representations from Transformers) is a powerful pretrained contextual representation system *built on bidirectionality * 
+  - You will learn more about BERT later in the course!
 
-### Multi-layer RNNs
-
-RNNs are already “deep” on one dimension (they unroll over many timesteps)
-
-We can also make them “deep” in another dimension by applying multiple RNNs — this is a multi-layer RNN
-
-This allows the network to compute more complex representations
-
-The lower RNNs should compute lower-level features and the higher RNNs should compute higher-level features
-
-Multi-layer RNNs are also called stacked RNNs
+---
 
 ### Multi-layer RNNs
 
-RNN layer 3
+- RNNs are already “deep” on one dimension (they unroll over many timesteps)
 
-RNN layer 2
+- We can also make them “deep” in another dimension by applying *multiple RNNs* — this is a *multi-layer RNN*
 
-The hidden states from RNN layer i are the inputs to RNN layer i+1
+  - This allows the network to compute *more complex* representations
 
-RNN layer 1
+- The lower RNNs should compute lower-level features and the higher RNNs should compute higher-level features
+
+Multi-layer RNNs are also called *stacked RNNs*
+
+---
+
+#### Multi-layer RNNs
 
 ![](images/page_97_image_8.jpg)
 
-the
+<details>
 
-movie
+The hidden states from RNN layer i are the inputs to RNN layer i+1
 
-was
+</details>
 
-terribly
+> A figure from Christopher Manning, Natural Language Processing with Deep Learning, Stanford U. CS224n
 
-exciting
+---
 
-A figure from Christopher Manning, Natural Language Processing with Deep Learning, Stanford U. CS224n
+#### Multi-layer RNNs in practice
 
-### Multi-layer RNNs in practice
+- High-performing RNNs are often multi-layer (but aren’t as deep as convolutional or feed-forward networks)
 
-High-performing RNNs are often multi-layer (but aren’t as deep as convolutional or feed-forward networks)
+  - For example: In a 2017 paper, Britz et al find that for Neural Machine Translation, *2 to 4 layers* is best for the encoder RNN, and *4 layers* is best for the decoder RNN
 
-For example: In a 2017 paper, Britz et al find that for Neural Machine Translation, 2 to 4 layers is best for the encoder RNN, and 4 layers is best for the decoder RNN
+- However, *skip-connections/dense-connections* are needed to train deeper RNNs (e.g. 8 layers)  
+  - *Transformer-based* networks (e.g. BERT) can be up to *24 layers*  
+  - You will learn about Transformers later; they have a lot of skipping-like connections
 
-However, skip-connections/dense-connections are needed to train deeper RNNs (e.g. 8 layers)
+> “Massive Exploration of Neural Machine Translation Architectures”, Britz et al, 2017,
+> [https://arxiv.org/pdf/1703.03906.pdf](https://arxiv.org/pdf/1703.03906.pdf)
 
-Transformer-based networks (e.g. BERT) can be up to 24 layers
+---
 
-You will learn about Transformers later; they have a lot of skipping-like connections
-
-“Massive Exploration of Neural Machine Translation Architectures”, Britz et al, 2017,
-
-[https://arxiv.org/pdf/1703.03906.pdf](https://arxiv.org/pdf/1703.03906.pdf)
-
-### Content
-
-![](images/page_99_image_3.jpg)
-
-Language Models (LMs)
-
-![](images/page_99_image_5.jpg)
-
-N-gram Language Models
-
-![](images/page_99_image_7.jpg)
-
-Language Models Based on Recurrent Neural Networks
-
-![](images/page_99_image_9.jpg)
-
-Sequence Tagging
+## 4 Sequence Tagging
 
 ### Named Entity Recognition (NER)
 
-A very important sub-task: **find** and **classify** names in text, for example:
+- A very important sub-task: **find** and **classify** names in text, for example:
 
-The decision by the independent MP Andrew Wilkie to withdraw his support for the minority Labor government sounded dramatic but it should not further threaten its stability. When, after the 2010 election, Wilkie, Rob Oakeshott, Tony Windsor and the Greens agreed to support Labor, they gave just two guarantees: confidence and supply.
+The decision by the independent MP <font color=red>Andrew Wilkie</font> to withdraw his support for the minority <font color=blue>Labor</font> government sounded dramatic but it should not further threaten its stability. When, after the <font color=orange>2010</font> election, <font color=red>Wilkie</font>, <font color=red>Rob Oakeshott</font>, <font color=red>Tony Windsor</font> and the <font color=blue>Greens</font> agreed to support <font color=blue>Labor</font>, they gave just two guarantees: confidence and supply.
 
-### Named Entity Recognition (NER)
+<font color=red>PER</font> person <font color=blue>ORG</font> organization <font color=orange>DATE</font> date
 
-A very important sub-task: **find** and **classify** names in text, for example:
-
-The decision by the independent MP Andrew Wilkie to withdraw his support for the minority Labor government sounded dramatic but it should not further threaten its stability. When, after the 2010 election, Wilkie, Rob Oakeshott, Tony Windsor and the Greens agreed to support Labor, they gave just two guarantees: confidence and supply.
-
-**PER** person **ORG** organization **DATE** date
+---
 
 ### Named Entity Recognition (NER)
 
-### The uses:
+- The uses:  
+  - Named entities can be indexed, linked off, etc.  
+  - Sentiment can be attributed to companies or products  
+  - A lot of IE relations are associations between named entities  
+  - For question answering, answers are often named entities.
 
-Named entities can be indexed, linked off, etc.
+- Concretely:  
+  - Many web pages tag various entities, with links to bio or topic pages, etc.  
+  - Reuters’ OpenCalais, Evri, AlchemyAPI, Yahoo’s Term Extraction, ...  
+  - Apple/Google/Microsoft/... smart recognizers for document content
 
-Sentiment can be attributed to companies or products
-
-A lot of IE relations are associations between named entities
-
-For question answering, answers are often named entities.
-
-### Concretely:
-
-Many web pages tag various entities, with links to bio or topic pages, etc.
-
-Reuters’ OpenCalais, Evri, AlchemyAPI, Yahoo’s Term Extraction,
-
-Apple/Google/Microsoft/. . . smart recognizers for document content
+---
 
 ### Three approaches to NER
 
-Hand-written regular expressions
+- Hand-written regular expressions
 
-Using classifiers
+- Using classifiers
 
-Sequence models
+- Sequence models
+
+---
 
 ### Hand-written Patterns for Information Extraction
 
-If extracting from automatically generated web pages, simple regex patterns usually work.
+- If extracting from automatically generated web pages, simple regex patterns usually work.
+  - Amazon page
+    
+    ```html
+      <div class="buying"><h1 class="parseasinTitle">
+      <span id="btAsinTitle" style="">(.*)</span></h1>
+    ```
 
-```txt
-- Amazon page
-  <div class="buying"><h1 class="parseasinTitle">
-  <span id="btAsinTitle" style="">(.*)</span></h1>
-```
+- For certain restricted, common types of entities in unstructured text, simple regex patterns also usually work.  
+  - Finding (US) phone numbers
+    ```regex
+    (?:\(?[0-9]{3}\)?[ -.])?[0-9]{3}[ -.]?[0-9]{4}
+    ```
 
-For certain restricted, common types of entities in unstructured text, simple regex patterns also usually work.
-
-Finding (US) phone numbers
-
-<div class="docvortex-algorithm" style="white-space: pre-wrap; font-family:monospace;">
-$(?: \([0-9]\{3\}$? [-.])?[0-9]\{3\}[-.]?[0-9]\{4\}\)
-</div>
-
-![](images/page_105_image_0.jpg)
+---
 
 ### The Named Entity Recognition Task
 
-Task: Predict entities in a text
+- Task: Predict entities in a text
 
-**ORG**
+<font color=blue>ORG</font> <font color=blue>ORG</font> <font color=gray>O</font> <font color=red>PER</font> <font color=red>PER</font> <font color=gray>O</font> <font color=blue>ORG</font> :
 
-**ORG**
+<font color=blue>Foreign</font> <font color=blue>Ministry</font> spokesman <font color=red>Shen Guofang</font> told <font color=blue>Reuters</font> :
 
-![](images/page_105_image_7.jpg)
-
-**PER**
-
-**PER**
-
-O
-
-**ORG**
-
-Foreign Ministry spokesman Shen Guofang told Reuters :
-
-**PER** person
-
-**ORG** organization
-
-![](images/page_105_image_15.jpg)
-
-O outside (not an entity)
+<font color=red>PER</font> person <font color=blue>ORG</font> organization <font color=gray>O</font> outside (not an entity)
 
 Standard evaluation is per entity, not per token
 
-|  | Fred | showed | Sue | Mengqiu | Huang | 's | new | painting |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| IO | PER | O | PER | PER | PER | O | O | O |
-| BIO | B-PER | O | B-PER | B-PER | I-PER | O | O | O |
+---
 
 ### Encoding classes for sequence labeling
+
+<table>
+    <tr>
+        <td></td>
+        <td> <font color=red>Fred</font></td>
+        <td>showed</td>
+        <td> <font color=red>Sue</font></td>  
+        <td> <font color=red>Mengqiu</font></td>  
+        <td> <font color=red>Huang</font></td>
+        <td>&#39;s</td>
+        <td>new</td>
+        <td>painting</td>
+    </tr>
+    <tr>
+        <td> <font color=gray>IO</font></td>
+        <td> <font color=red>PER</font></td>
+        <td> <font color=gray>O</font></td>
+        <td> <font color=red>PER</font></td>
+        <td> <font color=red>PER</font></td>
+        <td> <font color=red>PER</font></td>
+        <td> <font color=gray>O</font></td>
+        <td> <font color=gray>O</font></td>
+        <td> <font color=gray>O</font></td>
+    </tr>
+    <tr>
+        <td> <font color=gray>BIO</font></td>
+        <td> <font color=red>B-PER</font></td>
+        <td> <font color=gray>O</font></td>
+        <td> <font color=red>B-PER</font></td>  
+        <td> <font color=red>B-PER</font></td>  
+        <td> <font color=red>I-PER</font></td>
+        <td> <font color=gray>O</font></td>
+        <td> <font color=gray>O</font></td>
+        <td> <font color=gray>O</font></td>
+    </tr>
+</table>
+
+---
 
 ### RNNs can be used for tagging
 
 e.g. <u>part-of-speech tagging</u>, named entity recognition
 
-the
-
 ![](images/page_107_image_5.jpg)
 
-startled
-
-NN
-
-cat
-
-VBN
-
-knocked
-
-IN
-
-over
-
-DT
-
-the
-
-NN
-
-vase
-
-A figure from Christopher Manning, Natural Language Processing with Deep Learning, Stanford U. CS224n
+> A figure from Christopher Manning, Natural Language Processing with Deep Learning, Stanford U. CS224n
 
 | Training | Testing |
 | --- | --- |
-| 1 Collect a set of representative training documents2 Label each token for its entity class or other (O)3 Design feature extractors appropriate to the text and classes4 Train a sequence classifier to predict the labels from the data | 1 Receive a set of testing documents2 Run sequence model inference to label each token3 Appropriately output the recognized entities |
+| 1 Collect a set of representative training documents | 1 Receive a set of testing documents |
+| 2 Label each token for its entity class or other (O) | 2 Run sequence model inference to label each token |
+| 3 Design feature extractors appropriate to the text and classes | 3 Appropriately output the recognized entities |
+| 4 Train a sequence classifier to predict the labels from the data |  |
 
-### The ML sequence model approach to NER
+---
 
-### Content
+## Content
 
-![](images/page_109_image_3.jpg)
+1. **Language Models (LMs)**
 
-Language Models (LMs)
+2. **N-gram Language Models**
 
-![](images/page_109_image_5.jpg)
+3. **Language Models Based on Recurrent Neural Networks**
 
-2 N-gram Language Models
-
-![](images/page_109_image_7.jpg)
-
-3 Language Models Based on Recurrent Neural Networks
-
-![](images/page_109_image_9.jpg)
-
-Sequence Tagging
+4. **Sequence Tagging**
