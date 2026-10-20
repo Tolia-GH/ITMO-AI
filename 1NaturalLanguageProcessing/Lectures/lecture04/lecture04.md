@@ -787,7 +787,7 @@ $$
 $$
 
 $$
-\bold{Lower} \text{ perplexity is better!}
+\textbf{Lower} \text{ perplexity is better!}
 $$
 
 ### RNNs have greatly improved perplexity

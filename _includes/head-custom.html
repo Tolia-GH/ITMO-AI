@@ -1,28 +1,58 @@
 
 <script>
   window.MathJax = {
+    loader: {
+      load: [
+        '[tex]/enclose',
+        '[tex]/boldsymbol',
+        '[tex]/cancel'
+      ]
+    },
+
     tex: {
       inlineMath: [
         ['$', '$'],
         ['\\(', '\\)']
       ],
+
       displayMath: [
         ['$$', '$$'],
         ['\\[', '\\]']
       ],
-      processEscapes: true
+
+      processEscapes: true,
+
+      packages: {
+        '[+]': ['enclose', 'boldsymbol', 'cancel']
+      },
+
+      macros: {
+        // 兼容 LaTeX ulem 宏包的 \sout
+        sout: ['\\enclose{horizontalstrike}{#1}', 1],
+
+        // 兼容 \bold，使用数学符号加粗
+        bold: ['\\boldsymbol{#1}', 1],
+
+        // 近似实现 \overgroup
+        overgroup: ['\\overparen{#1}', 1]
+      }
     },
+
     options: {
       skipHtmlTags: [
-        'script', 'noscript', 'style',
-        'textarea', 'pre', 'code'
+        'script',
+        'noscript',
+        'style',
+        'textarea',
+        'pre',
+        'code'
       ]
     }
   };
 </script>
 
 <script
-  async
   id="MathJax-script"
+  async
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
 </script>
