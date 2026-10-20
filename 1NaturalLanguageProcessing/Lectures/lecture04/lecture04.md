@@ -965,7 +965,7 @@ $$
 - **Sequential recency:** 
 
 $$
-\text{The writer of the \underline{bo}} \overgroup{ \text{\underline{oks} \underline{\text{ar}}} }\underline{\text{e}}\qquad(\text{incorrect})
+\text{The writer of the \underline{bo}} \overgroup{ \underline{\text{oks}}\ \underline{\text{ar}}}\underline{\text{e}}\qquad(\text{incorrect})
 $$
 
 - Due to vanishing gradient, RNN-LMs are better at learning from **sequential recency** than **syntactic recency**, so they make this type of error more often than we’d like [Linzen et al 2016]
