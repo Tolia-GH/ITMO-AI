@@ -86,7 +86,7 @@ The course is delivered at MIPT, HSE (Moscow), ITMO (Saint Petersburg), and IITU
 
 ### How can we define a language? (Recap)
 
-![](images/22524510ddce67b93fba24249f8a4c67fccc49a2a755ce09b569e7f7bce529f9.jpg)
+![](images/page_3_image_3.jpg)
 
 
 ### How can we define a language? (Recap) The set theory approach
