@@ -1,4 +1,4 @@
-## Natural Language Processing and LLMs Lecture 03: Text Classification and Artificial Neural Networks (CNNs)
+# Natural Language Processing and LLMs Lecture 03: Text Classification and Artificial Neural Networks (CNNs)<!-- omit in toc -->
 
 Valentin Malykh, MWS AI
 
@@ -6,7 +6,6 @@ Autumn 2026
 
 The course is delivered at MIPT, HSE (Moscow), ITMO (Saint Petersburg), and IITU (Almaty)
 
-- [Natural Language Processing and LLMs Lecture 03: Text Classification and Artificial Neural Networks (CNNs)](#natural-language-processing-and-llms-lecture-03-text-classification-and-artificial-neural-networks-cnns)
 - [1 Text Classification](#1-text-classification)
   - [Applications](#applications)
   - [HuffPost News Category Dataset](#huffpost-news-category-dataset)
@@ -56,7 +55,7 @@ The course is delivered at MIPT, HSE (Moscow), ITMO (Saint Petersburg), and IITU
     - [1-dimensional Convolutions / Time-delay Networks](#1-dimensional-convolutions--time-delay-networks)
     - [2-dimensional Convolutional Networks](#2-dimensional-convolutional-networks)
     - [CNNs for Text (Collobert and Weston 2011)](#cnns-for-text-collobert-and-weston-2011)
-- [CNNs for Sentence Modeling](#cnns-for-sentence-modeling)
+    - [CNNs for Sentence Modeling](#cnns-for-sentence-modeling)
     - [Standard conv2d Function](#standard-conv2d-function)
     - [Padding](#padding)
     - [Striding](#striding)
@@ -1017,7 +1016,7 @@ Parameter extraction performs a 2D sweep, not 1 D
   
   - Sentence modeling: Do convolution to extract n-grams, pooling to combine over whole sentence
 
-## CNNs for Sentence Modeling
+#### CNNs for Sentence Modeling
 
 ![](images/page_68_image_5.jpg)
 
