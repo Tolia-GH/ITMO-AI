@@ -739,7 +739,7 @@ $$
   \bar {L} &= 1\\
   \bar {y} _ {k} &= \bar {L} (y _ {k} - t _ {k})\\
   \bar {w} _ {k i} ^ {(2)} &= \bar {y} _ {k} h _ {i}\\
-  \overline {{b}} _ {k} ^ {(2)} &= \bar {y} _ {k}\\
+  \overline {b} _ {k} ^ {(2)} &= \bar {y} _ {k}\\
   \bar {h} _ {i} &= \sum_ {k} \bar {y} _ {k} w _ {k i} ^ {(2)}\\
   \bar {z} _ {i} &= \bar {h} _ {i} \sigma^ {\prime} (z _ {i})\\
   \bar {w} _ {i j} ^ {(1)} &= \bar {z} _ {i} x _ {j}\\

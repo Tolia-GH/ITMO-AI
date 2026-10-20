@@ -886,7 +886,7 @@ $$
 \begin{array}{llr}
   \dfrac {\partial J ^ {(i)} (\theta)}{\partial \mathbf {h} ^ {(j)}} &= \dfrac {\partial J ^ {(i)} (\theta)}{\partial \mathbf {h} ^ {(i)}} \prod_ {j <   t \leq i} \dfrac {\partial \mathbf {h} ^ {(t)}}{\partial \mathbf {h} ^ {(t - 1)}} &(\text {chain rule})\\
   \\
-  & = \dfrac {\partial J ^ {(i)} (\theta)}{\partial \mathbf {h} ^ {(i)}} \underset{\uparrow}{{\boxed {\mathbf {W} _ {h} ^ {(i - j)}}}} \prod_ {j <   t \leq i} \operatorname{diag} \left(\sigma^ {\prime} \left(\mathbf {W} _ {h} \mathbf {h} ^ {(t - 1)} + \mathbf {W} _ {x} \mathbf {x} ^ {(t)} + \mathbf {b} _ {1}\right)\right) &(\text {value of} \frac {\partial \mathbf {h} ^ {(t)}}{\partial \mathbf {h} ^ {(t - 1)}})\\
+  & = \dfrac {\partial J ^ {(i)} (\theta)}{\partial \mathbf {h} ^ {(i)}} \underset{\uparrow}{\boxed{\mathbf {W} _ {h} ^ {(i - j)}}} \prod_ {j <   t \leq i} \operatorname{diag} \left(\sigma^ {\prime} \left(\mathbf {W} _ {h} \mathbf {h} ^ {(t - 1)} + \mathbf {W} _ {x} \mathbf {x} ^ {(t)} + \mathbf {b} _ {1}\right)\right) &(\text {value of} \frac {\partial \mathbf {h} ^ {(t)}}{\partial \mathbf {h} ^ {(t - 1)}})\\
   & \text{If }\mathbf{W} _ { h }\text{ is small, then this term gets} \\ 
   & \text{vanishingly small as }i\text{ and}j\text{ get further apart} \\
 \end{array}\\
