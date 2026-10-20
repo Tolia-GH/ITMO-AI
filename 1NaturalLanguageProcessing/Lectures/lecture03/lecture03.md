@@ -781,7 +781,7 @@ $$
   z &= W ^ {(1)} x + b ^ {(1)}\\
   h &= \sigma (z)\\
   y &= W ^ {(2)} h + b ^ {(2)}\\
-  L &= \frac {1}{2} \| t - y \| ^ 2
+  L &= \frac {1}{2} \Vert t - y \Vert ^ 2
 \end{split}
 $$
 
