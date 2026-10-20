@@ -333,7 +333,7 @@ $$
 
 <strong><u>Problem:</u></strong> What if *“students opened their”* never occurred in data? Then we can’t calculate probability for *any* $\mathbf w$!
 
-<strong><u>(Partial) Solution:</u></strong> Just condition on *“opened their”* instead. This is called *backoff*.</u>
+<strong><u>(Partial) Solution:</u></strong> Just condition on *“opened their”* instead. This is called *backoff*.
 
 <strong><u>Note:</u></strong> Increasing $n$ makes sparsity problems worse. Typically we can’t have $n$ bigger than 5.
 
