@@ -776,19 +776,31 @@ Here the RNN acts as an **encoder** for the Question (the hidden states represen
 
 - The standard *evaluation metric* for Language Models is *perplexity*.
 
+![](images/page_56_equation_6.jpg)
+
+<details>
+
 $$
-\text{perplexity} = \underset{\text{Inverse probability of corpus, according to Language Model} }{\underbrace{\prod_ {t = 1} ^ {T} \left(\frac {1}{P _ {\mathrm{LM}} \left(\mathbf {x} ^ {(t + 1)} \mid \mathbf {x} ^ {(t)} , \dots , \mathbf {x} ^ {(1)}\right)}\right)}^{1/T}}^{\leftarrow\text{Normalized by number of words}}
+\text{perplexity} = \underset{\text{Inverse probability of corpus, according to Language Model} }{\underbrace{\prod_ {t = 1} ^ {T} \left(\frac {1}{P _ {\mathrm{LM}} \left(\mathbf {x} ^ {(t + 1)} \mid \mathbf {x} ^ {(t)} , \dots , \mathbf {x} ^ {(1)}\right)}\right)^{1/T}}}^{\leftarrow\text{Normalized by number of words}}
 $$
 
+</details>
+
 - This is equal to the exponential of the cross-entropy loss $J ( \theta )$
+
+![](images/page_56_equation_10.jpg)
+
+<details>
 
 $$
 = \prod_ {t = 1} ^ {T} \left(\frac {1}{\hat {\mathbf {y}} _ {\mathbf {x} _ {t + 1}} ^ {(t)}}\right) ^ {1 / T} = \exp \left(\frac {1}{T} \sum_ {t = 1} ^ {T} - \log \hat {\mathbf {y}} _ {\mathbf {x} _ {t + 1}} ^ {(t)}\right) = \exp (J (\theta))
 $$
 
 $$
-\textbf{Lower} \text{ perplexity is better!}
+\boxed{\textbf{Lower} \text{ perplexity is better!}}
 $$
+
+</details>
 
 ### RNNs have greatly improved perplexity
 
@@ -930,6 +942,10 @@ So model weights are only updated with respect to near effects, not long-term ef
 
 #### Effect of vanishing gradient on RNN-LM
 
+![](images/page_69_image_5.jpg)
+
+<details>
+
 - **LM task:** 
 
 $$
@@ -945,16 +961,18 @@ $$
 - **Syntactic recency:** 
 
 $$
-\text{The \underline{wri}}\overparen{\text{\underline{ter} of the books  \underline{\text{i}}}}\underline{s}\qquad(\text{correct})
+\text{The }\underline{\text{wri}} \overgroup{ \underline{\text{ter}} \text{ of the books }  \underline{\text{i}} }\underline{\text{s}}\qquad(\text{correct})
 $$
 
 - **Sequential recency:** 
 
 $$
-\text{The writer of the \underline{bo}}\overgroup{\text{\underline{oks} \underline{\text{ar}}}}\underline{e}\qquad(\text{incorrect})
+\text{The writer of the \underline{bo}} \overgroup{ \text{\underline{oks} \underline{\text{ar}}} }\underline{\text{e}}\qquad(\text{incorrect})
 $$
 
 - Due to vanishing gradient, RNN-LMs are better at learning from **sequential recency** than **syntactic recency**, so they make this type of error more often than we’d like [Linzen et al 2016]
+
+</details>
 
 > “Assessing the Ability of LSTMs to Learn Syntax-Sensitive Dependencies”, Linzen et al, 2016. [arxiv.org/pdf/1611.01368.pdf](https://arxiv.org/pdf/1611.01368.pdf)
 
