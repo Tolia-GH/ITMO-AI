@@ -945,7 +945,7 @@ $$
 - **Syntactic recency:** 
 
 $$
-\text{The \underline{wri}}\overgroup{\text{\underline{ter} of the books  \underline{\text{i}}}}\underline{s}\qquad(\text{correct})
+\text{The \underline{wri}}\overparen{\text{\underline{ter} of the books  \underline{\text{i}}}}\underline{s}\qquad(\text{correct})
 $$
 
 - **Sequential recency:** 
@@ -1453,9 +1453,9 @@ The decision by the independent MP <font color=red>Andrew Wilkie</font> to withd
 
 - Task: Predict entities in a text
 
-<font color=blue>ORG</font> <font color=blue>ORG</font> <font color=gray>O</font> <font color=red>PER</font> <font color=red>PER</font> <font color=gray>O</font> <font color=blue>ORG</font> :
+<font color=blue>ORG</font> <font color=blue>ORG</font> <font color=gray>O</font> <font color=red>PER</font> <font color=red>PER</font> <font color=gray>O</font> <font color=blue>ORG</font>:
 
-<font color=blue>Foreign</font> <font color=blue>Ministry</font> spokesman <font color=red>Shen Guofang</font> told <font color=blue>Reuters</font> :
+<font color=blue>Foreign</font> <font color=blue>Ministry</font> spokesman <font color=red>Shen Guofang</font> told <font color=blue>Reuters</font>:
 
 <font color=red>PER</font> person <font color=blue>ORG</font> organization <font color=gray>O</font> outside (not an entity)
 

@@ -23,15 +23,12 @@
       processEscapes: true,
 
       packages: {
-        '[+]': ['enclose', 'boldsymbol', 'cancel']
+        '[+]': ['enclose', 'cancel', 'ams', 'mathtools']
       },
 
       macros: {
         // 兼容 LaTeX ulem 宏包的 \sout
         sout: ['\\enclose{horizontalstrike}{#1}', 1],
-
-        // 兼容 \bold，使用数学符号加粗
-        bold: ['\\boldsymbol{#1}', 1],
 
         // 近似实现 \overgroup
         overgroup: ['\\overparen{#1}', 1]
