@@ -16,7 +16,6 @@ The course is delivered at MIPT, HSE (Moscow), ITMO (Saint Petersburg), and IITU
   - [NLP tasks as Conditional LMs](#nlp-tasks-as-conditional-lms)
 - [2 N-gram Language Models](#2-n-gram-language-models)
   - [n-gram Language Models](#n-gram-language-models)
-  - [n-gram Language Models](#n-gram-language-models-1)
   - [Bigram LM: Parameters](#bigram-lm-parameters)
   - [Bigram LM: Probabilities](#bigram-lm-probabilities)
   - [n-gram Language Models: Example](#n-gram-language-models-example)
@@ -51,7 +50,6 @@ The course is delivered at MIPT, HSE (Moscow), ITMO (Saint Petersburg), and IITU
     - [How to fix vanishing gradient problem?](#how-to-fix-vanishing-gradient-problem)
   - [Long Short Term Memory (LSTM)](#long-short-term-memory-lstm)
     - [Long Short-Term Memory (LSTM)](#long-short-term-memory-lstm-1)
-    - [Long Short-Term Memory (LSTM)](#long-short-term-memory-lstm-2)
     - [How does LSTM solve vanishing gradients?](#how-does-lstm-solve-vanishing-gradients)
     - [LSTMs: real-world success](#lstms-real-world-success)
   - [Gated Recurrent Units (GRUs)](#gated-recurrent-units-grus)
@@ -59,7 +57,6 @@ The course is delivered at MIPT, HSE (Moscow), ITMO (Saint Petersburg), and IITU
   - [Exploding gradient](#exploding-gradient)
     - [Why is exploding gradient a problem?](#why-is-exploding-gradient-a-problem)
     - [Gradient clipping: solution for exploding gradient](#gradient-clipping-solution-for-exploding-gradient)
-    - [Gradient clipping: solution for exploding gradient](#gradient-clipping-solution-for-exploding-gradient-1)
   - [Vanishing and exploding gradient for other neural networks](#vanishing-and-exploding-gradient-for-other-neural-networks)
     - [Is vanishing/exploding gradient just a RNN problem?](#is-vanishingexploding-gradient-just-a-rnn-problem)
   - [Bi-directional RNNs and multi-layer RNNs](#bi-directional-rnns-and-multi-layer-rnns)
@@ -72,7 +69,6 @@ The course is delivered at MIPT, HSE (Moscow), ITMO (Saint Petersburg), and IITU
     - [Multi-layer RNNs in practice](#multi-layer-rnns-in-practice)
 - [4 Sequence Tagging](#4-sequence-tagging)
   - [Named Entity Recognition (NER)](#named-entity-recognition-ner)
-  - [Named Entity Recognition (NER)](#named-entity-recognition-ner-1)
   - [Three approaches to NER](#three-approaches-to-ner)
   - [Hand-written Patterns for Information Extraction](#hand-written-patterns-for-information-extraction)
   - [The Named Entity Recognition Task](#the-named-entity-recognition-task)
@@ -225,8 +221,6 @@ $$
 - Idea: Collect statistics about how frequent different n-grams are, and use these to predict next word.
 
 ---
-
-### n-gram Language Models
 
 - First we make a Markov assumption: $\mathbf { X } ^ { ( t + 1 ) }$ depends only on the preceding $n - 1$ words.
 
@@ -1060,8 +1054,6 @@ You can think of the LSTM equations visually like this:
 
 ---
 
-#### Long Short-Term Memory (LSTM)
-
 You can think of the LSTM equations visually like this:
 
 ![](images/page_75_image_5.jpg)
@@ -1194,8 +1186,6 @@ $$
 > <strong><u>Source:</u></strong> On the difficulty of training recurrent neural networks”, Pascanu et al, 2013. [proceedings.mlr.press/v28/pascanu13.pdf](http://proceedings.mlr.press/v28/pascanu13.pdf)
 
 ---
-
-#### Gradient clipping: solution for exploding gradient
 
 ![](images/page_84_image_4.jpg)
 
@@ -1417,8 +1407,6 @@ The decision by the independent MP <font color=red>Andrew Wilkie</font> to withd
 <font color=red>PER</font> person <font color=blue>ORG</font> organization <font color=orange>DATE</font> date
 
 ---
-
-### Named Entity Recognition (NER)
 
 - The uses:  
   - Named entities can be indexed, linked off, etc.  
