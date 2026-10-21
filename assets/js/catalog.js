@@ -119,7 +119,7 @@
       if (!pathParts.length) return;
 
       var filename = pathParts.pop();
-      var stem = filename.replace(/\.md$/i, "");
+      var stem = filename.replace(/\.(?:md|html)$/i, "");
       var directories = pathParts;
       var logicalParts = directories.slice();
       var lastDirectory = directories[directories.length - 1];

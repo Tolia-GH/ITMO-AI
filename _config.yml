@@ -1,6 +1,9 @@
 title: ITMO AI 学习资料
 description: 圣彼得堡 ITMO 大学人工智能硕士项目学习资料
 markdown: kramdown
+exclude:
+  - .crossnote
+  - .vscode
 kramdown:
     math_engine: mathjax
 defaults:

@@ -30,10 +30,20 @@
   {% assign first_page = true %}
   {% for item in sorted_pages %}
     {% assign item_parts = item.path | split: '/' %}
-    {% assign item_extension = item.path | downcase | slice: -3, 3 %}
-    {% if item_parts[0] == subject_slug and item.path != subject_readme_path and item_extension == '.md' %}
+    {% assign item_extension = item.path | downcase | slice: -5, 5 %}
+    {% assign include_page = false %}
+    {% if item_extension == '.html' and item.mpe_content %}
+      {% assign include_page = true %}
+    {% else %}
+      {% assign item_extension = item.path | downcase | slice: -3, 3 %}
+      {% if item_extension == '.md' %}
+        {% assign include_page = true %}
+      {% endif %}
+    {% endif %}
+
+    {% if item_parts[0] == subject_slug and item.path != subject_readme_path and include_page %}
       {% assign relative_path = item.path | remove_first: subject_prefix %}
-      {% assign display_title = item.title | default: item.name | remove_last: '.md' | strip_html %}
+      {% assign display_title = item.title | default: item.name | remove_last: '.md' | remove_last: '.html' | strip_html %}
       {% capture content_url %}{% include site-url.html path=item.url %}{% endcapture %}
       {% unless first_page %},{% endunless %}
       {
