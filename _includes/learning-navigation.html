@@ -1,62 +1,28 @@
-{% include learning-styles.html %}
-
-{% assign heading_text = page.title | default: page.name | replace: '.md', '' %}
-{% assign dir_parts = page.dir | split: '/' %}
-{% assign subject_slug = '' %}
-{% assign subject_root = '' %}
-
-{% if page.layout == 'subject' and page.dir != '/' and page.dir != '' %}
-  {% assign subject_root = page.dir %}
-  {% assign subject_slug = page.dir | remove_first: '/' | remove: '/' %}
-{% elsif dir_parts.size > 1 and dir_parts[1] != '' %}
-  {% assign subject_slug = dir_parts[1] %}
-  {% assign subject_root = '/' | append: subject_slug | append: '/' %}
-{% endif %}
-
-{% assign subject_readme = subject_root | append: 'README.html' %}
+{% assign path_parts = page.path | split: '/' %}
+{% assign subject_slug = path_parts[0] %}
+{% assign subject_readme = '/' | append: subject_slug | append: '/README.html' %}
 {% assign subject_readme_path = subject_slug | append: '/README.md' %}
-{% assign subject_has_readme = false %}
+{% assign subject_exists = false %}
 
-{% if subject_slug != '' %}
-  {% for item in site.pages %}
-    {% if item.path == subject_readme_path %}
-      {% assign subject_has_readme = true %}
-      {% break %}
-    {% endif %}
-  {% endfor %}
-{% endif %}
+{% for item in site.pages %}
+  {% if item.path == subject_readme_path %}
+    {% assign subject_exists = true %}
+    {% break %}
+  {% endif %}
+{% endfor %}
 
-<div class="learning-nav">
-  <div class="learning-nav__trail">
-    <a href="{{ '/' | relative_url }}">首页</a>
-
-    {% if subject_slug != '' %}
-      <span>/</span>
-
-      {% if page.layout == 'subject' %}
-        <span class="learning-nav__current">{{ heading_text }}</span>
-      {% else %}
-        {% if subject_has_readme %}
-          <a href="{{ subject_readme | relative_url }}">学科目录</a>
-        {% else %}
-          <span>{{ subject_slug }}</span>
-        {% endif %}
-        <span>/</span>
-        <span class="learning-nav__current">{{ heading_text }}</span>
-      {% endif %}
-    {% else %}
-      <span>/</span>
-      <span class="learning-nav__current">{{ heading_text }}</span>
-    {% endif %}
-  </div>
-
-  <p class="learning-nav__hint">
-    {% if page.layout == 'home' %}
-      从这里进入各学科目录，再跳转到具体内容页面。
-    {% elsif page.layout == 'subject' %}
-      先浏览学科目录，再进入下方自动生成的内容入口。
-    {% else %}
-      可随时返回学科目录或首页，也可以从下方继续跳转到同学科其它页面。
-    {% endif %}
-  </p>
-</div>
+<nav class="breadcrumbs" aria-label="面包屑导航">
+  <a href="{% include site-url.html path='/' %}">首页</a>
+  {% if page.layout == 'subject' %}
+    <span aria-hidden="true">/</span>
+    <span aria-current="page">{{ page.title | default: subject_slug | strip_html }}</span>
+  {% elsif subject_exists %}
+    <span aria-hidden="true">/</span>
+    <a href="{% include site-url.html path=subject_readme %}">学科目录</a>
+    <span aria-hidden="true">/</span>
+    <span aria-current="page">{{ page.title | default: page.name | replace: '.md', '' | strip_html }}</span>
+  {% else %}
+    <span aria-hidden="true">/</span>
+    <span aria-current="page">{{ page.title | default: page.name | replace: '.md', '' | strip_html }}</span>
+  {% endif %}
+</nav>

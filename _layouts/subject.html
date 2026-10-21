@@ -1,14 +1,13 @@
 ---
-layout: default
+layout: base
 ---
-{% include learning-navigation.html %}
 
-<div class="learning-shell">
+<div class="subject-copy">
   {{ content }}
+</div>
 
-  {% include subject-catalog.html title='本学科内容入口' %}
+{% include subject-catalog.html %}
 
-  <div class="learning-footer-links">
-    <a href="{{ '/' | relative_url }}">返回首页</a>
-  </div>
+<div class="back-links">
+  <a class="back-link back-link--primary" href="{% include site-url.html path='/' %}">← 返回主页</a>
 </div>
