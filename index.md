@@ -1,3 +1,8 @@
+---
+layout: home
+title: 'ITMO AI 学习资料'
+---
+
 ## 项目介绍 About this Wiki
 Study materials for Artificial Intelligent Master Program at ITMO University in St. Petersburg  
 圣彼得堡 ITMO 大学人工智能硕士项目的学习资料整理
@@ -8,17 +13,17 @@ We are international students sponsored by the China Scholarship Council (CSC) t
 
 ## 阅读索引 Index
 
-[MarkDown LaTeX Guide](Guide.md)  
-[Test](temp.md)
+[MarkDown LaTeX Guide](./Guide.html)
+[Test](./temp.html)
 
-- [俄语 Russian Language](/RussianLanguage/README.md)
+- [俄语 Russian Language](./1RussianLanguageA2/README.html)
 
 ### 研一 Grade 1
-- [实践项目 Practice Project](/1PracticeProject/README.md)
-- [机器学习 Machine Learning](/1MachineLearning/README.md)
-- [自然语言处理 Natural Language Procesing](/1NaturalLanguageProcessing/README.md)
-- [在远程团队中工作 Work In Remote Team](/1WorkInRemoteTeam/README.md)
-- [A2 俄语 Russian Language A2](/1RussianLanguageA2/README.md)
+- [实践项目 Practice Project](./1PracticeProject/README.html)
+- [机器学习 Machine Learning](./1MachineLearning/README.html)
+- [自然语言处理 Natural Language Procesing](./1NaturalLanguageProcessing/README.html)
+- [在远程团队中工作 Work In Remote Team](./1WorkInRemoteTeam/README.html)
+- [A2 俄语 Russian Language A2](./1RussianLanguageA2/README.html)
 
 ## 版权声明 Copyrights
 

@@ -1,3 +1,8 @@
+---
+layout: content
+title: 'Predictive Maintenance for Industrial / Energy / Electrochemical Systems'
+---
+
 # Predictive Maintenance for Industrial / Energy / Electrochemical Systems
 
 - [Predictive Maintenance for Industrial / Energy / Electrochemical Systems](#predictive-maintenance-for-industrial--energy--electrochemical-systems)

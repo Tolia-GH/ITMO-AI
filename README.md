@@ -1,3 +1,8 @@
+---
+layout: content
+title: 'ITMO Artificial Intelligent'
+---
+
 # ITMO Artificial Intelligent
 
 ## 项目介绍 About this Project

@@ -1,3 +1,7 @@
+---
+layout: content
+---
+
 ## 5. Physics-informed NNs, Generative Physics and Astronomy
 
 Ilya Makarov

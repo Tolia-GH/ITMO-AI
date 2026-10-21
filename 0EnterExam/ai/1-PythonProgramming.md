@@ -1,3 +1,8 @@
+---
+layout: content
+title: '创建生成器对象'
+---
+
 ## 1. Программирование на Python <br> Python 编程
 
 <a id="1-списковые-включения-и-генераторы--列表推导式与生成器-list-comprehension-and-generator"></a>

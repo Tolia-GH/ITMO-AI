@@ -1,3 +1,8 @@
+---
+layout: content
+title: 'Natural Language Processing and LLMs Lecture 04: Language Models; Recurrent Neural Networks; Sequence Tagging<!-- omit in toc -->'
+---
+
 # Natural Language Processing and LLMs Lecture 04: Language Models; Recurrent Neural Networks; Sequence Tagging<!-- omit in toc -->
 
 Valentin Malykh, MWS AI 

@@ -1,0 +1,44 @@
+{% assign dir_parts = page.dir | split: '/' %}
+{% assign subject_root = '' %}
+
+{% if page.layout == 'subject' and page.dir != '/' and page.dir != '' %}
+  {% assign subject_root = page.dir %}
+{% elsif dir_parts.size > 1 and dir_parts[1] != '' %}
+  {% assign subject_root = '/' | append: dir_parts[1] | append: '/' %}
+{% endif %}
+
+{% assign subject_path = subject_root | remove_first: '/' | remove_last: '/' %}
+{% assign item_count = 0 %}
+
+{% if subject_path != '' %}
+  <h2 class="learning-section-title">{{ include.title | default: '本学科页面导航' }}</h2>
+  <div class="learning-card-grid">
+    {% assign sorted_pages = site.pages | sort: 'path' %}
+    {% for item in sorted_pages %}
+      {% assign is_markdown = item.path | downcase | slice: -3, 3 %}
+
+      {% if is_markdown == '.md' and item.url != page.url and item.path contains subject_path %}
+        {% assign subject_readme_path = subject_path | append: '/README.md' %}
+
+        {% unless item.path == subject_readme_path %}
+          {% assign display_title = item.title | default: item.name | replace: '.md', '' %}
+          {% assign short_path = item.path | remove_first: subject_path | remove_first: '/' %}
+
+          <article class="learning-card">
+            <h4>{{ display_title }}</h4>
+            <span class="learning-card__path">{{ short_path }}</span>
+            <a class="learning-card__link" href="{{ item.url | relative_url }}">打开页面</a>
+          </article>
+
+          {% assign item_count = item_count | plus: 1 %}
+        {% endunless %}
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  {% if item_count == 0 %}
+    <div class="learning-empty">
+      当前学科下还没有发现更多已接入布局的 Markdown 页面；后续新增 `.md` 内容页后，它们会自动出现在这里。
+    </div>
+  {% endif %}
+{% endif %}

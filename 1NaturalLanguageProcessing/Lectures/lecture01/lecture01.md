@@ -1,3 +1,8 @@
+---
+layout: content
+title: 'Natural Language Processing & LLMs Lecture 01: Introduction to NLP<!-- omit in toc -->'
+---
+
 # Natural Language Processing & LLMs Lecture 01: Introduction to NLP<!-- omit in toc -->
 
 Valentin Malykh, MWS AI

@@ -1,0 +1,14 @@
+---
+layout: default
+---
+{% include learning-navigation.html %}
+
+<div class="learning-shell">
+  {{ content }}
+
+  {% include subject-catalog.html title='本学科内容入口' %}
+
+  <div class="learning-footer-links">
+    <a href="{{ '/' | relative_url }}">返回首页</a>
+  </div>
+</div>

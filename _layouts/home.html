@@ -1,0 +1,30 @@
+---
+layout: default
+---
+{% include learning-navigation.html %}
+
+<div class="learning-shell">
+  <div class="learning-page-header">
+    <h1>{{ page.title | default: site.title | default: '学习资料主页' }}</h1>
+    <p>{{ page.description | default: '主页保留项目介绍，同时自动汇总所有顶层学科目录入口。' }}</p>
+  </div>
+
+  {{ content }}
+
+  <h2 class="learning-section-title">学科目录</h2>
+  <div class="learning-card-grid">
+    {% assign sorted_pages = site.pages | sort: 'dir' %}
+    {% for item in sorted_pages %}
+      {% assign dir_parts = item.dir | split: '/' %}
+
+      {% if item.name == 'README.md' and dir_parts.size > 2 and dir_parts[1] != '' and dir_parts[2] == '' %}
+        <article class="learning-card">
+          <h3>{{ item.title | default: dir_parts[1] }}</h3>
+          <p>进入该学科目录页，继续跳转到对应资料与内容页面。</p>
+          <span class="learning-card__path">{{ item.path }}</span>
+          <a class="learning-card__link" href="{{ item.url | relative_url }}">查看目录</a>
+        </article>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>

@@ -1,0 +1,35 @@
+---
+layout: default
+---
+{% include learning-navigation.html %}
+
+{% assign dir_parts = page.dir | split: '/' %}
+{% assign subject_slug = '' %}
+{% if dir_parts.size > 1 and dir_parts[1] != '' %}
+  {% assign subject_slug = dir_parts[1] %}
+{% endif %}
+{% assign subject_readme = '/' | append: subject_slug | append: '/README.html' %}
+{% assign subject_readme_path = subject_slug | append: '/README.md' %}
+{% assign subject_has_readme = false %}
+
+{% if subject_slug != '' %}
+  {% for item in site.pages %}
+    {% if item.path == subject_readme_path %}
+      {% assign subject_has_readme = true %}
+      {% break %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+<div class="learning-shell">
+  {{ content }}
+
+  {% include subject-catalog.html title='同学科其它页面' %}
+
+  <div class="learning-footer-links">
+    {% if subject_slug != '' and subject_has_readme %}
+      <a href="{{ subject_readme | relative_url }}">返回学科目录</a>
+    {% endif %}
+    <a href="{{ '/' | relative_url }}">返回首页</a>
+  </div>
+</div>

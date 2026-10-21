@@ -1,3 +1,8 @@
+---
+layout: content
+title: 'Natural Language Processing and LLMs Lecture 03: Text Classification and Artificial Neural Networks (CNNs)<!-- omit in toc -->'
+---
+
 # Natural Language Processing and LLMs Lecture 03: Text Classification and Artificial Neural Networks (CNNs)<!-- omit in toc -->
 
 Valentin Malykh, MWS AI
