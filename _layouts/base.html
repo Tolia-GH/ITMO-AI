@@ -8,7 +8,9 @@
       {% if page.title %}{{ page.title | strip_html }} · {% endif %}{{ site.title }}
     </title>
     {% include learning-styles.html %}
-    {% include head-custom.html %}
+    {% unless page.mpe_content %}
+      {% include head-custom.html %}
+    {% endunless %}
   </head>
   <body class="page-{{ page.layout }}">
     <div class="site-shell">
@@ -31,20 +33,22 @@
       {% endunless %}
 
       <main class="site-main">
-        {% if page.layout == 'home' %}
-          <header class="page-hero page-hero--home">
-            <span class="eyebrow">STUDY MATERIALS · ITMO</span>
-            <h1>{{ page.title | default: site.title }}</h1>
-            <p>{{ page.description | default: site.description }}</p>
-          </header>
-        {% else %}
-          <header class="page-heading">
-            <span class="eyebrow">
-              {% if page.layout == 'subject' %}SUBJECT GUIDE{% else %}LEARNING NOTES{% endif %}
-            </span>
-            <h1>{{ page.title | default: page.name | replace: '.md', '' }}</h1>
-            {% if page.description %}<p>{{ page.description }}</p>{% endif %}
-          </header>
+        {% unless page.mpe_content %}
+          {% if page.layout == 'home' %}
+            <header class="page-hero page-hero--home">
+              <span class="eyebrow">STUDY MATERIALS · ITMO</span>
+              <h1>{{ page.title | default: site.title }}</h1>
+              <p>{{ page.description | default: site.description }}</p>
+            </header>
+          {% else %}
+            <header class="page-heading">
+              <span class="eyebrow">
+                {% if page.layout == 'subject' %}SUBJECT GUIDE{% else %}LEARNING NOTES{% endif %}
+              </span>
+              <h1>{{ page.title | default: page.name | replace: '.md', '' }}</h1>
+              {% if page.description %}<p>{{ page.description }}</p>{% endif %}
+            </header>
+          {% endif %}
         {% endif %}
 
         {{ content }}

@@ -1,3 +1,34 @@
 ---
+layout: base
 ---
-{{ content }}
+{% assign source_parts = page.path | split: '/' %}
+{% assign subject_path = source_parts[0] | append: '/README.md' %}
+{% assign subject_page = site.pages | where: 'path', subject_path | first %}
+{% capture return_links %}
+  {% if subject_page %}
+    <a class="back-link back-link--primary" href="{% include site-url.html path=subject_page.url %}">返回学科目录</a>
+  {% endif %}
+  <a class="back-link" href="{% include site-url.html path='/' %}">返回主页</a>
+{% endcapture %}
+
+<nav class="back-links" aria-label="正文顶部导航" style="margin: 0 0 1rem;">
+  {{ return_links }}
+</nav>
+
+<iframe
+  id="mpe-frame"
+  scrolling="no"
+  title="{{ page.title | default: '课程正文' | strip_html | escape }}"
+  srcdoc="{{ content | escape }}"
+  style="display: block; width: 100%; height: 80vh; overflow: hidden; border: 0; background: white;">
+</iframe>
+
+<noscript>
+  <p>启用 JavaScript 后正文会自动展开；当前可在正文区域滚动阅读。</p>
+</noscript>
+
+<nav class="back-links" aria-label="正文底部导航">
+  {{ return_links }}
+</nav>
+
+<script src="{% include site-url.html path='/assets/js/mpe-frame.js' %}" defer></script>

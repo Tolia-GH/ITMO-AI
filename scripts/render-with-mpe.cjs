@@ -1,5 +1,4 @@
 const fs = require("node:fs/promises");
-const fsSync = require("node:fs");
 const path = require("node:path");
 const { Notebook, matter, matterStringify } = require("crossnote");
 const cheerio = require("cheerio");
@@ -20,7 +19,6 @@ const excludedRootDirectories = new Set([
   "venv"
 ]);
 const excludedFiles = new Set(["package.json", "package-lock.json"]);
-const siteTitle = "ITMO AI 学习资料";
 
 function toPosixPath(value) {
   return value.split(path.sep).join("/");
@@ -30,10 +28,6 @@ function isExcluded(relativePath) {
   const parts = relativePath.split(path.sep);
   if (parts.some((part) => excludedEverywhere.has(part))) return true;
   return parts.length === 1 && excludedRootDirectories.has(parts[0]);
-}
-
-function fsSyncExists(filePath) {
-  return fsSync.existsSync(filePath);
 }
 
 function isSubjectIndex(relativePath) {
@@ -139,79 +133,19 @@ function rewriteMarkdownHref(href, pagePath) {
   return htmlPath + suffix;
 }
 
-function addSiteNavigation(html, relativeHtmlPath, pageData) {
+function prepareMpeDocument(html, relativeHtmlPath, pageData) {
   const $ = cheerio.load(html);
-  const parts = relativeHtmlPath.split("/");
-  const subjectSlug = parts.length > 1 ? parts[0] : "";
-  const pageDirectory = path.posix.dirname(relativeHtmlPath);
-  const homeHref = encodeRelativeUrl(
-    path.posix.relative(pageDirectory, "index.html") || "index.html"
-  );
-  const subjectReadmePath = subjectSlug
-    ? path.posix.join(subjectSlug, "README.html")
-    : "";
-  const subjectHref = subjectReadmePath
-    ? encodeRelativeUrl(
-        path.posix.relative(pageDirectory, subjectReadmePath)
-      )
-    : "";
-
-  const navigation = $("<nav>", {
-    class: "mpe-site-navigation",
-    "aria-label": "页面导航"
-  });
-  navigation.append(
-    $("<a>", { href: homeHref }).text("← 返回主页")
-  );
-
-  if (
-    subjectSlug &&
-    fsSyncExists(path.join(repositoryRoot, subjectSlug, "README.md"))
-  ) {
-    navigation.append(
-      $("<a>", { href: subjectHref }).text("返回学科目录")
-    );
-  }
-
-  $("head").append(
-    `<style>
-      .mpe-site-navigation {
-        box-sizing: border-box;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        display: flex;
-        gap: .75rem;
-        align-items: center;
-        padding: .7rem max(1rem, calc((100% - 960px) / 2));
-        border-bottom: 1px solid #dce5e4;
-        background: rgba(255, 255, 255, .96);
-        font: 600 14px/1.4 Inter, "Segoe UI", sans-serif;
-        backdrop-filter: blur(12px);
-      }
-      .mpe-site-navigation a {
-        display: inline-block;
-        padding: .45rem .7rem;
-        border: 1px solid #dce5e4;
-        border-radius: 8px;
-        color: #075e5a;
-        text-decoration: none;
-      }
-      .mpe-site-navigation a:hover {
-        background: #e4f3ef;
-      }
-      @media (max-width: 640px) {
-        .mpe-site-navigation { padding-inline: .75rem; }
-      }
-    </style>`
-  );
-
-  $("body").prepend(navigation);
-  $("title").text(`${pageData.title} · ${siteTitle}`);
+  // The Jekyll page owns navigation; Crossnote HTML is embedded in srcdoc.
+  $("base").remove();
+  $("head").prepend('<base target="_top">');
+  $("title").text(`${pageData.title} · ITMO AI 学习资料`);
 
   $("a[href]").each((_, element) => {
     const href = $(element).attr("href");
-    if (href) $(element).attr("href", rewriteMarkdownHref(href, relativeHtmlPath));
+    if (href) {
+      $(element).attr("href", rewriteMarkdownHref(href, relativeHtmlPath));
+      if (href.startsWith("#")) $(element).attr("target", "_self");
+    }
   });
 
   return $.html();
@@ -253,7 +187,7 @@ async function main() {
       runAllCodeChunks: false
     });
     const exportedHtml = await fs.readFile(exportedPath, "utf8");
-    const finalHtml = addSiteNavigation(
+    const finalHtml = prepareMpeDocument(
       exportedHtml,
       relativeHtmlPath,
       pageData
