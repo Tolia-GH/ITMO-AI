@@ -1,3 +1,8 @@
+---
+layout: content
+title: 'Natural Language Processing & LLMs Lecture 01: Introduction to NLP<!-- omit in toc -->'
+---
+
 # Natural Language Processing & LLMs Lecture 01: Introduction to NLP<!-- omit in toc -->
 
 Valentin Malykh, MWS AI
@@ -675,9 +680,9 @@ Rules:
 
 ![](images/page_61_image_3.jpg)
 
-cat +N +PL → cat ˆs #  
+`cat +N +PL → cat ˆs #`  
 
-cat +N +Sg → cat #
+`cat +N +Sg → cat #`
 
 ---
 
@@ -685,13 +690,13 @@ cat +N +Sg → cat #
 
 ![](images/page_62_image_3.jpg)
 
-fox +N +PL → fox ˆ s #
+`fox +N +PL → fox ˆ s #`
 
-cat +N +PL → cat ˆ s #
+`cat +N +PL → cat ˆ s #`
 
-goose +N +Sg → goose #
+`goose +N +Sg → goose #`
 
-goose +N +PL → geese #
+`goose +N +PL → geese #`
 
 ---
 
@@ -699,27 +704,27 @@ goose +N +PL → geese #
 
 ![](images/page_63_image_3.jpg)
 
-ϵ → e / (s|x|z) ˆ \_ s #
+`ϵ → e / (s|x|z) ˆ \_ s #`
 
-Input: ... (s|x|z) ˆ s# immediate level
+Input: `... (s|x|z) ˆ s#` immediate level
 
-Output: ... (s|x|z)es # surface level
+Output: `... (s|x|z)es #` surface level
 
-To reject (fox ˆs, foxs)
+To reject `(fox ˆs, foxs)`
 
 ---
 
 ![](images/page_64_image_3.jpg)
 
-(fox, fox): q0, q0, q0, q1
+`(fox, fox): q0, q0, q0, q1`
 
-(fox#, fox#): q0, q0, q0, q1, q0
+`(fox#, fox#): q0, q0, q0, q1, q0`
 
-(foxˆz#, foxz#): q0, q0, q0, q1, q2, q1, q0
+`(foxˆz#, foxz#): q0, q0, q0, q1, q2, q1, q0`
 
-(foxˆs#, foxes#): q0, q0, q0, q1, q2, q3, q4, q0
+`(foxˆs#, foxes#): q0, q0, q0, q1, q2, q3, q4, q0`
 
-(foxˆs, foxs): q0, q0, q0, q1, q2, q5
+`(foxˆs, foxs): q0, q0, q0, q1, q2, q5`
 
 ---
 

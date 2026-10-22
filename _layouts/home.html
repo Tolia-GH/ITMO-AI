@@ -1,0 +1,36 @@
+---
+layout: base
+---
+<div class="home-copy">
+  {{ content }}
+</div>
+
+<section class="index-section" aria-labelledby="subject-index-heading">
+  <div class="section-heading">
+    <div>
+      <span class="eyebrow">COURSE CATALOG</span>
+      <h2 id="subject-index-heading">按学期浏览学科</h2>
+    </div>
+    <p data-index-count>正在整理学科目录…</p>
+  </div>
+  <div data-subject-index></div>
+</section>
+
+<script id="subject-index-data" type="application/json">
+[
+  {% assign sorted_pages = site.pages | sort: 'path' %}
+  {% assign first_subject = true %}
+  {% for item in sorted_pages %}
+    {% assign path_parts = item.path | split: '/' %}
+    {% if item.name == 'README.md' and path_parts.size == 2 and path_parts[1] == 'README.md' %}
+      {% capture subject_url %}{% include site-url.html path=item.url %}{% endcapture %}
+      {% unless first_subject %},{% endunless %}
+      {
+        "slug": {{ path_parts[0] | jsonify }},
+        "url": {{ subject_url | jsonify }}
+      }
+      {% assign first_subject = false %}
+    {% endif %}
+  {% endfor %}
+]
+</script>

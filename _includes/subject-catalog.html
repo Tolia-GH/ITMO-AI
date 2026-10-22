@@ -1,0 +1,58 @@
+{% assign path_parts = page.path | split: '/' %}
+{% assign subject_slug = path_parts[0] %}
+{% assign subject_prefix = subject_slug | append: '/' %}
+{% assign subject_readme_path = subject_slug | append: '/README.md' %}
+
+<section class="index-section" aria-labelledby="content-index-heading" data-content-index>
+  <div class="section-heading">
+    <div>
+      <span class="eyebrow">MATERIALS</span>
+      <h2 id="content-index-heading">课程内容目录</h2>
+    </div>
+    <p data-index-count>正在整理内容目录…</p>
+  </div>
+
+  <div class="index-toolbar">
+    <input
+      class="index-search"
+      type="search"
+      data-index-search
+      placeholder="按标题或路径搜索"
+      aria-label="搜索课程内容">
+  </div>
+  <ul class="index-tree" data-index-tree></ul>
+  <p class="index-empty" data-index-empty hidden>该学科目录下暂时没有其它 Markdown 内容页。</p>
+</section>
+
+<script id="content-index-data" type="application/json">
+[
+  {% assign sorted_pages = site.pages | sort: 'path' %}
+  {% assign first_page = true %}
+  {% for item in sorted_pages %}
+    {% assign item_parts = item.path | split: '/' %}
+    {% assign item_extension = item.path | downcase | slice: -5, 5 %}
+    {% assign include_page = false %}
+    {% if item_extension == '.html' and item.mpe_content %}
+      {% assign include_page = true %}
+    {% else %}
+      {% assign item_extension = item.path | downcase | slice: -3, 3 %}
+      {% if item_extension == '.md' %}
+        {% assign include_page = true %}
+      {% endif %}
+    {% endif %}
+
+    {% if item_parts[0] == subject_slug and item.path != subject_readme_path and include_page %}
+      {% assign relative_path = item.path | remove_first: subject_prefix %}
+      {% assign display_title = item.title | default: item.name | remove_last: '.md' | remove_last: '.html' | strip_html %}
+      {% capture content_url %}{% include site-url.html path=item.url %}{% endcapture %}
+      {% unless first_page %},{% endunless %}
+      {
+        "path": {{ relative_path | jsonify }},
+        "title": {{ display_title | jsonify }},
+        "url": {{ content_url | jsonify }}
+      }
+      {% assign first_page = false %}
+    {% endif %}
+  {% endfor %}
+]
+</script>

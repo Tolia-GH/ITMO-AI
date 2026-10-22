@@ -1,0 +1,12 @@
+{
+  "name": "itmo-ai-study-library",
+  "private": true,
+  "description": "Build the study library with Markdown Preview Enhanced's rendering engine.",
+  "scripts": {
+    "build:mpe": "node scripts/render-with-mpe.cjs .mpe-build/site-source"
+  },
+  "dependencies": {
+    "cheerio": "1.0.0",
+    "crossnote": "0.9.42"
+  }
+}

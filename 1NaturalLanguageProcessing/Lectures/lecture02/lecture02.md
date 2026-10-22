@@ -1,3 +1,8 @@
+---
+layout: content
+title: 'Natural Language Processing & LLMs Lecture 02: Word Embeddings <!-- omit in toc -->'
+---
+
 # Natural Language Processing & LLMs Lecture 02: Word Embeddings <!-- omit in toc -->
 
 Valentin Malykh, MWS AI
@@ -504,7 +509,7 @@ $$
 - Negative Log Likelihood Loss:
 
 $$
-J(\theta) = -\frac{1}{T}\log L(\theta) = -\frac{1}{T}\sum_{t = 1}^{T}\sum_{\substack{-m\leq j\leq m\\ j\neq 0}}\log p(w_{t + j}|w_{t};\theta)
+J(\theta) = -\frac{1}{T}\log L(\theta) = -\frac{1}{T}\sum_{t = 1}^{T}\sum_{\substack{-m\leq j\leq m\\ j\neq 0}}\log p(w_{t + j}\vertw_{t};\theta)
 $$
 
   is also called Cross-Entropy Loss.
@@ -545,7 +550,7 @@ $$
 J(\theta) = -\frac{1}{T}\sum_{t = 1}^{T}\sum_{\substack{-m\leq j\leq m\\ j\neq 0}}\log P(w_{t + j}\mid w_{t};\theta)
 $$
 
-- Question: How to calculate $P ( w _ { t + j }   |   w _ { t } ; \theta ) ?$
+- Question: How to calculate $P ( w _ { t + j } \vert w _ { t } ; \theta ) ?$
 
 - Answer: We will use two vectors per word w:
 
@@ -562,7 +567,7 @@ $$
 
 #### Word2Vec Overview with Vectors
 
-- Example windows and process for computing $P ( w _ { t + j }   |   w _ { t } )$
+- Example windows and process for computing $P ( w _ { t + j } \vert w _ { t } )$
 
 - $P (u_{problems}\lvert v_{into} )$ short for $P(problems\lvert into; u_{problems} , v_{into} , \theta)$
 
@@ -625,9 +630,9 @@ Figure source: https://blog.csdn.net/xg123321123/article/details/80781611
 $$
 \begin{split}
 J(\theta) &= -\frac{1}{T}\log L(\theta)\\
-&= -\frac{1}{T}\sum_{t = 1}^{T}\sum_{\substack{-m\leq j\leq m\\ j\neq 0}}\log p(w_{t + j}|w_{t};\theta)\\
-&= -\frac{1}{T}\sum_{o\in \text{context}(c)}\sum_{c\in \text{corpus}}\log p(o|c;u,v)\\
-\frac{\partial}{\partial \theta} J(\theta) &= -\frac{1}{T}\sum_{o\in \text{context}(c)}\sum_{c\in \text{corpus}}\frac{\partial}{\partial\theta}\log p(o|c;u,v) 
+&= -\frac{1}{T}\sum_{t = 1}^{T}\sum_{\substack{-m\leq j\leq m\\ j\neq 0}}\log p(w_{t + j}\vert w_{t};\theta)\\
+&= -\frac{1}{T}\sum_{o\in \text{context}(c)}\sum_{c\in \text{corpus}}\log p(o\vert c;u,v)\\
+\frac{\partial}{\partial \theta} J(\theta) &= -\frac{1}{T}\sum_{o\in \text{context}(c)}\sum_{c\in \text{corpus}}\frac{\partial}{\partial\theta}\log p(o\vert c;u,v) 
 \end{split}
 $$
 
@@ -637,28 +642,28 @@ $$
 
 $$
 \begin{split}
-  \frac {\partial}{\partial v _ {c}} \log p (o | c; u, v) &= \frac {\partial}{\partial v _ {c}} \log \frac {\exp (u _ {o} ^ {T} v _ {c})}{\sum_ {w = 1} ^ {V} \exp (u _ {w} ^ {T} v _ {c})} \\
+  \frac {\partial}{\partial v _ {c}} \log p (o \vert c; u, v) &= \frac {\partial}{\partial v _ {c}} \log \frac {\exp (u _ {o} ^ {T} v _ {c})}{\sum_ {w = 1} ^ {V} \exp (u _ {w} ^ {T} v _ {c})} \\
   &= \frac {\partial}{\partial v _ {c}} (u _ {o} ^ {T} v _ {c}) - \frac {\partial}{\partial v _ {c}} \log \sum_ {w = 1} ^ {V} \exp (u _ {w} ^ {T} v _ {c}) \\
   &= u _ {o} - \frac {1}{\sum_ {w = 1} ^ {V} \exp (u _ {w} ^ {T} v _ {c})} \frac {\partial}{\partial v _ {c}} \sum_ {w = 1} ^ {V} \exp (u _ {w} ^ {T} v _ {c}) \\
   &= u _ {o} - \frac {1}{\sum_ {w = 1} ^ {V} \exp (u _ {w} ^ {T} v _ {c})} \sum_ {w = 1} ^ {V} \frac {\partial}{\partial v _ {c}} \exp (u _ {w} ^ {T} v _ {c}) \\
   &= u _ {o} - \frac {1}{\sum_ {w = 1} ^ {V} \exp (u _ {w} ^ {T} v _ {c})} \sum_ {w = 1} ^ {V} \exp (u _ {w} ^ {T} v _ {c}) u _ {w} \\
   &= u _ {o} - \sum_ {x = 1} ^ {V} \frac {\exp (u _ {x} ^ {T} v _ {c})}{\sum_ {w = 1} ^ {V} \exp (u _ {w} ^ {T} v _ {c})} u _ {x} \\
-  &= u _ {o} - \sum_ {x = 1} ^ {V} p (x | c) u _ {x}
+  &= u _ {o} - \sum_ {x = 1} ^ {V} p (x \vert c) u _ {x}
 \end{split}
 $$
 
 ---
 
 $$
-\frac {\partial}{\partial \theta} J (\theta) = - \frac {1}{T} \sum_ {o \in \text {context} (c)} \sum_ {c \in \text {corpus}} \frac {\partial}{\partial \theta} \log p (o | c; u, v)
+\frac {\partial}{\partial \theta} J (\theta) = - \frac {1}{T} \sum_ {o \in \text {context} (c)} \sum_ {c \in \text {corpus}} \frac {\partial}{\partial \theta} \log p (o \vert c; u, v)
 $$
 
 $$
-\frac {\partial}{\partial v _ {c}} J (\theta) = - \frac {1}{T} \sum_ {o \in \text {context} (c)} \sum_ {c \in \text {corpus}} \left[ u _ {o} - \sum_ {x = 1} ^ {V} p (x | c) u _ {x} \right]
+\frac {\partial}{\partial v _ {c}} J (\theta) = - \frac {1}{T} \sum_ {o \in \text {context} (c)} \sum_ {c \in \text {corpus}} \left[ u _ {o} - \sum_ {x = 1} ^ {V} p (x \vert c) u _ {x} \right]
 $$
 
 $$
-\frac {\partial}{\partial u _ {o}} J (\theta) = - \frac {1}{T} \sum_ {o \in \text {context} (c)} \sum_ {c \in \text {corpus}} \left[ v _ {c} - \sum_ {x = 1} ^ {V} p (o | x) v _ {x} \right]
+\frac {\partial}{\partial u _ {o}} J (\theta) = - \frac {1}{T} \sum_ {o \in \text {context} (c)} \sum_ {c \in \text {corpus}} \left[ v _ {c} - \sum_ {x = 1} ^ {V} p (o \vert x) v _ {x} \right]
 $$
 
 ---
@@ -735,8 +740,8 @@ V = \left[
   \begin{array}{c} 
     v _ {1} \\ 
     \vdots \\ 
-    v _ {| V |} \end{array} 
-\right] \in \mathbb {R} ^ {| V | \times d}
+    v _ {\vert V \vert} \end{array} 
+\right] \in \mathbb {R} ^ {\vert V \vert \times d}
 $$
 
 - If you have millions of word vectors and do distributed computing, it is important to not have to send gigantic updates around!
