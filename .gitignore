@@ -2,3 +2,4 @@ node_modules/
 .mpe-build/
 _site/
 .jekyll-cache/
+.DS_Store
