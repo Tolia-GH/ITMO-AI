@@ -1,9 +1,9 @@
 ---
 layout: content
-title: 'Тема проекта: «Золотая осень в городских парках Петербурга»'
+title: 'Тема проекта: «Золотая осень в городских парках»'
 ---
 
-# Тема проекта: «Золотая осень в городских парках Петербурга»
+# Тема проекта: «Золотая осень в городских парках»
 
 ## 1. Описание кейса
 
@@ -56,18 +56,16 @@ title: 'Тема проекта: «Золотая осень в городски
 
 **Визуальные референсы**
 
-<details>
-<summary>Показать</summary>
-
-![](./photos/Homework2/idea1-1.jpg)
-
-![](./photos/Homework2/idea1-2.jpg)
-
-![](./photos/Homework2/idea1-3.jpg)
-
-![](./photos/Homework2/idea1-4.jpg)
-
-</details>
+<table>
+    <tr>
+        <td><img src="./photos/Homework2/idea1-1.jpg" alt="idea1-1" width="300"></td>
+        <td><img src="./photos/Homework2/idea1-2.jpg" alt="idea1-2" width="300"></td>
+    </tr>
+    <tr>
+        <td><img src="./photos/Homework2/idea1-3.jpg" alt="idea1-3" width="300"></td>
+        <td><img src="./photos/Homework2/idea1-4.jpg" alt="idea1-4" width="300"></td>
+    </tr>
+</table>
 
 **Ожидаемый результат**
 
@@ -97,18 +95,16 @@ title: 'Тема проекта: «Золотая осень в городски
 
 **Визуальные референсы**
 
-<details>
-<summary>Показать</summary>
-
-![](./photos/Homework2/idea2-1.jpg)
-
-![](./photos/Homework2/idea2-2.jpg)
-
-![](./photos/Homework2/idea2-3.jpg)
-
-![](./photos/Homework2/idea2-4.jpg)
-
-</details>
+<table>
+    <tr>
+        <td><img src="./photos/Homework2/idea2-1.jpg" alt="idea2-1" width="300"></td>
+        <td><img src="./photos/Homework2/idea2-2.jpg" alt="idea2-2" width="300"></td>
+    </tr>
+    <tr>
+        <td><img src="./photos/Homework2/idea2-3.jpg" alt="idea2-3" width="300"></td>
+        <td><img src="./photos/Homework2/idea2-4.jpg" alt="idea2-4" width="300"></td>
+    </tr>
+</table>
 
 **Ожидаемый результат**
 
@@ -138,18 +134,16 @@ title: 'Тема проекта: «Золотая осень в городски
 
 **Визуальные референсы**
 
-<details>
-<summary>Показать</summary>
-
-![](./photos/Homework2/idea3-1.jpg)
-
-![](./photos/Homework2/idea3-2.jpg)
-
-![](./photos/Homework2/idea3-3.jpg)
-
-![](./photos/Homework2/idea3-4.jpg)
-
-</details>
+<table>
+    <tr>
+        <td><img src="./photos/Homework2/idea3-1.jpg" alt="idea3-1" width="300"></td>
+        <td><img src="./photos/Homework2/idea3-2.jpg" alt="idea3-2" width="300"></td>
+    </tr>
+    <tr>
+        <td><img src="./photos/Homework2/idea3-3.jpg" alt="idea3-3" width="300"></td>
+        <td><img src="./photos/Homework2/idea3-4.jpg" alt="idea3-4" width="300"></td>
+    </tr>
+</table>
 
 **Ожидаемый результат**
 
@@ -181,18 +175,16 @@ title: 'Тема проекта: «Золотая осень в городски
 
 **Визуальные референсы**
 
-<details>
-<summary>Показать</summary>
-
-![](./photos/Homework2/idea4-1.jpg)
-
-![](./photos/Homework2/idea4-2.jpg)
-
-![](./photos/Homework2/idea4-3.jpg)
-
-![](./photos/Homework2/idea4-4.jpg)
-
-</details>
+<table>
+    <tr>
+        <td><img src="./photos/Homework2/idea4-1.jpg" alt="idea4-1" width="300"></td>
+        <td><img src="./photos/Homework2/idea4-2.jpg" alt="idea4-2" width="300"></td>
+    </tr>
+    <tr>
+        <td><img src="./photos/Homework2/idea4-3.jpg" alt="idea4-3" width="300"></td>
+        <td><img src="./photos/Homework2/idea4-4.jpg" alt="idea4-4" width="300"></td>
+    </tr>
+</table>
 
 **Ожидаемый результат**
 
@@ -222,18 +214,16 @@ title: 'Тема проекта: «Золотая осень в городски
 
 **Визуальные референсы**
 
-<details>
-<summary>Показать</summary>
-
-![](./photos/Homework2/idea5-1.jpg)
-
-![](./photos/Homework2/idea5-2.jpg)
-
-![](./photos/Homework2/idea5-3.jpg)
-
-![](./photos/Homework2/idea5-4.jpg)
-
-</details>
+<table>
+    <tr>
+        <td><img src="./photos/Homework2/idea5-1.jpg" alt="idea5-1" width="300"></td>
+        <td><img src="./photos/Homework2/idea5-2.jpg" alt="idea5-2" width="300"></td>
+    </tr>
+    <tr>
+        <td><img src="./photos/Homework2/idea5-3.jpg" alt="idea5-3" width="300"></td>
+        <td><img src="./photos/Homework2/idea5-4.jpg" alt="idea5-4" width="300"></td>
+    </tr>
+</table>
 
 **Ожидаемый результат**
 
