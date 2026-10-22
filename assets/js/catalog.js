@@ -154,45 +154,44 @@
       .forEach(function (node) {
         var item = document.createElement("li");
         var children = Array.from(node.children.values());
+        var hasGroup = children.length > 0 || node.pages.length > 1;
         var label =
           node.pages.length === 1
             ? node.pages[0].title
             : humanize(node.name);
 
-        if (children.length || node.pages.length > 1) {
-          var details = document.createElement("details");
-          var summary = document.createElement("summary");
-          summary.textContent = label;
-          details.appendChild(summary);
+        if (hasGroup) {
+          item.className = "index-tree__group";
+          appendText(item, "span", "index-tree__folder", label);
 
-          node.pages.forEach(function (page) {
-            var pageLink = document.createElement("a");
-            pageLink.href = page.url;
-            pageLink.textContent =
-              node.pages.length === 1 ? "打开此页面" : page.title;
-            pageLink.className = "index-tree__page-link";
-            details.appendChild(pageLink);
-          });
+          if (node.pages.length) {
+            var pagesList = document.createElement("ul");
+            pagesList.className = "index-tree__pages";
+            node.pages.forEach(function (page) {
+              var pageItem = document.createElement("li");
+              var pageLink = document.createElement("a");
+              pageLink.href = page.url;
+              pageLink.textContent =
+                node.pages.length === 1 ? "打开此页面" : page.title;
+              pageLink.className = "index-tree__page-link";
+              pageItem.appendChild(pageLink);
+              pagesList.appendChild(pageItem);
+            });
+            item.appendChild(pagesList);
+          }
 
           if (children.length) {
             var nestedList = document.createElement("ul");
+            nestedList.className = "index-tree__children";
             renderTreeNodes(nestedList, node.children);
-            details.appendChild(nestedList);
+            item.appendChild(nestedList);
           }
-          item.appendChild(details);
         } else if (node.pages.length === 1) {
           var link = document.createElement("a");
           link.href = node.pages[0].url;
           link.textContent = label;
           item.appendChild(link);
         }
-
-        node.pages.forEach(function (page) {
-          var pathLabel = document.createElement("span");
-          pathLabel.className = "index-tree__path";
-          pathLabel.textContent = page.path;
-          item.appendChild(pathLabel);
-        });
 
         parent.appendChild(item);
       });

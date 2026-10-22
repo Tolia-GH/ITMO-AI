@@ -1,6 +1,6 @@
 ---
 layout: content
-title: '创建生成器对象'
+title: 'Программирование на Python <br> Python 编程'
 ---
 
 ## 1. Программирование на Python <br> Python 编程
