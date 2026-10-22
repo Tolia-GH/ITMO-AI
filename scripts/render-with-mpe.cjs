@@ -1,4 +1,5 @@
 const fs = require("node:fs/promises");
+const fsSync = require("node:fs");
 const path = require("node:path");
 const { Notebook, matter, matterStringify } = require("crossnote");
 const cheerio = require("cheerio");
@@ -29,6 +30,10 @@ function isExcluded(relativePath) {
   const parts = relativePath.split(path.sep);
   if (parts.some((part) => excludedEverywhere.has(part))) return true;
   return parts.length === 1 && excludedRootDirectories.has(parts[0]);
+}
+
+function fsSyncExists(filePath) {
+  return fsSync.existsSync(filePath);
 }
 
 function isSubjectIndex(relativePath) {
@@ -217,10 +222,7 @@ async function main() {
   await fs.mkdir(path.dirname(outputRoot), { recursive: true });
   await copyProject(repositoryRoot, outputRoot);
 
-  const notebook = await Notebook.init({
-    notebookPath: outputRoot,
-    config: { enableScriptExecution: false }
-  });
+  const notebook = await Notebook.init({ notebookPath: outputRoot });
   const markdownFiles = await listMarkdownFiles(repositoryRoot);
   const renderFiles = markdownFiles.filter((file) =>
     shouldRenderWithMpe(toPosixPath(path.relative(repositoryRoot, file)))

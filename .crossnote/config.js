@@ -4,6 +4,5 @@
   mathRenderingOption: "KaTeX",
   previewTheme: "github-light.css",
   codeBlockTheme: "github.css",
-  mermaidTheme: "default",
-  enableScriptExecution: false
+  mermaidTheme: "default"
 });
