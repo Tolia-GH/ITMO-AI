@@ -70,23 +70,37 @@ async function listMarkdownFiles(directory, result = []) {
 }
 
 async function copyProject(source, destination) {
-  await fs.cp(source, destination, {
-    recursive: true,
-    filter(sourcePath) {
-      const relativePath = path.relative(repositoryRoot, sourcePath);
-      if (!relativePath) return true;
+  await fs.mkdir(destination, { recursive: true });
+  const entries = await fs.readdir(source, { withFileTypes: true });
 
-      const parts = relativePath.split(path.sep);
-      if (isExcluded(relativePath)) return false;
-      if (
-        parts.length === 1 &&
-        excludedFiles.has(parts[parts.length - 1])
-      ) {
-        return false;
-      }
-      return true;
+  for (const entry of entries) {
+    const sourcePath = path.join(source, entry.name);
+    const relativePath = path.relative(repositoryRoot, sourcePath);
+    if (
+      isExcluded(relativePath) ||
+      (entry.isFile() && excludedFiles.has(entry.name))
+    ) {
+      continue;
     }
-  });
+
+    await fs.cp(sourcePath, path.join(destination, entry.name), {
+      recursive: true,
+      filter(candidatePath) {
+        const candidateRelativePath = path.relative(
+          repositoryRoot,
+          candidatePath
+        );
+        if (!candidateRelativePath) return true;
+        if (isExcluded(candidateRelativePath)) return false;
+
+        const parts = candidateRelativePath.split(path.sep);
+        return !(
+          parts.length === 1 &&
+          excludedFiles.has(parts[0])
+        );
+      }
+    });
+  }
 }
 
 function encodeRelativeUrl(value) {
